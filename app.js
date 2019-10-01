@@ -1,13 +1,18 @@
 const express = require("express");
-const path = require("path");
+const routes = require('./routes');
+const bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser')
 
 const app = express();
 
-app.use(express.static("./public"));
+const controller = require('./controller');
+controller.connect(app);
 
-app.get('/news', (req, res) =>
-    res.send('<p>some text</p>')
-)
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(cookieParser("SECRET_KEY"))
+app.use('/', routes(app))
+app.use(express.static("./public"));
 
 app.listen(3000);
 
