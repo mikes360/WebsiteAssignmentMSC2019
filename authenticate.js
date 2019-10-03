@@ -23,7 +23,21 @@ function login(req, res) {
     return res.status(401).json({ message: "Auth Failed" })
 }
 
-function authenticate(req, res, next) {  
+function isAuthenticated(req) {  
+    let authenticated = false
+    let token = req.cookies.access_token
+    if( token) { 
+        jwt.verify(token, 'SECRET_KEY', (err, decoded) =>{
+            if(!err){
+                authenticated = true
+
+            }
+        })
+    }
+    return authenticated;
+}
+
+/*function isAuthenticated(req, res, next) {  
     let token = req.cookies.access_token
     if( !token){ 
         res.redirect("../login.html")
@@ -38,6 +52,6 @@ function authenticate(req, res, next) {
             }
         });
     }
-} 
+} */
 
-module.exports = { login, authenticate }; 
+module.exports = { login, isAuthenticated }; 

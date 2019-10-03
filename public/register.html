@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quidditch</title>
+    <script src="js/client.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
         <h1>Register</h1>
+        <form action="/api/user" method="POST">
+            First name<br>
+            <input type="text" name="firstname">
+            <br>Last name<br>
+            <input type="text" name="lastname">
+            <br>User name<br>
+            <input type="text" name="username">
+            <br>Password<br>
+            <input type="text" name="password">
+            <br>Email<br>
+            <input type="text" name="email">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 </body>
 </html>

@@ -22,5 +22,10 @@ async function getUser(app, name)
     return app.set(DB_ALIAS).collection('filmsCollection').find({}).toArray()
 }  
 
+async function addUser(app, user)
+{
+    return "{ }"
+}
+
  
-module.exports = { connect, getUsers, getUser }; 
+module.exports = { connect, getUsers, getUser, addUser }; 
