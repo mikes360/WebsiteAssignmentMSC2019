@@ -30,5 +30,8 @@ I have exposed the getUsers API as a REST end point at /api/users so you can tes
 
 //---------------------------------------------------------------------------
 
+04-Oct-2019 - Mike Knight
 
+Changes to authenticate module - removed redirect login from module so it could be used for the rest api without a ridirect happening. The router now handles wat to do with unauthenticated requestes as theyt should be different between web pages and rest apis
 
+Added stub functions for rgistering new users into the controller router and added client side form to invoke the rest api.
