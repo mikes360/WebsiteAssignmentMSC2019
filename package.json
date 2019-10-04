@@ -1,0 +1,30 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.2",
+    "mongo": "^0.1.0",
+    "passport-jwt": "^4.0.0",
+    "passport": "^0.4.0",
+    "passport-jwt-cookiecombo": "^1.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikes360/WebsiteAssignmentMSC2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikes360/WebsiteAssignmentMSC2019/issues"
+  },
+  "homepage": "https://github.com/mikes360/WebsiteAssignmentMSC2019#readme"
+}
