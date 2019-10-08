@@ -33,6 +33,19 @@ module.exports = (app) => {
     router.post('/api/user', (req, res) => {
         res.status(200).send('<p>Added</p>')
     })
+
+    router.get('/team', async (req, res) => {
+        let team = await controller.getTeams(app)
+        return res.json(team)
+    })
+
+    router.get('/game', async (req, res) => {
+        let game = await controller.getGame(app)
+        return res.json(game)
+    })
+
+    
+
     
     return router;
 }
