@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser')
 
 const app = express();
+const routes = require("./routes/routes");
 
 const controller = require('./controller');
 controller.connect(app);
