@@ -32,12 +32,16 @@ I have exposed the getUsers API as a REST end point at /api/users so you can tes
 
 04-Oct-2019 - Mike Knight
 
-Changes to authenticate module - removed redirect login from module so it could be used for the rest api without a ridirect happening. The router now handles wat to do with unauthenticated requestes as theyt should be different between web pages and rest apis
+Changes to authenticate module - removed redirect login from module so it could be used for the rest api without a ridirect happening. The router now handles wat to do with unauthenticated requestes as they should be different between web pages and rest apis
 
-Added stub functions for rgistering new users into the controller router and added client side form to invoke the rest api.
+Added stub functions for registering new users into the controller router and added client side form to invoke the rest api.
 
 //---------------------------------------------------------------------------
 
 08-Oct-2019 - Sully
 
-TODO
+Navigation bar has been added with additional pages, which are now all interlinked. Partials have been added which will replace the html files in due course. The work is merged with the previous commit, integrating all the work together.
+
+Teams, Games and Matches added to the database. You can now pull the data from the database in the form of a json file. Data of the collections have been added in the file structure as json data. 
+
+Need to create default data for the database using the 2 json files, follow the instructions that was covered in the seminar for this specific topic.
