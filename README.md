@@ -54,5 +54,5 @@ Database updated with placeholders for the teams that is indexed inside the arra
 
 09-Oct-2019 Mike Knight
 
-Code to create full model by replacing team id in the matches array with the team objects to the names and image paths can be used in rendering the view of the current game to bet on.
+Code to create full model by replacing team id in the matches array with the team objects. This is so the names and image paths can be used in rendering the view of the current game to bet on.
 
