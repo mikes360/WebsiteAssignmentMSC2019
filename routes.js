@@ -44,8 +44,21 @@ module.exports = (app) => {
         return res.json(game)
     })
 
-    
+    // router.get('/matches', async (req, res) =>{
+    //     let getMatch = await controller.getTeams(app)
+    //     return res.send(teamName, teamID)
+    //     return res.render("matches", {
+    //         title: "Game week one"
+    //     })
+    // })
+    router.get('/matches', async (req, res) => {
+        let meme = await controller.getGame(app)
+        return res.render("matches", {
+            title: "game week one",
+            meme: meme
+        })
+    })
 
-    
     return router;
 }
+        

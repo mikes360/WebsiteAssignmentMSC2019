@@ -45,3 +45,10 @@ Navigation bar has been added with additional pages, which are now all interlink
 Teams, Games and Matches added to the database. You can now pull the data from the database in the form of a json file. Data of the collections have been added in the file structure as json data. 
 
 Need to create default data for the database using the 2 json files, follow the instructions that was covered in the seminar for this specific topic.
+
+//---------------------------------------------------------------------------
+
+09-Oct-2019 - Sully
+
+Database updated with placeholders for the teams that is indexed inside the arrays of the Game collection. Partial has been created for matches which now show placeholders for fixtures to be present. Mike is going to work on how to fill these placeholders in with the teams and their information.
+
