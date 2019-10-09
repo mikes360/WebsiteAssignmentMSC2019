@@ -52,3 +52,7 @@ Need to create default data for the database using the 2 json files, follow the 
 
 Database updated with placeholders for the teams that is indexed inside the arrays of the Game collection. Partial has been created for matches which now show placeholders for fixtures to be present. Mike is going to work on how to fill these placeholders in with the teams and their information.
 
+09-Oct-2019 Mike Knight
+
+Code to create full model by replacing team id in the matches array with the team objects to the names and image paths can be used in rendering the view of the current game to bet on.
+
