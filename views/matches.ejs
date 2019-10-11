@@ -12,12 +12,44 @@
     <ul>
         <% meme.forEach((game) => { %>
             <% game.matches.forEach((match) => { %>
-                <li>
-                    <%= match[0].teamName %> VS <%= match[1].teamName %> 
-                </li>
+                <div class="row">
+                    <!-- First row -->
+                    <!-- Left match -->
+                    <div class="left-teams">
+                      <div class="team">
+                        <img  src="../images/<%= match[0].image %>" alt="" style="width:80%" class="logo">
+                        <div class="team-name"><%= match[0].teamName %></div>
+                      </div>
+                
+                      <div class="spinBox">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up"></button>
+                        <input type="number" min="0" step="10" value="0">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down"></button>
+                      </div>
+                
+                      <div class="versus">
+                        V
+                      </div>
+                
+                      <div class="spinBox">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up"></button>
+                          <input type="number" min="0" step="10" value="0">
+                          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down"></button>
+                      </div>    
+                  
+                      <div class="team">
+                        <img src="../images/<%= match[1].image %>" alt="" style="width:80%" class="logo">
+                        <div class="team-name"><%= match[1].teamName %></div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
             <% }) %>
         <% }) %>
     </ul>
+    <div>
+        <button>Place Bets</button>
+    </div>
 </body>
 </html>
 <%- include('footer'); %>
