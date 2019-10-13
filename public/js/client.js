@@ -8,6 +8,6 @@ function login()
     var myCall = fetch(url).then(function(response) {     
         return response.json();      
     }) .then(function(myJson)  {         
-        window.location.href = "index.html"
+        window.location.href = ""
     }); 
 }
