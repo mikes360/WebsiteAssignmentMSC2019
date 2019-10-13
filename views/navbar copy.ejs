@@ -5,11 +5,15 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
-        <ul class="navbar-nav mr-auto">  
+    <div class="navbar-collapse collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+
+            <!--<%if (loggedIn) { %> 
             <li class="nav-item active">
                 <a class="nav-link" href="/matches">Play<span class="sr-only">(current)</span></a>
-            </li>            
+            </li>
+            <% } %>-->
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Leaderboard</a>
             </li>
@@ -19,7 +23,7 @@
         </ul>
     </div>
 
-    <%if (loggedIn) { %> 
+    <!--<%if (loggedIn) { %> 
         <div class="navbar-collapse collapse order-1 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -27,7 +31,8 @@
                 </li>
             </ul>
         </div>
-    <% } else{ %>
+    <% } %>
+    <%else { %>
     <div class="navbar-collapse collapse order-1 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <div class="divider"></div>
@@ -40,7 +45,7 @@
             </li>
         </ul>
     </div>
-    <% } %>
+    <% } %>-->
 </nav>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -14,14 +14,20 @@ module.exports = (app) => {
         res.status(200).send('<p>Added</p>')
     })
 
-    router.get("/", (req, res) => {
-        return res.render("main", { })
+    router.get("/", async (req, res) => {
+        let meme = await controller.getGame(app)
+
+        return res.render("main", { 
+            loggedIn: authenticate.isAuthenticated(req),
+            meme: meme
+        })
     })
 
     router.get('/matches', async (req, res) => {
         if( authenticate.isAuthenticated(req) ) {
             let meme = await controller.getGame(app)
             return res.render("matches", {
+                loggedIn: true,
                 title: "game week one",
                 meme: meme
             })          

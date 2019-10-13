@@ -1,6 +1,6 @@
 <%- include('head'); %>
 <body>
-    <%- include('navbar') %>
+    <%- include('navbar', { loggedIn: loggedIn }) %>
     <h1><%= title %></h1>
     <ul>
         <% meme.forEach((game) => { %>
