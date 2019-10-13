@@ -65,3 +65,15 @@ Code to create full model by replacing team id in the matches array with the tea
 11-Oct-2019 Mike Knight
 
 Enhanced matches partial view to look more like the template Gemma created. Dropped the matches down to one per row to make it more mobile friendly. Added a buttom to the bottom that will require an click handler for grabbing all the prediction values and submits them to the server.
+
+//---------------------------------------------------------------------------
+
+13-Oct-2019 Mike Knight
+
+Have done a big tidy up of the project. All undeeded HTML files have been removed to reduce chance of confusion as I noticed 2 copies of bettingPage was already in there. We dont want a repeat of the routes issue hey Sully ;-) 
+
+I have done a bit of a tidy up of the nav bar and converted the landing page to an ejs file. Some of the links have also been updated too. For now the landing page shows you this weeks bets. Thought that was a nice idea?
+
+The nav bar can now detect if a user is logged in and shows either login\register or logout.
+
+Only remaining .html pages are login and register which will be converted to ejs shortly.
