@@ -77,3 +77,15 @@ I have done a bit of a tidy up of the nav bar and converted the landing page to 
 The nav bar can now detect if a user is logged in and shows either login\register or logout.
 
 Only remaining .html pages are login and register which will be converted to ejs shortly.
+
+//---------------------------------------------------------------------------
+
+14-Oct-2019 Gemma
+
+Transferred some css formatting to the main.css page, hopefully to fix the spinbox issues. However this formatting has caused the matches to flex weirdly on the page, so we will still need to work on that.
+
+Converted register.html page to ejs and deleted old register.html page, have added a route to router.js so that the register page can now be accessed from main index page
+
+Should also now be able to see the javascript on controller.js and client.js that allows us to save newly registered users to our user database on Mongo
+
+To do: I will also convert the login page to ejs 
