@@ -9,21 +9,18 @@ const path = require("path");
 const controller = require("./controller");
 controller.connect(app);
 
-<<<<<<< Updated upstream
 //setting up view engine
-app.set('views', path.join(__dirname, 'views')); 
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(cookieParser("SECRET_KEY"))
-app.use('/', routes(app))
-=======
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser("SECRET_KEY"));
 app.use("/", routes(app));
->>>>>>> Stashed changes
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser("SECRET_KEY"));
+app.use("/", routes(app));
 app.use(express.static("./public"));
 
 app.listen(3000);

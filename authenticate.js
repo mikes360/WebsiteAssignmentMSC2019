@@ -28,7 +28,7 @@ function login(req, res) {
 }
 
 function isAuthenticated(req) {
-  let authenticated = true;
+  let authenticated = false; //can change temporarily to true to login
   let token = req.cookies.access_token;
   if (token) {
     jwt.verify(token, "SECRET_KEY", (err, decoded) => {

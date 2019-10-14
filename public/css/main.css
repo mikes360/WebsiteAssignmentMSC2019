@@ -1,5 +1,19 @@
+/* For Mobile */
 * {
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  min-width: 320px;
+  max-width: 720px;
 }
 
 .table-rows {
@@ -11,19 +25,15 @@
 
 .match {
   display: flex;
-  flex-basis: 100%;
-  flex: 1;
-  width: 100%;
-  padding: 20px;
-  margin: auto;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 16px;
+  margin-bottom: 8px;
   flex-direction: row;
   width: 100%;
-  margin: auto;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex: 1 1 0%;
 }
 
 /*Includes logo and team name  */
@@ -58,4 +68,125 @@
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   margin: auto;
+}
+
+/* Entire spin box container, containing input box, up arrow & down arrow */
+.spinBox {
+  position: relative;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0.25em;
+  box-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+}
+
+/* Below CSS effectively "hides" the ugly, non-formatable, generic spin buttons that automatically
+appear when you create the input="number" function in html */
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield; /*need this bc Firefox won't behave otherwise*/
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* The box where the score predictions go */
+.spinBox input[type="number"] {
+  display: block;
+  width: 3em;
+  height: 3em;
+  padding: 0 0.25em;
+  border: 0.0625em solid rgb(224, 224, 224);
+  border-radius: 0.25em;
+  color: rgb(64, 64, 64);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* For either +/- or up/down, keep this .spinbox button formatting: */
+.spinBox button {
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+/* ARROWS */
+/* Arrow up button, highlight and press Ctrl + / to docstring the arrow buttons in favour of +/- buttons */
+.spinBox button.up {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin: 10px 10px 10px 15px;
+  vertical-align: middle;
+  background-color: transparent;
+  outline: none;
+}
+
+/* Arrow down button, highlight and press Ctrl + / to docstring the arrow buttons in favour of +/- buttons*/
+.spinBox button.down {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin: 10px 10px 10px 15px;
+  vertical-align: middle;
+  background-color: transparent;
+  outline: none;
+}
+
+/* PLUS/MINUS BUTTONS, docstring up/down arrows to use the below instead */
+/* .spinBox button:before,
+.spinBox button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: 1rem;
+  height: 2px;
+  background-color: #212121;
+  transform: translate(-50%, -50%);
+} */
+
+/* .spinBox button.up:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+} */
+
+/* For Desktop */
+@media only screen and (min-width: 720px) {
+  .container {
+    max-width: 100%;
+    padding: 0 5px;
+    margin: auto;
+  }
+
+  .table-rows {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .match {
+    display: flex;
+    width: 50%;
+    padding: 25px;
+    margin: auto;
+  }
 }
