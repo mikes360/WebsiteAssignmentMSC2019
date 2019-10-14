@@ -6,23 +6,21 @@
 
 I have added an authenticate module with the following API’s
 
--	Login
+- Login
 
 The router maps /login to this api and the username and password is parsed from the query string (may want to change that?) and reruns a jwt token in a cookie. It is set as a cookie rather than a bearer token in the header because it is very difficult to intercept href calls client side. However, cookies are automatically transmitted hence the decision to go with that mechanism.
 
--	Authenticate 
+- Authenticate
 
 The router can use this API to authenticate access to restricted resources. For now, I have set this to anything in the new user directory I have created. I have moved the betting page into this directory which means you now need to be logged in to see that page. If you are not authenticated it redirects the client to the login screen.
 
-** Client-side changes
+\*\* Client-side changes
 
-I have added a basic login screen and some client-side java script to call the server login API when you click the login button. It then redirects you to the index page. The session currently only lives for 30 seconds before it expires this is just to allow us to easily see and test that expiry logic for now. 
+I have added a basic login screen and some client-side java script to call the server login API when you click the login button. It then redirects you to the index page. The session currently only lives for 30 seconds before it expires this is just to allow us to easily see and test that expiry logic for now.
 
-**** The username and password for logging in is bob and pass. This is currently hardcoded and needs to come from a database instead. I wanted to keep it really simple for now and once everyone understands someone else can maybe use the controller to grab and validate the user properly.
+\*\*\*\* The username and password for logging in is bob and pass. This is currently hardcoded and needs to come from a database instead. I wanted to keep it really simple for now and once everyone understands someone else can maybe use the controller to grab and validate the user properly.
 
-
-** Controller module started
-
+\*\* Controller module started
 
 I have started a controller module that encapsulates all the database code and has a couple of APIs for getting users. This under the hood is just using the films database example for the labs and needs changing for our own collection of users but its just to show how it can be done. Again, maybe someone else can enhance implement this further?
 
@@ -42,7 +40,7 @@ Added stub functions for registering new users into the controller router and ad
 
 Navigation bar has been added with additional pages, which are now all interlinked. Partials have been added which will replace the html files in due course. The work is merged with the previous commit, integrating all the work together.
 
-Teams, Games and Matches added to the database. You can now pull the data from the database in the form of a json file. Data of the collections have been added in the file structure as json data. 
+Teams, Games and Matches added to the database. You can now pull the data from the database in the form of a json file. Data of the collections have been added in the file structure as json data.
 
 Need to create default data for the database using the 2 json files, follow the instructions that was covered in the seminar for this specific topic.
 
@@ -52,13 +50,11 @@ Need to create default data for the database using the 2 json files, follow the 
 
 Database updated with placeholders for the teams that is indexed inside the arrays of the Game collection. Partial has been created for matches which now show placeholders for fixtures to be present. Mike is going to work on how to fill these placeholders in with the teams and their information.
 
-
 //---------------------------------------------------------------------------
 
 09-Oct-2019 Mike Knight
 
 Code to create full model by replacing team id in the matches array with the team objects. This is so the names and image paths can be used in rendering the view of the current game to bet on.
-
 
 //---------------------------------------------------------------------------
 
@@ -70,7 +66,7 @@ Enhanced matches partial view to look more like the template Gemma created. Drop
 
 13-Oct-2019 Mike Knight
 
-Have done a big tidy up of the project. All undeeded HTML files have been removed to reduce chance of confusion as I noticed 2 copies of bettingPage was already in there. We dont want a repeat of the routes issue hey Sully ;-) 
+Have done a big tidy up of the project. All undeeded HTML files have been removed to reduce chance of confusion as I noticed 2 copies of bettingPage was already in there. We dont want a repeat of the routes issue hey Sully ;-)
 
 I have done a bit of a tidy up of the nav bar and converted the landing page to an ejs file. Some of the links have also been updated too. For now the landing page shows you this weeks bets. Thought that was a nice idea?
 
@@ -88,4 +84,6 @@ Converted register.html page to ejs and deleted old register.html page, have add
 
 Should also now be able to see the javascript on controller.js and client.js that allows us to save newly registered users to our user database on Mongo
 
-To do: I will also convert the login page to ejs 
+Edit/update: also reformatted the matches ejs so that the matches don't overlap, and changed the client.js redirect from "index.html" to "/" so that it goes back to the main index page
+
+To do: I have begun creating a login.ejs which I will update in due course. I will then delete login.html

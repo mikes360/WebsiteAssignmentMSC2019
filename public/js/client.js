@@ -23,7 +23,7 @@ function login() {
       return response.json();
     })
     .then(function(myJson) {
-      window.location.href = "index.html";
+      window.location.href = "/";
     });
 }
 
