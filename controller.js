@@ -1,29 +1,10 @@
 let DB_URL = "mongodb://localhost:27017";
 let DB_NAME = "quidditch";
-let DB_QUID = "quidditch";
 let DB_ALIAS = "myDb";
-let DB_ALIAS1 = "myDb";
 
 const MongoClient = require("mongodb").MongoClient;
 
 //connection to the user database
-async function connect(app) {
-  MongoClient.connect(
-    DB_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    (err, client) => {
-      app.set(DB_ALIAS, client.db(DB_QUID));
-    }
-  );
-}
-
-async function getUsers(app) {
-  return app
-    .set(DB_ALIAS)
-    .collection("users")
-    .find({})
-    .toArray();
-}
 async function connect(app) {
   MongoClient.connect(
     DB_URL,
@@ -35,20 +16,11 @@ async function connect(app) {
 }
 
 async function getUsers(app) {
-  return app
-    .set(DB_ALIAS)
-    .collection("users")
-    .find({})
-    .toArray();
+  return app.set(DB_ALIAS).collection("users").find({}).toArray();
 }
 
 async function getUser(app, name) {
-  let name = "userUsername";
-  return app
-    .set(DB_ALIAS)
-    .collection("users") //change this to user details database
-    .find({ name })
-    .toArray();
+  return app.set(DB_ALIAS).collection("users").findOne({ username: name });
 }
 
 async function addUser(app, nu, res) {
@@ -61,51 +33,27 @@ async function addUser(app, nu, res) {
       console.log(err);
       res.status(200).send("<p>Fail</p>");
     } else {
-      res.redirect("../index.html");
+      res.redirect("/");
     }
   });
 }
 
 async function getTeams(app) {
-  return app
-    .set(DB_ALIAS)
-    .collection("team")
-    .find({})
-    .toArray();
+  return app.set(DB_ALIAS).collection("team").find({}).toArray();
 }
 
 async function getGame(app) {
-  let game = await app
-    .set(DB_ALIAS)
-    .collection("game")
-    .find({})
-    .toArray();
+  let game = await app.set(DB_ALIAS).collection("game").find({}).toArray();
   let teams = await getTeams(app);
 
-  //let bob = game[0].matches
-  //let bob2 = bob[0]
-
   for (var i = 0; i < game[0].matches.length; i++) {
-    game[0].matches[i][0] = getTeam(teams, game[0].matches[i][0]);
-    game[0].matches[i][1] = getTeam(teams, game[0].matches[i][1]);
+    game[0].matches[i][0] = findTeam(teams, game[0].matches[i][0]);
+    game[0].matches[i][1] = findTeam(teams, game[0].matches[i][1]);
   }
-
-  /*for(var match in game[0].matches){
-        match[0] = getTeam(teams, match[0])
-        match[1] = getTeam(teams, match[1])
-    }*/
-
   return game;
-  // getTeams()
-  // getGames()
-
-  // foreach(match in game.matches)
-  // getTeam with id === match[0] id and match[1] id
-  // replace id string with team object
-  //return app.set(DB_ALIAS).collection('game').find({}).toArray()
 }
 
-function getTeam(teams, id) {
+function findTeam(teams, id) {
   for (var i = 0; i < teams.length; i++) {
     if (teams[i].teamID === id) {
       return teams[i];

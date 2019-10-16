@@ -87,3 +87,23 @@ Should also now be able to see the javascript on controller.js and client.js tha
 Edit/update: also reformatted the matches ejs so that the matches don't overlap, and changed the client.js redirect from "index.html" to "/" so that it goes back to the main index page
 
 To do: I have begun creating a login.ejs which I will update in due course. I will then delete login.html
+
+//---------------------------------------------------------------------------
+
+14-Oct-2019 Mike Knight
+
+Merged Gemmas changes into the main code. Fixed a couple of issues caused by the merge and did yet another tidy!
+
+Moved the login API to api\login in case Gemma wants to map the login ejs to the \login route.
+
+Finished off authentication so it now will authenticate the provided details against the databse.
+
+//---------------------------------------------------------------------------
+
+16-Oct-2019 Gemma
+
+Created a login ejs which now links to the main index page so that when the login button is clicked on, it will direct to the login ejs. The nav bar will also still display the logged out version until someone has logged in.
+
+Anywhere linked to login.html has now had it replaced by "/login" for login.ejs
+
+Apologies, my Prettier add-on has insisted on formatting everything on separate lines, so you might want to re-format if it makes it easy to read.

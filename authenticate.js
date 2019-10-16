@@ -2,15 +2,14 @@ const jwt = require("jsonwebtoken");
 
 const controller = require("./controller");
 
-function login(req, res) {
-  let username = req.query.username;
-  let password = req.query.password;
+async function login(app, req, res) {
+  let username = req.query.username
+  let password = req.query.password
 
-  //let users = await controller.getUsers(app);
+  let userJson = await controller.getUser(app, username)
 
-  //this lookup would normally be done using a database
-  if (username === "bob") {
-    if (password === "pass") {
+  if (userJson != null && password === userJson.password) {
+
       const opts = {}; //the password compare would normally be done using bcrypt.
       opts.expiresIn = 120; //token expires in 2min
       const secret = "SECRET_KEY"; //normally stored in process.env.secret
@@ -22,7 +21,6 @@ function login(req, res) {
       });
 
       return res.status(200).json({ message: "Auth Passed", token });
-    }
   }
   return res.status(401).json({ message: "Auth Failed" });
 }
@@ -39,22 +37,5 @@ function isAuthenticated(req) {
   }
   return authenticated;
 }
-
-/*function isAuthenticated(req, res, next) {  
-    let token = req.cookies.access_token
-    if( !token){ 
-        res.redirect("../login.html")
-    }
-    else{
-        jwt.verify(token, 'SECRET_KEY', (err, decoded) =>{
-            if(err){
-                res.redirect("../login.html")
-            }
-            else{
-                next()
-            }
-        });
-    }
-} */
 
 module.exports = { login, isAuthenticated };

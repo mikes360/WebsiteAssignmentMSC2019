@@ -1,5 +1,13 @@
 <%- include('head'); %>
-<body>
-  <%- include('navbar') %>
-  <h1>Login</h1>
-</body>
+    <body>
+    <%- include('navbar') %>
+    <h1>Login</h1>
+        <div class="container">
+            <h1>Login</h1>
+            <p>Username </p><input id="username" type="text">
+            <p>Password</p><input id="password" type="password">
+            <button onclick="login()">Login</button>
+        </div>
+        <%- include('footer'); %>
+    </body>
+</html>    
