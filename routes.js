@@ -58,6 +58,14 @@ module.exports = app => {
   //Access register (ejs) page from home page
   router.get("/register", async (req, res) => {
     return res.render("register", {
+      loggedIn: false,
+      error: ""
+    });
+  });
+
+  //Access main ejs page when clicking on Super6 button
+  router.get("/main", async (req, res) => {
+    return res.render("main", {
       loggedIn: false
     });
   });

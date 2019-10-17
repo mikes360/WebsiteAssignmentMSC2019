@@ -16,15 +16,28 @@ async function connect(app) {
 }
 
 async function getUsers(app) {
-  return app.set(DB_ALIAS).collection("users").find({}).toArray();
+  return app
+    .set(DB_ALIAS)
+    .collection("users")
+    .find({})
+    .toArray();
 }
 
 async function getUser(app, name) {
-  return app.set(DB_ALIAS).collection("users").findOne({ username: name });
+  return app
+    .set(DB_ALIAS)
+    .collection("users")
+    .findOne({ username: name });
 }
 
 async function addUser(app, nu, res) {
-  //if(nu.username === "")
+  if (nu.username === "") {
+    res.render("register", {
+      loggedIn: false,
+      error: "username cannot be blank"
+    });
+    return false;
+  }
 
   const db = app.get(DB_ALIAS);
   const collection = db.collection("users");
@@ -39,11 +52,19 @@ async function addUser(app, nu, res) {
 }
 
 async function getTeams(app) {
-  return app.set(DB_ALIAS).collection("team").find({}).toArray();
+  return app
+    .set(DB_ALIAS)
+    .collection("team")
+    .find({})
+    .toArray();
 }
 
 async function getGame(app) {
-  let game = await app.set(DB_ALIAS).collection("game").find({}).toArray();
+  let game = await app
+    .set(DB_ALIAS)
+    .collection("game")
+    .find({})
+    .toArray();
   let teams = await getTeams(app);
 
   for (var i = 0; i < game[0].matches.length; i++) {

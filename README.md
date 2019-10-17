@@ -107,3 +107,13 @@ Created a login ejs which now links to the main index page so that when the logi
 Anywhere linked to login.html has now had it replaced by "/login" for login.ejs
 
 Apologies, my Prettier add-on has insisted on formatting everything on separate lines, so you might want to re-format if it makes it easy to read.
+
+//---------------------------------------------------------------------------
+
+17-Oct-2019 Gemma
+
+Added error function: when you click submit on the register page, if the username field is blank then "username cannot be blank" will appear just above submit button.
+
+I'm trying to make the error message a red colour, but .error {color: red} isn't working in the main.css stylesheet, which makes me think that the bootstrap styling might be overriding it for some reason.
+
+Also linked the main index page to the Super6 button on the nav bar to make it easier to navigate back to the home page.
