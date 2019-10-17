@@ -117,3 +117,5 @@ Added error function: when you click submit on the register page, if the usernam
 I'm trying to make the error message a red colour, but .error {color: red} isn't working in the main.css stylesheet, which makes me think that the bootstrap styling might be overriding it for some reason.
 
 Also linked the main index page to the Super6 button on the nav bar to make it easier to navigate back to the home page.
+
+Also tidied up the html of the matches on the main.ejs page so that they're not all over the place! Team logos and names are still hard-coded for now, but can be changed in due course
