@@ -97,3 +97,25 @@ Merged Gemmas changes into the main code. Fixed a couple of issues caused by the
 Moved the login API to api\login in case Gemma wants to map the login ejs to the \login route.
 
 Finished off authentication so it now will authenticate the provided details against the databse.
+
+//---------------------------------------------------------------------------
+
+16-Oct-2019 Gemma
+
+Created a login ejs which now links to the main index page so that when the login button is clicked on, it will direct to the login ejs. The nav bar will also still display the logged out version until someone has logged in.
+
+Anywhere linked to login.html has now had it replaced by "/login" for login.ejs
+
+Apologies, my Prettier add-on has insisted on formatting everything on separate lines, so you might want to re-format if it makes it easy to read.
+
+//---------------------------------------------------------------------------
+
+17-Oct-2019 Gemma
+
+Added error function: when you click submit on the register page, if the username field is blank then "username cannot be blank" will appear just above submit button.
+
+I'm trying to make the error message a red colour, but .error {color: red} isn't working in the main.css stylesheet, which makes me think that the bootstrap styling might be overriding it for some reason.
+
+Also linked the main index page to the Super6 button on the nav bar to make it easier to navigate back to the home page.
+
+Also tidied up the html of the matches on the main.ejs page so that they're not all over the place! Team logos and names are still hard-coded for now, but can be changed in due course

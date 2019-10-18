@@ -1,129 +1,118 @@
 <%- include('head'); %>
 <body>
-    <%- include('navbar') %>
-    <h1>Matches</h1>
+  <%- include('navbar') %>
+  <h1>Matches</h1>
 
-<body>
-    <%- include('navbar') %>
-    <!-- -script for the drop down menu via bootstrap-->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script> -->
-    </div>
-    </div>
-    <div class="left-teams">
+  <div class="container">
+    <div class="table-rows">
+      <!-- First row -->
+      <!-- Left match -->
+      <div class="match">
         <div class="team">
-            <img src="images/kenmare-kestrels.jpg" alt="" class="logo">
-            <div class="team-name">Kenmare Kestrels</div>
-        </div>
-    </div>
-    <div class="versus">
-        V
-    </div>
-    <div class="team">
-        <div class="right-teams">
-            <img src="images/caerphilly-catapults.jpg" alt="" class="logo">
-            <div class="team-name">Caerphilly Catapults</div>
-            <!-- RHS match -->
-        </div>
-    </div>
-    <div class="row">
-        <!-- First row -->
-        <!-- LHS match -->
-        <div class="left-teams">
-            <div class="team">
-                <img src="images/chudley-cannons-logo-1.jpeg" alt="" class="logo">
-                <div class="team-name">Chudley Cannons</div>
-            </div>
-
-            <div class="versus">
-                V
-            </div>
-
-            <div class="right-teams">
-                <div class="team">
-                    <img src="images/Puddlemere-united.jpeg" alt="" class="logo">
-                    <div class="team-name">Puddlemere United</div>
-                </div>
-            </div>
-
-            <!-- RHS match -->
-            <div class="right-teams">
-                <div class="team">
-                    <img src="images/falmouth-falcons.jpeg" alt="" class="logo">
-                    <div class="team-name">Falmouth Falcons</div>
-                </div>
-
-                V
-                <div class="versus">
-                </div>
-
-                <div class="team">
-                    <img src="images/pride-of-portree.jpeg" alt="" class="logo">
-                    <div class="team-name">Pride of Portree</div>
-                </div>
-            </div>
+          <img src="images\chudley-cannons-logo-1.jpeg" alt="" class="logo" />
+          <div class="team-name">Chudley Cannons</div>
         </div>
 
-        <div class="team-name">Holyhead Harpies</div>
-        <img src="images/holyhead-harpies.jpg" alt="" class="logo">
-
-        <div class="team">
-        </div>
         <div class="versus">
-            V
+          V
         </div>
 
-        <div class="team-name">Appleby Arrows</div>
-        <img src="images/appleby-arrows.jpeg" alt="" class="logo">
         <div class="team">
-            <div class="left-teams">
-                <!-- LHS match -->
-                <!-- Third row -->
-                <div class="row">
-
-
-                </div>
-            </div>
+          <img src="images/Puddlemere-united.jpeg" alt="" class="logo" />
+          <div class="team-name">Puddlemere United</div>
         </div>
-        <div class="team-name">Wigtown Wanderers</div>
+      </div>
+
+      <!-- Right match -->
+      <div class="match">
         <div class="team">
-            <img src="images/wigtown-wanderers.jpg" alt="" class="logo">
-
+          <img src="images/falmouth-falcons.jpeg" alt="" class="logo" />
+          <div class="team-name">Falmouth Falcons</div>
         </div>
-        V
+
         <div class="versus">
-
+          V
         </div>
-        <div class="team-name">Montrose Magpies</div>
-        <img src="images/montrose-magpies.jpeg" alt="" class="logo">
+
         <div class="team">
-            <div class="right-teams">
-                <!-- RHS match -->
-
-            </div>
+          <img src="images/pride-of-portree.jpeg" alt="" class="logo" />
+          <div class="team-name">Pride of Portree</div>
         </div>
-        <div class="team-name">Wimbourne Wasps</div>
-        <img src="images/wimbourne-wasps.jpeg" alt="" class="logo">
+      </div>
+      <!-- End of first row -->
+
+      <!-- Second row-->
+      <!-- Left match -->
+      <div class="match">
         <div class="team">
-
+          <img src="images/tutshill-tornados.jpg" alt="" class="logo" />
+          <div class="team-name">Tutshill Tornados</div>
         </div>
-        V
+
         <div class="versus">
-
-            <div class="team-name">Tutshill Tornados</div>
+          V
         </div>
-        <img src="images/tutshill-tornados.jpg" alt="" class="logo">
-        <div class="team">
-            <div class="left-teams">
-                <!-- LHS match -->
-                <div class="row">
 
-                    <!-- Second row-->
-<%- include('footer'); %>
+        <div class="team">
+          <img src="images/wimbourne-wasps.jpeg" alt="" class="logo" />
+          <div class="team-name">Wimbourne Wasps</div>
+        </div>
+      </div>
+
+      <!-- Right match -->
+      <div class="match">
+        <div class="team">
+          <img src="images/montrose-magpies.jpeg" alt="" class="logo" />
+          <div class="team-name">Montrose Magpies</div>
+        </div>
+
+        <div class="versus">
+          V
+        </div>
+
+        <div class="team">
+          <img src="images/wigtown-wanderers.jpg" alt="" class="logo" />
+          <div class="team-name">Wigtown Wanderers</div>
+        </div>
+      </div>
+      <!-- End of second row -->
+
+      <!-- Third row -->
+      <!-- Left match -->
+      <div class="match">
+        <div class="team">
+          <img src="images/appleby-arrows.jpeg" alt="" class="logo" />
+          <div class="team-name">Appleby Arrows</div>
+        </div>
+
+        <div class="versus">
+          V
+        </div>
+
+        <div class="team">
+          <img src="images/holyhead-harpies.jpg" alt="" class="logo" />
+          <div class="team-name">Holyhead Harpies</div>
+        </div>
+      </div>
+
+      <!-- Right match -->
+      <div class="match">
+        <div class="team">
+          <img src="images/caerphilly-catapults.jpg" alt="" class="logo" />
+          <div class="team-name">Caerphilly Catapults</div>
+        </div>
+
+        <div class="versus">
+          V
+        </div>
+
+        <div class="team">
+          <img src="images/kenmare-kestrels.jpg" alt="" class="logo" />
+          <div class="team-name">Kenmare Kestrels</div>
+        </div>
+      </div>
+      <!-- End of third row -->
+    </div>
+  </div>
+  <%- include('footer'); %>
+</body>

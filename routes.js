@@ -7,7 +7,15 @@ const authenticate = require("./authenticate");
 var path = require("path");
 
 module.exports = app => {
-  router.get("/api/login", async (req, res) => authenticate.login(app, req, res));
+  router.get("/login", async (req, res) => {
+    return res.render("login", {
+      loggedIn: false
+    });
+  });
+
+  router.get("/api/login", async (req, res) =>
+    authenticate.login(app, req, res)
+  );
 
   router.post("/api/user", async (req, res) => {
     let nu = {
@@ -43,13 +51,21 @@ module.exports = app => {
         meme: meme
       });
     } else {
-      res.redirect("/login.html");
+      res.redirect("/login");
     }
   });
 
   //Access register (ejs) page from home page
   router.get("/register", async (req, res) => {
     return res.render("register", {
+      loggedIn: false,
+      error: ""
+    });
+  });
+
+  //Access main ejs page when clicking on Super6 button
+  router.get("/main", async (req, res) => {
+    return res.render("main", {
       loggedIn: false
     });
   });

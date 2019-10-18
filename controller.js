@@ -24,7 +24,13 @@ async function getUser(app, name) {
 }
 
 async function addUser(app, nu, res) {
-  //if(nu.username === "")
+  if (nu.username === "") {
+    res.render("register", {
+      loggedIn: false,
+      error: "username cannot be blank"
+    });
+    return false;
+  }
 
   const db = app.get(DB_ALIAS);
   const collection = db.collection("users");
