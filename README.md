@@ -133,3 +133,11 @@ edit\* moved users.json, removed betting page and made main page render matches 
 21-Oct-2019 Gemma
 
 Reformatted the error messages on register.ejs
+
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Mike Knight
+
+Added a game module with a timer that will fire when the matches are set to start. This will invoke the main game logic of the website.
+
+Fixed a small bug where clicking the home page went to the wrong route.

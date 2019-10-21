@@ -33,6 +33,7 @@ module.exports = app => {
     }*/
   });
 
+    //Access main ejs page when clicking on Super6 button
   router.get("/", async (req, res) => {
     let meme = await controller.getGame(app);
 
@@ -64,13 +65,6 @@ module.exports = app => {
       usernameerror: "",
       passworderror: "",
       emailerror: ""
-    });
-  });
-
-  //Access main ejs page when clicking on Super6 button
-  router.get("/main", async (req, res) => {
-    return res.render("main", {
-      loggedIn: false
     });
   });
 

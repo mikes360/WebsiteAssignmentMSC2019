@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser("SECRET_KEY"));
 app.use("/", routes(app));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cookieParser("SECRET_KEY"));
-app.use("/", routes(app));
 app.use(express.static("./public"));
 
 app.listen(3000);
 
 console.log("Express on 3000");
+
+console.log("Setting up game module")
+const game = require("./game");
+game.startGame(app)
 
 module.exports = app;
