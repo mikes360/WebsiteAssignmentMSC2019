@@ -126,5 +126,10 @@ Also tidied up the html of the matches on the main.ejs page so that they're not 
 
 Merge of Gemmas work from branch to master. There was a little bug where the client side js was not being included with ejs which i have fixed by including in in head.ejs
 
-edit* moved users.json, removed betting page and made main page render matches from databse
+edit\* moved users.json, removed betting page and made main page render matches from databse
 
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Gemma
+
+Reformatted the error messages on register.ejs
