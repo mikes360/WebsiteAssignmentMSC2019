@@ -7,15 +7,15 @@ const authenticate = require("./authenticate");
 var path = require("path");
 
 module.exports = app => {
-  router.get("/login", async (req, res) => {
-    return res.render("login", {
-      loggedIn: false
-    });
-  });
+
+  router.get("/api/logout", (req, res) => {
+    authenticate.logout(res)
+    res.redirect("/");
+  })
 
   router.get("/api/login", async (req, res) =>
     authenticate.login(app, req, res)
-  );
+  )
 
   router.post("/api/user", async (req, res) => {
     let nu = {
@@ -24,24 +24,27 @@ module.exports = app => {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email
-    };
-    controller.addUser(app, nu, res);
-    /* if (added) {
-      res.redirect("../login.html");
-    } else {
-      res.status(200).send("<p>Fail</p>");
-    }*/
-  });
+    }
+    controller.addUser(app, nu, res)
+  })
+
+
 
     //Access main ejs page when clicking on Super6 button
   router.get("/", async (req, res) => {
-    let meme = await controller.getGame(app);
+    let meme = await controller.getGame(app)
 
     return res.render("main", {
       loggedIn: authenticate.isAuthenticated(req),
       meme: meme
-    });
-  });
+    })
+  })
+
+  router.get("/login", async (req, res) => {
+    return res.render("login", {
+      loggedIn: false
+    })
+  })
 
   router.get("/matches", async (req, res) => {
     if (authenticate.isAuthenticated(req)) {

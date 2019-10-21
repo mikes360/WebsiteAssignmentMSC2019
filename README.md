@@ -141,3 +141,13 @@ Reformatted the error messages on register.ejs
 Added a game module with a timer that will fire when the matches are set to start. This will invoke the main game logic of the website.
 
 Fixed a small bug where clicking the home page went to the wrong route.
+
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Mike Knight
+
+Made some changes to authentication, added a logout API and hooked it up to the nav bar. The API basically clears the access_token cookie.
+
+Moved the JWT secret to an env vairable, it should ideally go in env.secret but its fine for this protoype and makes it available system wide.
+
+General tidy up of the authenticate module.
