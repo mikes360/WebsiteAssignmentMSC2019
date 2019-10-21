@@ -59,7 +59,11 @@ module.exports = app => {
   router.get("/register", async (req, res) => {
     return res.render("register", {
       loggedIn: false,
-      error: ""
+      firstnameerror: "",
+      lastnameerror: "",
+      usernameerror: "",
+      passworderror: "",
+      emailerror: ""
     });
   });
 

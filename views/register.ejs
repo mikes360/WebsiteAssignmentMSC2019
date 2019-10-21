@@ -4,19 +4,23 @@
     <h1>Register</h1>
     <div class="container">
         <h1>Register</h1>
-        <form action="/api/user" method="POST">
+        <form class="formfield" action="/api/user" method="POST" onkeyup="addUser()">
             First name<br>
-            <input type="text" name="firstname">
+            <input type="text" id="firstname" name="firstname">
+            <div class="error" id="firstnameerror"><%= firstnameerror %></div>
             <br>Last name<br>
             <input type="text" name="lastname">
-            <br>User name<br>
+            <div class="error"><%= lastnameerror %></div>
+            <br>Username<br>
             <input type="text" name="username">
+            <div class="error"><%= usernameerror %></div>
             <br>Password<br>
             <input type="text" name="password">
+            <div class="error"><%= passworderror %></div>
             <br>Email<br>
-            <input type="text" name="email">
+            <input type="email" name="email" placeholder="example@email.com">
+            <div class="error"><%= emailerror %></div>
             <br>
-            <div class="error"><%= error %></div>
             <input type="submit" value="Submit">
         </form>
     </div>
