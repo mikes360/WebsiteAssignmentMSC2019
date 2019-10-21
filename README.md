@@ -144,6 +144,12 @@ Fixed a small bug where clicking the home page went to the wrong route.
 
 //---------------------------------------------------------------------------
 
+21-Oct-2019 Sully
+
+Added a updated_user.json with a example model for user predictions and results.
+
+//---------------------------------------------------------------------------
+
 21-Oct-2019 Mike Knight
 
 Made some changes to authentication, added a logout API and hooked it up to the nav bar. The API basically clears the access_token cookie.
