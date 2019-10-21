@@ -1,23 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-const controller = require("./controller");
+const controller = require('./controller');
 
-const authenticate = require("./authenticate");
-var path = require("path");
+const authenticate = require('./authenticate');
+var path = require('path');
 
 module.exports = app => {
-	router.get("/login", async (req, res) => {
-		return res.render("login", {
+	router.get('/login', async (req, res) => {
+		return res.render('login', {
 			loggedIn: false
 		});
 	});
 
-	router.get("/api/login", async (req, res) =>
+	router.get('/api/login', async (req, res) =>
 		authenticate.login(app, req, res)
 	);
 
-	router.post("/api/user", async (req, res) => {
+	router.post('/api/user', async (req, res) => {
 		let nu = {
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
@@ -33,13 +33,13 @@ module.exports = app => {
     }*/
 	});
 
-	router.post("/api/user/predictions", async (req, res) => {
+	router.post('/api/user/predictions', async (req, res) => {
 		if (authenticate.isAuthenticated(req)) {
-			let game = await controller.getGame(app);
-			let teamName = req.body.teamName;
+			let teamName = req.body.matches.teamName;
 			console.log(teamName);
-			let gwScores = teamName.array.forEach((game) => {
-				req.body.matches[0].teamName, req.body.matches[1].teamName;
+			let gwScores = teamName.array.forEach(game => {
+				req.body.matches[0].teamName,
+					req.body.matches[1].teamName;
 			});
 			let up = {
 				$set: {
@@ -52,43 +52,43 @@ module.exports = app => {
 			};
 			controller.addUserPredictions(app, up, res);
 		}
-		console.info("form is posting!");
+		console.info('form is posting!');
 	});
 
-	router.get("/", async (req, res) => {
+	router.get('/', async (req, res) => {
 		let meme = await controller.getGame(app);
 
-		return res.render("main", {
+		return res.render('main', {
 			loggedIn: authenticate.isAuthenticated(req),
 			meme: meme
 		});
 	});
 
-	router.get("/matches", async (req, res) => {
+	router.get('/matches', async (req, res) => {
 		if (authenticate.isAuthenticated(req)) {
 			let meme = await controller.getGame(app);
-			return res.render("matches", {
+			return res.render('matches', {
 				loggedIn: true,
-				title: "game week one",
+				title: 'game week one',
 				meme: meme
 			});
 		} else {
-			res.redirect("/login");
+			res.redirect('/login');
 		}
 	});
 
 	//Access register (ejs) page from home page
-	router.get("/register", async (req, res) => {
-		return res.render("register", {
+	router.get('/register', async (req, res) => {
+		return res.render('register', {
 			loggedIn: false,
-			error: ""
+			error: ''
 		});
 	});
 
 	//Access main ejs page when clicking on Super6 button
-	router.get("/main", async (req, res) => {
+	router.get('/main', async (req, res) => {
 		let meme = await controller.getGame(app);
-		return res.render("main", {
+		return res.render('main', {
 			loggedIn: false,
 			meme
 		});
@@ -97,21 +97,21 @@ module.exports = app => {
 	// THESE ROUTES ARE ONLY FOR TESTING AND NOT PART
 	// OF THE MAIN SITE
 
-	router.get("/api/user", async (req, res) => {
+	router.get('/api/user', async (req, res) => {
 		if (authenticate.isAuthenticated(req)) {
 			let users = await controller.getUsers(app);
 			return res.json(users);
 		} else {
-			res.status(404).send("Unauthorized");
+			res.status(404).send('Unauthorized');
 		}
 	});
 
-	router.get("/team", async (req, res) => {
+	router.get('/team', async (req, res) => {
 		let team = await controller.getTeams(app);
 		return res.json(team);
 	});
 
-	router.get("/game", async (req, res) => {
+	router.get('/game', async (req, res) => {
 		let game = await controller.getGame(app);
 		return res.json(game);
 	});
