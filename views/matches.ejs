@@ -12,15 +12,9 @@
         </div>
 
         <div class="spinBox">
-          <button
-            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-            class="up"
-          ></button>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up"></button>
           <input type="number" min="0" step="10" value="0" />
-          <button
-            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-            class="down"
-          ></button>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down"></button>
         </div>
 
         <div class="versus">
@@ -28,15 +22,9 @@
         </div>
 
         <div class="spinBox">
-          <button
-            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-            class="up"
-          ></button>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up"></button>
           <input type="number" min="0" step="10" value="0" />
-          <button
-            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-            class="down"
-          ></button>
+          <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down"></button>
         </div>
 
         <div class="team">
@@ -46,7 +34,17 @@
       </div>
       <% }) %> <% }) %>
     </div>
+
+    <div class="snitch">
+      <div class="snitch-title"><p>Golden Snitch Prediction</p></div>
+      <img src="../images/SNITCH.png" alt="" class="snitch-logo" />
+      <input type="text" name="snitchGuess" value="" />
+      <div class="snitch-text">
+        <p>Enter prediction for the minute the Golden Snitch is caught first in any game!</p>
+      </div>
+    </div>
   </div>
+
   <div>
     <button>Place Bets</button>
   </div>

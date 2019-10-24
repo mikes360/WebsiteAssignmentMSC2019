@@ -82,7 +82,8 @@ async function addUser(app, nu, res) {
       lastnameerror: lastnameerror,
       usernameerror: usernameerror,
       passworderror: passworderror,
-      emailerror: emailerror
+      emailerror: emailerror,
+      user: nu
     });
     return false;
   }

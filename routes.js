@@ -7,15 +7,12 @@ const authenticate = require("./authenticate");
 var path = require("path");
 
 module.exports = app => {
-
   router.get("/api/logout", (req, res) => {
-    authenticate.logout(res)
+    authenticate.logout(res);
     res.redirect("/");
-  })
+  });
 
-  router.get("/api/login", async (req, res) =>
-    authenticate.login(app, req, res)
-  )
+  router.get("/api/login", async (req, res) => authenticate.login(app, req, res));
 
   router.post("/api/user", async (req, res) => {
     let nu = {
@@ -24,27 +21,25 @@ module.exports = app => {
       username: req.body.username,
       password: req.body.password,
       email: req.body.email
-    }
-    controller.addUser(app, nu, res)
-  })
+    };
+    controller.addUser(app, nu, res);
+  });
 
-
-
-    //Access main ejs page when clicking on Super6 button
+  //Access main ejs page when clicking on Super6 button
   router.get("/", async (req, res) => {
-    let meme = await controller.getGame(app)
+    let meme = await controller.getGame(app);
 
     return res.render("main", {
       loggedIn: authenticate.isAuthenticated(req),
       meme: meme
-    })
-  })
+    });
+  });
 
   router.get("/login", async (req, res) => {
     return res.render("login", {
       loggedIn: false
-    })
-  })
+    });
+  });
 
   router.get("/matches", async (req, res) => {
     if (authenticate.isAuthenticated(req)) {
@@ -61,13 +56,21 @@ module.exports = app => {
 
   //Access register (ejs) page from home page
   router.get("/register", async (req, res) => {
+    let nu = {
+      firstname: "",
+      lastname: "",
+      username: "",
+      password: "",
+      email: ""
+    };
     return res.render("register", {
       loggedIn: false,
       firstnameerror: "",
       lastnameerror: "",
       usernameerror: "",
       passworderror: "",
-      emailerror: ""
+      emailerror: "",
+      user: nu
     });
   });
 

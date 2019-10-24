@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.h1 {
+  margin: 50px auto;
+}
+
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
   margin: 0;
@@ -20,6 +24,45 @@ body {
   color: red;
 }
 
+/* Guess snitch */
+.snitch {
+  align-content: center;
+  margin: 25px auto;
+  width: 30%;
+}
+
+.snitch-title p {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.snitch-text p {
+  margin: 0 auto;
+}
+
+.snitch input {
+  display: block;
+  width: 5em;
+  height: 2em;
+  padding: 0 0.25em;
+  border: 0.0625em solid rgb(224, 224, 224);
+  margin: 0 auto;
+  border-radius: 0.25em;
+  color: rgb(64, 64, 64);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.snitch-logo {
+  display: block;
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+  margin: 0 auto;
+  float: center;
+}
+
 /* Matches formatting */
 .table-rows {
   display: flex;
@@ -32,12 +75,13 @@ body {
   display: flex;
   margin-top: 16px;
   margin-bottom: 8px;
-  flex-direction: row;
-  width: 100%;
+  /* flex-direction: row;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  /* justify-content: center; */
+  justify-content: center;
+  width: 100%; */
+  width: 100%;
   flex: 1 1 0%;
 }
 

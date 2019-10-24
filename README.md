@@ -157,3 +157,21 @@ Made some changes to authentication, added a logout API and hooked it up to the 
 Moved the JWT secret to an env vairable, it should ideally go in env.secret but its fine for this protoype and makes it available system wide.
 
 General tidy up of the authenticate module.
+
+//---------------------------------------------------------------------------
+
+22-Oct-2019 Gemma
+
+Register page now displays error message if fields are left blank, but customer information remains in any fields that have already been filled in
+
+//---------------------------------------------------------------------------
+
+24-Oct-2019 Gemma
+
+game.js has been set up by Michael and I'm trying to add some game logic that allows a random score to be generated in multiples of 10 (as per quidditch rules), and the score should be weighted by the skill level of the team (skill level between 0 and 1), so that multiplying the score by the skill level gives an overall weighted score, which can then be returned to the results page.
+
+I've also added a Golden Snitch section to the betting/matches page as that it something we wanted to add.
+
+Some of the team logos have had their background removed/turned transparent just in case we want a coloured background
+
+Tweaked some of the css but still can't get the divs to align properly on betting/matches page
