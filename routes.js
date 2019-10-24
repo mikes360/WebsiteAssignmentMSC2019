@@ -29,6 +29,8 @@ module.exports = app => {
   router.get("/", async (req, res) => {
     let meme = await controller.getGame(app);
 
+    console.log("Username  " + authenticate.getUsername(req));
+
     return res.render("main", {
       loggedIn: authenticate.isAuthenticated(req),
       meme: meme
