@@ -175,3 +175,11 @@ I've also added a Golden Snitch section to the betting/matches page as that it s
 Some of the team logos have had their background removed/turned transparent just in case we want a coloured background
 
 Tweaked some of the css but still can't get the divs to align properly on betting/matches page
+
+//---------------------------------------------------------------------------
+
+24-Oct-2019 Mike Knight
+
+Added a new getUsername API in the authenticate module. This extracts the username string from the encrypted JTW token and returns it.
+
+If the returned string is null it means the user is not logged in. If you get a valid string you can assume the user is authenticated.
