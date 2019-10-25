@@ -1,8 +1,8 @@
-let DB_URL = "mongodb://localhost:27017";
-let DB_NAME = "quidditch";
-let DB_ALIAS = "myDb";
+let DB_URL = 'mongodb://localhost:27017';
+let DB_NAME = 'quidditch';
+let DB_ALIAS = 'myDb';
 
-const MongoClient = require("mongodb").MongoClient;
+const MongoClient = require('mongodb').MongoClient;
 
 //connection to the user database
 async function connect(app) {
@@ -18,7 +18,7 @@ async function connect(app) {
 async function getUsers(app) {
 	return app
 		.set(DB_ALIAS)
-		.collection("users")
+		.collection('users')
 		.find({})
 		.toArray();
 }
@@ -26,27 +26,27 @@ async function getUsers(app) {
 async function getUser(app, name) {
 	return app
 		.set(DB_ALIAS)
-		.collection("users")
+		.collection('users')
 		.findOne({ username: name });
 }
 
 async function addUser(app, nu, res) {
-	if (nu.username === "") {
-		res.render("register", {
+	if (nu.username === '') {
+		res.render('register', {
 			loggedIn: false,
-			error: "username cannot be blank"
+			error: 'username cannot be blank'
 		});
 		return false;
 	}
 
 	const db = app.get(DB_ALIAS);
-	const collection = db.collection("users");
+	const collection = db.collection('users');
 	collection.insertOne(nu, function(err, result) {
 		if (err != null) {
 			console.log(err);
-			res.status(200).send("<p>Fail</p>");
+			res.status(200).send('<p>Fail</p>');
 		} else {
-			res.redirect("/");
+			res.redirect('/');
 		}
 	});
 }
@@ -54,22 +54,24 @@ async function addUser(app, nu, res) {
 //Add user Predictions
 
 async function addUserPredictions(app, up, res) {
-	if (up === "") {
-		res.render("/", {
+	if (up === '') {
+		res.status(200).render('/', {
 			loggedIn: true,
-			error: "no scores submitted"
+			error: 'no scores submitted'
 		});
 		return false;
 	}
 
 	const db = app.get(DB_ALIAS);
-	const collection = db.collection("users");
-	collection.findOneAndUpdate({ username: "ben" }, up, function(err, result) {
+	const collection = db.collection('users');
+	collection.findOneAndUpdate({ username: 'ben' }, up, function(
+		err,
+		res
+	) {
 		if (err != null) {
 			console.log(err);
-			res.status(200).send("<p>Fail</p>");
+			//res.status(200).send('<p>Fail</p>');
 		} else {
-			res.redirect("/");
 		}
 	});
 }
@@ -77,7 +79,7 @@ async function addUserPredictions(app, up, res) {
 async function getTeams(app) {
 	return app
 		.set(DB_ALIAS)
-		.collection("team")
+		.collection('team')
 		.find({})
 		.toArray();
 }
@@ -85,7 +87,7 @@ async function getTeams(app) {
 async function getGame(app) {
 	let game = await app
 		.set(DB_ALIAS)
-		.collection("game")
+		.collection('game')
 		.find({})
 		.toArray();
 	let teams = await getTeams(app);

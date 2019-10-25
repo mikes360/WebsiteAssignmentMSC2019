@@ -35,26 +35,34 @@ module.exports = app => {
 
 	router.post('/api/user/predictions', async (req, res) => {
 		if (authenticate.isAuthenticated(req)) {
-			let teamName = req.body.matches.teamName;
-			console.log(teamName);
-			let gwScores = teamName.array.forEach(game => {
-				req.body.matches[0].teamName,
-					req.body.matches[1].teamName;
-			});
+			let userScores = req.body;
+
+			let matches = Object.values(userScores);
+			console.log(matches);
+
+			for (let i = 0; i < 6; i++) {
+				i = [req.body.i, req.body.i++];
+				console.log(i);
+			}
+
+			let user = await controller.getUser(app);
+
 			let up = {
 				$set: {
 					game: {
-						gw1: {
-							gwScores
-						}
+						gw1: [matches]
 					}
 				}
 			};
-			controller.addUserPredictions(app, up, res);
-		}
-		console.info('form is posting!');
-	});
 
+			console.log(up);
+			res.redirect('/');
+			controller.addUserPredictions(app, up, res);
+		} else {
+			res.redirect('/');
+			console.info('Session ran out');
+		}
+	});
 	router.get('/', async (req, res) => {
 		let meme = await controller.getGame(app);
 
@@ -82,15 +90,6 @@ module.exports = app => {
 		return res.render('register', {
 			loggedIn: false,
 			error: ''
-		});
-	});
-
-	//Access main ejs page when clicking on Super6 button
-	router.get('/main', async (req, res) => {
-		let meme = await controller.getGame(app);
-		return res.render('main', {
-			loggedIn: false,
-			meme
 		});
 	});
 

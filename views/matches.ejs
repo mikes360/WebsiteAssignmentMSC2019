@@ -5,11 +5,18 @@
 	<div class="container">
 		<form action="/api/user/predictions" method="POST">
 			<div class="table-rows">
-				<% meme.forEach((game) => { %> <% game.matches.forEach((match) => { %>
+				<% meme.forEach((game) => { %> <%
+				game.matches.forEach((match) => { %>
 				<div class="match">
 					<div class="team">
-						<img src="../images/<%= match[0].image %>" alt="" class="logo" />
-						<div class="team-name"><%= match[0].teamName %></div>
+						<img
+							src="../images/<%= match[0].image %>"
+							alt=""
+							class="logo"
+						/>
+						<div class="team-name">
+							<%= match[0].teamName %>
+						</div>
 					</div>
 
 					<div class="spinBox">
@@ -18,8 +25,9 @@
 							class="up"
 							type="button"
 						></button>
-						<input type="number" min="0" step="10" value="0" id=<%=
-						match[0].teamName %> />
+						<input type="number" min="0"
+						step="10" value="0" name=<%=
+						match[0].teamID %> />
 						<button
 							onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
 							class="down"
@@ -37,8 +45,9 @@
 							class="up"
 							type="button"
 						></button>
-						<input type="number" min="0" step="10" value="0" id=<%=
-						match[1].teamName %> />
+						<input type="number" min="0"
+						step="10" value="0" name=<%=
+						match[1].teamID %> />
 						<button
 							onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
 							class="down"
@@ -47,8 +56,14 @@
 					</div>
 
 					<div class="team">
-						<img src="../images/<%= match[1].image %>" alt="" class="logo" />
-						<div class="team-name"><%= match[1].teamName %></div>
+						<img
+							src="../images/<%= match[1].image %>"
+							alt=""
+							class="logo"
+						/>
+						<div class="team-name">
+							<%= match[1].teamName %>
+						</div>
 					</div>
 				</div>
 				<% }) %> <% }) %>
