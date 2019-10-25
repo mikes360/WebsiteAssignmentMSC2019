@@ -4,19 +4,23 @@
     <h1>Register</h1>
     <div class="container">
         <h1>Register</h1>
-        <form action="/api/user" method="POST">
+        <form class="formfield" action="/api/user" method="POST" onsubmit="addUser()">
             First name<br>
-            <input type="text" name="firstname">
+            <input type="text" name="firstname" value="<%= user.firstname %>">
+            <div class="error" id="firstnameerror"><%= firstnameerror %></div>
             <br>Last name<br>
-            <input type="text" name="lastname">
-            <br>User name<br>
-            <input type="text" name="username">
+            <input type="text" name="lastname" value="<%= user.lastname %>">
+            <div class="error"><%= lastnameerror %></div>
+            <br>Username<br>
+            <input type="text" name="username" value="<%= user.username %>">
+            <div class="error"><%= usernameerror %></div>
             <br>Password<br>
-            <input type="text" name="password">
+            <input type="text" name="password" value="<%= user.password %>">
+            <div class="error"><%= passworderror %></div>
             <br>Email<br>
-            <input type="text" name="email">
+            <input type="email" name="email" value="<%= user.email %>" placeholder="example@email.com">
+            <div class="error"><%= emailerror %></div>
             <br>
-            <div class="error"><%= error %></div>
             <input type="submit" value="Submit">
         </form>
     </div>

@@ -1,0 +1,59 @@
+{
+    "_id": "5da9be1bd865f81d8c74fbba",
+    "firstname": "Jane",
+    "lastname": "Doe",
+    "username": "janedoe356",
+    "password": "banana356",
+    "email": "jane.doe@email.com",
+    "games": [
+        {
+            "gameID": 2,
+            "predictions": {
+                "goldenSnitchTime": 5,
+                "scores": [
+                    [
+                        100,
+                        30
+                    ],
+                    [
+                        60,
+                        40
+                    ],
+                    [
+                        65,
+                        223
+                    ],
+                    [
+                        121,
+                        123
+                    ],
+                    [
+                        134,
+                        453
+                    ],
+                    [
+                        36,
+                        219
+                    ]
+                ]
+            }
+        },
+        {
+            "gameID": 1,
+            "predictions": {
+                "goldenSnitchTime": 5,
+                "scores": [
+                    [
+                        100,
+                        30
+                    ],
+                    [
+                        60,
+                        40
+                    ]
+                ]
+            },
+            "predictionScore": 350
+        }
+    ]
+}

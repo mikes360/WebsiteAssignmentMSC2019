@@ -126,5 +126,60 @@ Also tidied up the html of the matches on the main.ejs page so that they're not 
 
 Merge of Gemmas work from branch to master. There was a little bug where the client side js was not being included with ejs which i have fixed by including in in head.ejs
 
-edit* moved users.json, removed betting page and made main page render matches from databse
+edit\* moved users.json, removed betting page and made main page render matches from databse
 
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Gemma
+
+Reformatted the error messages on register.ejs
+
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Mike Knight
+
+Added a game module with a timer that will fire when the matches are set to start. This will invoke the main game logic of the website.
+
+Fixed a small bug where clicking the home page went to the wrong route.
+
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Sully
+
+Added a updated_user.json with a example model for user predictions and results.
+
+//---------------------------------------------------------------------------
+
+21-Oct-2019 Mike Knight
+
+Made some changes to authentication, added a logout API and hooked it up to the nav bar. The API basically clears the access_token cookie.
+
+Moved the JWT secret to an env vairable, it should ideally go in env.secret but its fine for this protoype and makes it available system wide.
+
+General tidy up of the authenticate module.
+
+//---------------------------------------------------------------------------
+
+22-Oct-2019 Gemma
+
+Register page now displays error message if fields are left blank, but customer information remains in any fields that have already been filled in
+
+//---------------------------------------------------------------------------
+
+24-Oct-2019 Gemma
+
+game.js has been set up by Michael and I'm trying to add some game logic that allows a random score to be generated in multiples of 10 (as per quidditch rules), and the score should be weighted by the skill level of the team (skill level between 0 and 1), so that multiplying the score by the skill level gives an overall weighted score, which can then be returned to the results page.
+
+I've also added a Golden Snitch section to the betting/matches page as that it something we wanted to add.
+
+Some of the team logos have had their background removed/turned transparent just in case we want a coloured background
+
+Tweaked some of the css but still can't get the divs to align properly on betting/matches page
+
+//---------------------------------------------------------------------------
+
+24-Oct-2019 Mike Knight
+
+Added a new getUsername API in the authenticate module. This extracts the username string from the encrypted JTW token and returns it.
+
+If the returned string is null it means the user is not logged in. If you get a valid string you can assume the user is authenticated.

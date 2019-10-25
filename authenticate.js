@@ -1,42 +1,55 @@
-const jwt = require('jsonwebtoken');
-
-const controller = require('./controller');
+const jwt = require("jsonwebtoken")
+const controller = require("./controller")
 
 async function login(app, req, res) {
-	let username = req.query.username;
-	let password = req.query.password;
 
-	let userJson = await controller.getUser(app, username);
+  let username = req.query.username;
+  let password = req.query.password;
+  let userJson = await controller.getUser(app, username)
 
-	if (userJson != null && password === userJson.password) {
-		const opts = {}; //the password compare would normally be done using bcrypt.
-		opts.expiresIn = 600; //token expires in 2min
-		const secret = 'SECRET_KEY'; //normally stored in process.env.secret
-		const token = jwt.sign({ username }, secret, opts);
+  if (userJson != null && password === userJson.password) {
 
-		res.cookie('access_token', token, {
-			maxAge: 1000 * 30,
-			httpOnly: true,
-			username: username
-		});
+    const token = jwt.sign({ username: username }, process.env["AUTHENTICATE_KEY"], {expiresIn: 3600})
 
-		return res.status(200).json({ message: 'Auth Passed', token });
-	}
-	return res.status(401).json({ message: 'Auth Failed' });
+    res.cookie("access_token", token, { httpOnly: true })
+    return res.status(200).json({ message: "Auth Passed", token })
+  }
+  return res.status(401).json({ message: "Auth Failed" })
 }
 
-function isAuthenticated(req, res) {
-	let authenticated = false; //can change temporarily to true to login
-	let token = req.cookies.access_token;
-	if (token) {
-		jwt.verify(token, 'SECRET_KEY', (err, decoded) => {
-			if (!err) {
-				authenticated = true;
-				return res;
-			}
-		});
-	}
-	return authenticated;
+function logout(res) {
+  res.clearCookie("access_token")
 }
 
-module.exports = { login, isAuthenticated };
+function isAuthenticated(req) {
+  return getDecodedJWTToken(req) != null
+}
+
+function getUsername(req) {
+  let username = null
+  let token = getDecodedJWTToken(req);
+  if(token) {
+    username = token.username
+  }
+  return username;
+}
+
+function getDecodedJWTToken(req) {
+  let decoded = null
+  let token = req.cookies.access_token
+
+  if (token) {
+    jwt.verify(token, process.env["AUTHENTICATE_KEY"], (err, testDecode) => {
+      if (err) {
+        console.log("Error getting data from token " + err);
+      }
+      else {
+        decoded = testDecode;
+      }
+    })
+  }
+  return decoded;
+}
+
+
+module.exports = { login, logout, isAuthenticated, getUsername }
