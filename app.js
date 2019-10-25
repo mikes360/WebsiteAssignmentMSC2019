@@ -3,7 +3,7 @@ const routes = require('./routes');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 
-process.env["AUTHENTICATE_KEY"] = "devKey" // should be stored more securely in production env
+process.env["AUTHENTICATE_KEY"] = "devKey"; // should be stored more securely in production env
 
 const app = express();
 const path = require('path');
@@ -25,8 +25,8 @@ app.listen(3000);
 
 console.log('Express on 3000');
 
-console.log("Setting up game module")
+console.log("Setting up game module");
 const game = require("./game");
-game.startGame(app)
+game.startGame(app);
 
 module.exports = app;

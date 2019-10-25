@@ -183,3 +183,11 @@ Tweaked some of the css but still can't get the divs to align properly on bettin
 Added a new getUsername API in the authenticate module. This extracts the username string from the encrypted JTW token and returns it.
 
 If the returned string is null it means the user is not logged in. If you get a valid string you can assume the user is authenticated.
+
+//---------------------------------------------------------------------------
+
+25-Oct-2019 Gemma
+
+game.js now contains some basic functions including creating a random score, taking an array of predicted scores and actual scores and converting it to a userscore array. The idea is to eventually have this userscore updated each week to form a grand total for each user, which can then be compared on a leaderboard.
+
+Note: Some of the team logos have also been updated to pngs with transparent background in case we wanted coloured backgrounds on our website - it's worth dropping your teams database on MongoDB and re-importing it as the teams json found on this master commit, and then any disappearing team logos should reappear!

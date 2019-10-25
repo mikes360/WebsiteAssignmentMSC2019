@@ -10,50 +10,74 @@ function startGame(app) {
 }
 
 async function gameLogic(app) {
+  // array to hold results
+  let results = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+
+  // build some results
+  for (var i = 0; i < results.length; i++) {
+    results[i][0] = createMatchScore(100, 200);
+    results[i][1] = createMatchScore(100, 200);
+  }
+
+  // get users
   let users = await controller.getUsers(app);
-  let game = await controller.getGame(app);
 
-  // create random scores
-  var createWeightedScores = function(min_score, max_score, weight, rand, getTeamSkill) {
-    let min_score = 0;
-    let max_score = 100;
-    let snitch_points = 150;
-    //team with more skill likely to catch snitch, adds 150 to team score
-    let weight = teamSkill;
-    //skill number is already in teams DB array, and will 'weight' the random scores
-    //so that a higher skilled team is likely to score higher
+  for (var i = 0; i < users.length; i++) {
+    let user = users[i];
 
-    //generates random number between min_score and max_score in multiples of 10 as per
-    //quidditch points scoring system
-    var rand = function(min_score, max_score) {
-      return Math.floor(Math.round((Math.random() * (max_score - min_score + 1)) / 10) * 10);
-    };
+    // calculate users scores
+    let userScores = getUserScores(user, results);
+    console.log("User " + user.username + " scores " + userScores);
 
-    //gets the skill number/weight from both teams that will be in a match
-    //skill number is a decimal number between 0 and 1
-    var teamSkill = function getTeamSkill(app, skill) {
-      let DB_ALIAS = "myDb";
-      return app
-        .set(DB_ALIAS)
-        .collection("team")
-        .findOne({ skill });
-    };
+    // TODO: store them in the user object
+    // user.grandtotal += score[0] + score[1]
+    // user.grandTotal += snitchTimeScore
+    // user.gamedata[2].results = results
+    // user.gamedata[id].scores = userScores
+    // await controller.updateUser(app, user)
+  }
+}
 
-    //multiply skill number/weight by random score, rounded to multiples of 10
-    var weightedScore = Math.round(((rand * teamSkill) / 10) * 10);
+function createMatchScore(min, max) {
+  let score = getRandomInt(min, max);
+  return score;
+}
 
-    //to weightedScore, snitch points are added randomly but more probably to higher
-    //skilled team
-    
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
-    //for team in match
-    match[0].team1.createWeightedScores(weightedScore);
-    match[0].team2.createWeightedScores(weightedScore);
+function getUserScores(user, results) {
+  let predictions = getUserPredictions(user);
 
-    //and then map the createWeightedScore to the match table online?
-  };
+  // loop round the results and calculate score for each match based on a point system
+  let userScores = [0, 0, 0, 0, 0, 0];
 
-  console.log("gameLogic - Executed");
+  for (var i = 0; i < predictions.length; i++) {
+    let matchScore = 0; // calculate score
+    let prediction = predictions[i]; // [160, 200]
+    let result = results[i]; // [160, 200]
+
+    if (result[0] === prediction[0]) {
+      matchScore += 10;
+    }
+    if (result[1] === prediction[1]) {
+      matchScore += 10;
+    }
+    if (result[0] === prediction[0] && result[1] === prediction[1]) {
+      matchScore += 10;
+    }
+
+    userScores[i] = matchScore;
+  }
+  return userScores;
+}
+
+function getUserPredictions(user) {
+  // user.gamedata[0].predictions;
+  let results = [[10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120]];
 }
 
 module.exports = { startGame, gameLogic };
