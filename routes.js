@@ -28,6 +28,29 @@ module.exports = app => {
 	});
 
 	router.post('/api/user/predictions', async (req, res) => {
+
+		// 27-Oct-2019 - Mike Knight
+		// This is a sample bit of code for ben to demo, how to reformat  
+		// the scores from the formData and store them in the database
+
+		/*let username = authenticate.getUsername(req)
+		if(username) {
+			// if we can get a username it means they are already 
+			//authenticated as they have a valid JWT token
+
+			let formData = req.body
+			let keys = Object.keys(formData);
+			let matchPredictions = new Array(keys.length / 2);
+	
+			for (var i = 0; i < matchPredictions.length; i++) {
+				matchPredictions[i] = [ formData[keys[i*2]], formData[keys[(i*2)+1]] ]
+			}
+
+			let user = await controller.getUser(app, username)
+			user.games[0].matchPredictions = matchPredictions
+			await controller.updateUser(app, user)
+		}*/
+		
 		if (authenticate.isAuthenticated(req)) {
 			let userScores = req.body;
 

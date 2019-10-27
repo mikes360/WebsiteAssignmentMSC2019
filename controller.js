@@ -2,32 +2,40 @@ let DB_URL = 'mongodb://localhost:27017';
 let DB_NAME = 'quidditch';
 let DB_ALIAS = 'myDb';
 
+let USERS_COLLECTION = "users";
+
 const MongoClient = require('mongodb').MongoClient;
 
-//connection to the user database
+//connection to the database
 async function connect(app) {
-	MongoClient.connect(
-		DB_URL,
-		{ useNewUrlParser: true, useUnifiedTopology: true },
-		(err, client) => {
-			app.set(DB_ALIAS, client.db(DB_NAME));
-		}
-	);
+
+	return new Promise(function(resolve) {
+		MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+			if(err) {
+				resolve(false)
+			}
+			else {
+				app.set(DB_ALIAS, client.db(DB_NAME));
+				resolve(true)
+			}
+		})
+	})
 }
 
 async function getUsers(app) {
-	return app
-		.set(DB_ALIAS)
-		.collection('users')
-		.find({})
-		.toArray();
+	return app.set(DB_ALIAS).collection(USERS_COLLECTION).find({}).toArray()
 }
 
-async function getUser(app, name) {
-	return app
-		.set(DB_ALIAS)
-		.collection('users')
-		.findOne({ username: name });
+async function getUser(app, username) {
+	return app.set(DB_ALIAS).collection(USERS_COLLECTION).findOne({ username: username })
+}
+
+async function updateUser(app, user) {
+	return app.set(DB_ALIAS).collection(USERS_COLLECTION).replaceOne({username: user.username}, user)
+}
+
+async function getTeams(app) {
+	return app.set(DB_ALIAS).collection('team').find({}).toArray();
 }
 
 async function addUser(app, nu, res) {
@@ -114,14 +122,6 @@ async function addUserPredictions(app, up, res) {
 	});
 }
 
-async function getTeams(app) {
-	return app
-		.set(DB_ALIAS)
-		.collection('team')
-		.find({})
-		.toArray();
-}
-
 async function getGame(app) {
 	let game = await app
 		.set(DB_ALIAS)
@@ -152,5 +152,6 @@ module.exports = {
 	addUser,
 	getTeams,
 	getGame,
-	addUserPredictions
+	addUserPredictions,
+	updateUser
 };

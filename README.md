@@ -14,13 +14,13 @@ The router maps /login to this api and the username and password is parsed from 
 
 The router can use this API to authenticate access to restricted resources. For now, I have set this to anything in the new user directory I have created. I have moved the betting page into this directory which means you now need to be logged in to see that page. If you are not authenticated it redirects the client to the login screen.
 
-\*\* Client-side changes
+Client-side changes
 
 I have added a basic login screen and some client-side java script to call the server login API when you click the login button. It then redirects you to the index page. The session currently only lives for 30 seconds before it expires this is just to allow us to easily see and test that expiry logic for now.
 
-\*\*\*\* The username and password for logging in is bob and pass. This is currently hardcoded and needs to come from a database instead. I wanted to keep it really simple for now and once everyone understands someone else can maybe use the controller to grab and validate the user properly.
+The username and password for logging in is bob and pass. This is currently hardcoded and needs to come from a database instead. I wanted to keep it really simple for now and once everyone understands someone else can maybe use the controller to grab and validate the user properly.
 
-\*\* Controller module started
+Controller module started
 
 I have started a controller module that encapsulates all the database code and has a couple of APIs for getting users. This under the hood is just using the films database example for the labs and needs changing for our own collection of users but its just to show how it can be done. Again, maybe someone else can enhance implement this further?
 
@@ -191,3 +191,19 @@ If the returned string is null it means the user is not logged in. If you get a 
 game.js now contains some basic functions including creating a random score, taking an array of predicted scores and actual scores and converting it to a userscore array. The idea is to eventually have this userscore updated each week to form a grand total for each user, which can then be compared on a leaderboard.
 
 Note: Some of the team logos have also been updated to pngs with transparent background in case we wanted coloured backgrounds on our website - it's worth dropping your teams database on MongoDB and re-importing it as the teams json found on this master commit, and then any disappearing team logos should reappear!
+
+//---------------------------------------------------------------------------
+
+27-Oct-2019 Mike Knight
+
+Moved all code from app.js into a new server module. This is because await is not allowed in the top level script and we need to await on the database connection before running the rest of the code. If you dont you can get into a position where modules are trying to access collections before the database connection is established. I also changed the connect function in the controller module to return a boolean promice that can be awaited on.
+
+Made some simplifications to the data model for the user. This new format is in updated user.json. I would recommend inporting this single user into the databse for you intitial state as the rest of the code assumes the data model is in that format.
+
+Made the game module work with the data from the user collection instead of dummy data. 
+
+Wrote a some code for Ben to help him with getting the predictions from the form data into the user in the database.
+
+NOTE: Some work needs to be done on registration to create the games collection on a new user before inserting them into the databse.
+
+//---------------------------------------------------------------------------

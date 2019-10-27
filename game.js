@@ -11,12 +11,12 @@ function startGame(app) {
 
 async function gameLogic(app) {
   // array to hold results
-  let results = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+  let matchResults = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 
   // build some results
-  for (var i = 0; i < results.length; i++) {
-    results[i][0] = createMatchScore(100, 200);
-    results[i][1] = createMatchScore(100, 200);
+  for (var i = 0; i < matchResults.length; i++) {
+    matchResults[i][0] = createMatchScore(100, 200)
+    matchResults[i][1] = createMatchScore(100, 200)
   }
 
   // get users
@@ -26,15 +26,14 @@ async function gameLogic(app) {
     let user = users[i];
 
     // calculate users scores
-    let userScores = getUserScores(user, results);
-    console.log("User " + user.username + " scores " + userScores);
+    let userMatchScores = getMatchScores(user, matchResults)
+    console.log("User " + user.username + " scores " + userMatchScores)
 
-    // TODO: store them in the user object
-    // user.grandtotal += score[0] + score[1]
-    // user.grandTotal += snitchTimeScore
-    // user.gamedata[2].results = results
-    // user.gamedata[id].scores = userScores
-    // await controller.updateUser(app, user)
+    // save the scores in the user json
+    user.games[0].matchScores = userMatchScores
+    user.games[0].matchResults = matchResults
+
+    await controller.updateUser(app, user)
   }
 }
 
@@ -49,16 +48,16 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function getUserScores(user, results) {
-  let predictions = getUserPredictions(user);
+function getMatchScores(user, results) {
+  let predictions = user.games[0].matchPredictions
 
   // loop round the results and calculate score for each match based on a point system
   let userScores = [0, 0, 0, 0, 0, 0];
 
   for (var i = 0; i < predictions.length; i++) {
     let matchScore = 0; // calculate score
-    let prediction = predictions[i]; // [160, 200]
-    let result = results[i]; // [160, 200]
+    let prediction = predictions[i];
+    let result = results[i]; 
 
     if (result[0] === prediction[0]) {
       matchScore += 10;
@@ -73,11 +72,6 @@ function getUserScores(user, results) {
     userScores[i] = matchScore;
   }
   return userScores;
-}
-
-function getUserPredictions(user) {
-  // user.gamedata[0].predictions;
-  let results = [[10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120]];
 }
 
 module.exports = { startGame, gameLogic };
