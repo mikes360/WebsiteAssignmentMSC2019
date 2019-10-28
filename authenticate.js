@@ -5,16 +5,29 @@ async function login(app, req, res) {
 
   let username = req.query.username;
   let password = req.query.password;
-  let userJson = await controller.getUser(app, username)
+  let user = await controller.getUser(app, username)
 
-  if (userJson != null && password === userJson.password) {
-
-    const token = jwt.sign({ username: username }, process.env["AUTHENTICATE_KEY"], {expiresIn: 3600})
-
-    res.cookie("access_token", token, { httpOnly: true })
-    return res.status(200).json({ message: "Auth Passed", token })
+  let result = {
+    success: false,
+    usernameError: null,
+    passwordError: null
   }
-  return res.status(401).json({ message: "Auth Failed" })
+
+  if(user) {
+    if(password === user.password) {
+      const token = jwt.sign({ username: username }, process.env["AUTHENTICATE_KEY"], {expiresIn: 3600})
+      res.cookie("access_token", token, { httpOnly: true })
+      result.success = true
+    }
+    else {
+      result.passwordError = "* Password incorrect"
+    }
+  }
+  else {
+    result.usernameError = "* Invalid username"
+  }
+  return res.status(200).json(result)
+ // return res.status(401).json({ message: "Auth Failed" })
 }
 
 function logout(res) {

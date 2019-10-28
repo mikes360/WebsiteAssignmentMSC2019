@@ -1,15 +1,23 @@
-//Login
+
 function login() {
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
+  
+  let username = document.getElementById("username").value
+  let password = document.getElementById("password").value
+  let url = "/api/login?username=" + username + "&password=" + password
 
-  let url = "/api/login?username=" + username + "&password=" + password;
+  fetch(url).then((response) => { return response.json() }).then((json) => {
 
-  var myCall = fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      window.location.href = "/";
+      if(json.success) {
+        window.location.href = "/"
+      }
+      else {
+        if(json.usernameError) {
+          document.getElementById("usernameError").innerHTML = json.usernameError
+        }
+        if(json.passwordError) {
+          document.getElementById("passwordError").innerHTML = json.passwordError
+        }
+      }
+
     });
 }

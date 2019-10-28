@@ -207,3 +207,9 @@ Wrote a some code for Ben to help him with getting the predictions from the form
 NOTE: Some work needs to be done on registration to create the games collection on a new user before inserting them into the databse.
 
 //---------------------------------------------------------------------------
+
+28-Oct-2019 Mike Knight
+
+Made some changes to login screen to display errors like the registration page. This is done client side however to demonstrate use of ajax within the website.
+
+//---------------------------------------------------------------------------
