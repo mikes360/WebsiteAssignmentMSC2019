@@ -25,58 +25,46 @@ module.exports = app => {
     controller.addUser(app, nu, res);
   });
 
-	router.post('/api/user/predictions', async (req, res) => {
-
+    router.post('/api/user/predictions', async (req, res) => {
 		// 27-Oct-2019 - Mike Knight
-		// This is a sample bit of code for ben to demo, how to reformat  
+		// This is a sample bit of code for ben to demo, how to reformat
 		// the scores from the formData and store them in the database
 
-		/*let username = authenticate.getUsername(req)
-		if(username) {
-			// if we can get a username it means they are already 
-			//authenticated as they have a valid JWT token
+		let username = authenticate.getUsername(req);
+		if (username) {
+			let formData = req.body;
 
-			let formData = req.body
-			let keys = Object.keys(formData);
-			let matchPredictions = new Array(keys.length / 2);
-	
-			for (var i = 0; i < matchPredictions.length; i++) {
-				matchPredictions[i] = [ formData[keys[i*2]], formData[keys[(i*2)+1]] ]
+			let formKeys = Object.keys(formData);
+			let i = 0;
+			let userPrediction = new Array(formKeys.length / 2);
+
+			for (i; i < userPrediction.length; i++) {
+				userPrediction[i] = [
+					formData[formKeys[i * 2]],
+					formData[formKeys[i * 2 + 1]]
+				];
 			}
 
-			let user = await controller.getUser(app, username)
-			user.games[0].matchPredictions = matchPredictions
-			await controller.updateUser(app, user)
-		}*/
-		
-		if (authenticate.isAuthenticated(req)) {
-			let userScores = req.body;
+			let user = await controller.getUser(app, username);
+			user.games.userPrediction = userPrediction;
 
-      let matches = Object.values(userScores);
-      console.log(matches);
-      let userPrediction = "";
-      let i = 0;
+			let up = {
+				games: [
+					{
+						gameID: 1,
+						matchPredictions: userPrediction
+					}
+				]
+			};
 
-      for (i = 0; i < 3; i++) {
-        userPrediction[i] = matches.slice(i, i++);
-        console.log([userPrediction[i]]);
-      }
-
-      let up = {
-        $set: {
-          game: [{ gameID: 1 }, [matches]]
-        }
-      };
-
-      console.log(up);
-      res.redirect("/");
-      controller.addUserPredictions(app, up, res);
-    } else {
-      res.redirect("/");
-      console.info("Session ran out");
-    }
-  });
-
+			res.redirect('/');
+			controller.addUserPredictions(app, up, user, res);
+		} else {
+			res.redirect('/');
+			console.info('Session ran out');
+		}
+	});
+    
   //Access main ejs page when clicking on Super6 button
   router.get("/", async (req, res) => {
     let meme = await controller.getGame(app);
