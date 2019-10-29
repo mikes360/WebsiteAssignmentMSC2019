@@ -230,4 +230,18 @@ Updated addUserPredictions with the help of Mike's script. User predictions now 
 
 NOTE: Going to be working on a "gameRound" function, to help set a global round so all users are posting their results to the same gameID. (at the moment they are all posting to "gameID: 1")
 
+//---------------------------------------------------------------------------
+
+29-Oct-2019 Mike Knight
+
+Created a new databaseInitialiser module that runs on server start and sets up ModgoDB with the content of our data directory. I have tweaked the json to match what the code expects. 
+
+By default it will recreate the database every time you start the server but you can tun this off if you want to persist new users you have created for example. 
+
+To turn this off change this 'server.runServer(3000, true)' to this 'server.runServer(3000, false') in app.js
+
+I have added a new function called prependNewGameData to the controller module which is used when registering a new user to add a initial game for them to place predictions on. I have also added it into the gameLogic function so once the users scores have been calculated for the current game a new object for the next game will be created.
+
+
+
 

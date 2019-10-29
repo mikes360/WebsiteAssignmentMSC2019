@@ -11,8 +11,9 @@ const routes = require('./routes');
 
 // module that provides access to databse through a simple API
 const controller = require('./controller');
+const initialiser = require("./databaseInitialiser")
 
-async function runServer(port){
+async function runServer(port, initDatabase){
 
     // JTW key. Should be stored more securely in production env
     process.env["AUTHENTICATE_KEY"] = "devKey" 
@@ -23,6 +24,11 @@ async function runServer(port){
     console.log("Connecting to database")
     if(await controller.connect(app)) {
         console.log("conected to database")
+        if(initDatabase) {
+            console.log("initDatabase=true - calling setupDatabase to setup default database collections")
+            await initialiser.setupDatabase(app)
+        }
+        
     
         //setting up view engine
         app.set('views', path.join(__dirname, 'views'));
