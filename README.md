@@ -200,7 +200,7 @@ Moved all code from app.js into a new server module. This is because await is no
 
 Made some simplifications to the data model for the user. This new format is in updated user.json. I would recommend inporting this single user into the databse for you intitial state as the rest of the code assumes the data model is in that format.
 
-Made the game module work with the data from the user collection instead of dummy data. 
+Made the game module work with the data from the user collection instead of dummy data.
 
 Wrote a some code for Ben to help him with getting the predictions from the form data into the user in the database.
 
@@ -213,3 +213,11 @@ NOTE: Some work needs to be done on registration to create the games collection 
 Made some changes to login screen to display errors like the registration page. This is done client side however to demonstrate use of ajax within the website.
 
 //---------------------------------------------------------------------------
+
+29-Oct-2019 Gemma
+
+Added some more game logic with Mike's help, 150 snitch points are now randomly assigned to one team per match (recommended that this is eventually weighted using team's skill advantage)
+
+A user's total score is now updated to add points for correctly guessing the time the first snitch is caught and the first team to catch the snitch in any match within a game
+
+I'm also trialling adding some more design stuff to the main page and changing the css styling of the spinbox arrows to something more suitable e.g. icons (Ben is also looking into this)
