@@ -221,3 +221,13 @@ Added some more game logic with Mike's help, 150 snitch points are now randomly 
 A user's total score is now updated to add points for correctly guessing the time the first snitch is caught and the first team to catch the snitch in any match within a game
 
 I'm also trialling adding some more design stuff to the main page and changing the css styling of the spinbox arrows to something more suitable e.g. icons (Ben is also looking into this)
+
+//---------------------------------------------------------------------------
+
+29-Oct-2019 Ben
+
+Updated addUserPredictions with the help of Mike's script. User predictions now post in the ccrrect format to the the user's document in the users collection.
+
+NOTE: Going to be working on a "gameRound" function, to help set a global round so all users are posting their results to the same gameID. (at the moment they are all posting to "gameID: 1")
+
+
