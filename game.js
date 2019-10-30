@@ -63,8 +63,6 @@ function createMatchScore(min, max) {
 
 function getRandomInt(min, max) {
 	return Math.floor((Math.random() * (max - min + 1) + min) / 10) * 10;
-	//Both max and min scores are inclusive
-	//Returns integer score in multiples of 10
 }
 
 function getMatchScores(user, results) {

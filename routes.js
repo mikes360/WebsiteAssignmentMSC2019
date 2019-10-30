@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const controller = require("./controller");
-
 const authenticate = require("./authenticate");
-var path = require("path");
+const liveGame = require("./liveGame");
 
 module.exports = app => {
   router.get("/api/logout", (req, res) => {
@@ -95,6 +94,28 @@ module.exports = app => {
       res.redirect("/login");
     }
   });
+
+  router.get("/live" , async (req, res) => {
+
+    let results = liveGame.getResults()
+    let game = await controller.getGame(app);
+
+    for(var i = 0; i < game[0].matches.length; i++) {
+      game[0].matches[i][0].score = results[i][0]
+      game[0].matches[i][1].score = results[i][1]
+    }
+    
+      
+    console.log('results ' + results)
+
+    return res.render("live", {
+      loggedIn: authenticate.isAuthenticated(req),
+      title: "live view",
+      meme: game,
+      results: results
+    });
+    //return res.json(results);
+  })
 
   //Access register (ejs) page from home page
   router.get("/register", async (req, res) => {

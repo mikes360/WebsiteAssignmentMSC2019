@@ -21,3 +21,8 @@ function login() {
 
     });
 }
+
+function reload() {
+  location.reload()
+  //fetch("/live")
+}

@@ -261,3 +261,13 @@ Some other issues that need fixing:
 = For the matches, table-rows needs to be formed of 2 matches each, so there should be 3 table-rows consisting of 2 matches. Because of the ejs for loop, table-rows is currently 1 row holding all six matches!
 = Some UI stuff like adding a banner at the top of the page saying "thank you for registering" once people have registered
 =Some UI stuff like adding people's usernames at the top of the navbar once they've logged in
+
+//---------------------------------------------------------------------------
+
+30-Oct-2019 Mike Knight
+
+Created a beta live view - This is a next potential evolution of the game logic where instead of final scores being instantly calculated they are incrementally created over a longer period to simulate a real set of games being played. 
+
+Currently I have just created a module that increments scores randomly every two seconds and provides the reuslts via an API. These results are blended with the game data model and rendered using EJS to show the results for each team. 
+
+A client side timer is used to refresh the page every 3 seconds which creates the live updating.

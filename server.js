@@ -5,6 +5,7 @@ const path = require('path');
 
 // module containing main game logic
 const game = require("./game");
+const liveGame = require("./liveGame")
 
 // module that handles server routing
 const routes = require('./routes');
@@ -45,6 +46,7 @@ async function runServer(port, initDatabase){
         
         console.log("Setting up game module")
         game.startGame(app)
+        liveGame.startGame(app)
     }
     else {
         console.log("Unable to connect to database, server will not start.")
