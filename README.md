@@ -234,14 +234,30 @@ NOTE: Going to be working on a "gameRound" function, to help set a global round 
 
 29-Oct-2019 Mike Knight
 
-Created a new databaseInitialiser module that runs on server start and sets up ModgoDB with the content of our data directory. I have tweaked the json to match what the code expects. 
+Created a new databaseInitialiser module that runs on server start and sets up ModgoDB with the content of our data directory. I have tweaked the json to match what the code expects.
 
-By default it will recreate the database every time you start the server but you can tun this off if you want to persist new users you have created for example. 
+By default it will recreate the database every time you start the server but you can tun this off if you want to persist new users you have created for example.
 
 To turn this off change this 'server.runServer(3000, true)' to this 'server.runServer(3000, false') in app.js
 
 I have added a new function called prependNewGameData to the controller module which is used when registering a new user to add a initial game for them to place predictions on. I have also added it into the gameLogic function so once the users scores have been calculated for the current game a new object for the next game will be created.
 
+//---------------------------------------------------------------------------
 
+30-Oct-2019 Gemma
 
+Added quidditch pitch background, did some styling for the web pages - still needs some fixing
 
+Added black transparent box to better display matches and used z-index to bring the logos to the forefront so that they're not turned transparent as well
+
+Moved matches styling to matches.css from main.css, because main.css was starting to get out of hand!
+
+Added Mike's footer stylings so we now have a proper footer.
+
+Re-scaled some of the team logos so they're now all a uniform size, which should make them easier to format
+
+Some other issues that need fixing:
+= When scrolling on the page, the black box and matches scroll over the top of the nav bar and footer
+= For the matches, table-rows needs to be formed of 2 matches each, so there should be 3 table-rows consisting of 2 matches. Because of the ejs for loop, table-rows is currently 1 row holding all six matches!
+= Some UI stuff like adding a banner at the top of the page saying "thank you for registering" once people have registered
+=Some UI stuff like adding people's usernames at the top of the navbar once they've logged in

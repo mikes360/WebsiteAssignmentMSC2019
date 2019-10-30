@@ -9,6 +9,11 @@
 
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
+  background-image: url("/images/quidditch-background3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
 }
@@ -25,7 +30,7 @@ body {
 }
 
 .flash-img {
-  width: 6%;
+  width: 25px;
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
@@ -40,69 +45,37 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
-}
-
-/* Guess snitch */
-.snitch {
-  align-content: center;
-  margin: 25px auto;
-  width: 30%;
-}
-
-.snitch-title p {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.snitch-text p {
-  margin: 0 auto;
-  flex-direction: row;
-}
-
-.snitch input {
-  display: block;
-  width: 5em;
-  height: 2em;
-  padding: 0 0.25em;
-  border: 0.0625em solid rgb(224, 224, 224);
-  margin: 0 auto;
-  border-radius: 0.25em;
-  color: rgb(64, 64, 64);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  text-align: center;
-}
-
-.snitch-logo {
-  display: block;
-  max-width: 50px;
-  max-height: 50px;
-  object-fit: contain;
-  margin: 0 auto;
-  float: center;
+  width: 70%;
 }
 
 /* Matches formatting */
+.black-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 150px;
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+}
+
 .table-rows {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
+  margin-top: -140px;
+  z-index: inherit;
 }
 
 .match {
   display: flex;
-  margin-top: 16px;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin-bottom: 8px;
-  /* flex-direction: row;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  width: 100%; */
   width: 50%;
   flex: 1 1 0%;
+  z-index: 2000;
 }
 
 /*Includes logo and team name  */
@@ -116,7 +89,6 @@ body {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
-  /* width: 100%; */
   object-fit: contain;
 }
 
@@ -125,7 +97,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: auto;
   margin-top: 20%;
-  font-size: small;
+  font-size: 20%;
+  color: white;
+  font-weight: 600;
 }
 
 /* Just the "v" sign */
@@ -138,104 +112,93 @@ body {
   font-size: 14px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
+  /* margin: auto; */
+  font-weight: 600;
+  color: white;
 }
 
-/* Entire spin box container, containing input box, up arrow & down arrow */
-.spinBox {
-  position: relative;
-  display: inline-block;
-  border-radius: 0.25em;
-  box-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
-  padding: 5px;
-  margin: auto;
-}
-
-/* Below CSS effectively "hides" the ugly, non-formatable, generic spin buttons that automatically
-appear when you create the input="number" function in html */
-input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield; /*need this bc Firefox won't behave otherwise*/
-  appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-/* The box where the score predictions go */
-.spinBox input[type="number"] {
-  display: block;
-  width: 3em;
-  height: 3em;
-  padding: 0 0.25em;
-  border: 0.0625em solid rgb(224, 224, 224);
-  border-radius: 0.25em;
-  color: rgb(64, 64, 64);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
   text-align: center;
+  text-decoration: none;
+  color: white;
 }
 
-/* Keep this .spinbox button formatting: */
-.spinBox button {
-  outline: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: none;
+.footer {
+  color: white;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
-  margin: 0;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
 }
-.spinBox button.up {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  margin: 10px 10px 10px 15px;
-  vertical-align: middle;
-  background-color: transparent;
-  outline: none;
-}
-.spinBox button.down {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  margin: 10px 10px 10px 15px;
-  vertical-align: middle;
-  background-color: transparent;
-  outline: none;
-}
-/* For Desktop */
+
+/* ------------------- FOR DESKTOP FORMATTING --------------------- */
 @media only screen and (min-width: 720px) {
   .container {
     max-width: 100%;
     margin: auto;
   }
 
+  .black-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 300px;
+  }
+
   .table-rows {
     display: flex;
     flex-wrap: wrap;
+    z-index: inherit;
+    margin-top: -250px;
   }
 
   .match {
     display: flex;
-    width: 100%;
+    width: 50%;
     padding: 25px;
     margin: auto;
+    margin-top: -25px;
+    z-index: 2000;
+  }
+
+  .team-name {
+    font-size: 50%;
   }
 
   .flash-img {
-    width: 2%;
+    width: 30px;
+  }
+
+  .snitch-logo {
+    width: 40%;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
+    max-width: 60%;
+    max-height: 60%;
+    /* width: 100%; */
+    object-fit: contain;
+  }
+  .guess-snitch-team {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .quidditch-logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+  .versus {
+    margin: auto;
   }
 }

@@ -1,86 +1,86 @@
 [
-	{
-		"_id": "5d9c5a3a5320421d8c4ef7ed",
-		"teamName": "Kenmare Kestrels",
-		"teamID": 1,
-		"image": "kenmare-kestrels.png",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c607fd865f81d8c74fbae",
-		"teamName": "Caerphilly Catapults",
-		"teamID": 2,
-		"image": "caerphilly-catapults.png",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c9299d865f81d8c74fbaf",
-		"teamName": "Chudley Cannons",
-		"teamID": 3,
-		"image": "chudley-cannons-logo-1.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c92dcd865f81d8c74fbb0",
-		"teamName": "Puddlemere United",
-		"teamID": 4,
-		"image": "Puddlemere-united.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c930cd865f81d8c74fbb1",
-		"teamName": "Falmouth Falcons",
-		"teamID": 5,
-		"image": "falmouth-falcons.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c9354d865f81d8c74fbb2",
-		"teamName": "Pride of Portree",
-		"teamID": 6,
-		"image": "pride-of-portree.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c937dd865f81d8c74fbb3",
-		"teamName": "Holyhead Harpies",
-		"teamID": 7,
-		"image": "holyhead-harpies.png",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c939cd865f81d8c74fbb4",
-		"teamName": "Appleby Arrows",
-		"teamID": 8,
-		"image": "appleby-arrows.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c9433d865f81d8c74fbb5",
-		"teamName": "Wigtown Wanderers",
-		"teamID": 9,
-		"image": "wigtown-wanderers.jpg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c946bd865f81d8c74fbb6",
-		"teamName": "Montrose Magpies",
-		"teamID": 10,
-		"image": "montrose-magpies.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c949cd865f81d8c74fbb7",
-		"teamName": "Wimbourne Wasps",
-		"teamID": 11,
-		"image": "wimbourne-wasps.jpeg",
-		"skill": 0
-	},
-	{
-		"_id": "5d9c94c0d865f81d8c74fbb8",
-		"teamName": "Tutshill Tornados",
-		"teamID": 12,
-		"image": "tutshill-tornados.png",
-		"skill": 0
-	}
+  {
+    "_id": "5d9c5a3a5320421d8c4ef7ed",
+    "teamName": "Kenmare Kestrels",
+    "teamID": 1,
+    "image": "kenmare-kestrels.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c607fd865f81d8c74fbae",
+    "teamName": "Caerphilly Catapults",
+    "teamID": 2,
+    "image": "caerphilly-catapults.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c9299d865f81d8c74fbaf",
+    "teamName": "Chudley Cannons",
+    "teamID": 3,
+    "image": "chudley-cannons-logo-1.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c92dcd865f81d8c74fbb0",
+    "teamName": "Puddlemere United",
+    "teamID": 4,
+    "image": "Puddlemere-united.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c930cd865f81d8c74fbb1",
+    "teamName": "Falmouth Falcons",
+    "teamID": 5,
+    "image": "falmouth-falcons.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c9354d865f81d8c74fbb2",
+    "teamName": "Pride of Portree",
+    "teamID": 6,
+    "image": "pride-of-portree.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c937dd865f81d8c74fbb3",
+    "teamName": "Holyhead Harpies",
+    "teamID": 7,
+    "image": "holyhead-harpies.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c939cd865f81d8c74fbb4",
+    "teamName": "Appleby Arrows",
+    "teamID": 8,
+    "image": "appleby-arrows.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c9433d865f81d8c74fbb5",
+    "teamName": "Wigtown Wanderers",
+    "teamID": 9,
+    "image": "wigtown-wanderers.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c946bd865f81d8c74fbb6",
+    "teamName": "Montrose Magpies",
+    "teamID": 10,
+    "image": "montrose-magpies.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c949cd865f81d8c74fbb7",
+    "teamName": "Wimbourne Wasps",
+    "teamID": 11,
+    "image": "wimbourne-wasps.png",
+    "skill": 0
+  },
+  {
+    "_id": "5d9c94c0d865f81d8c74fbb8",
+    "teamName": "Tutshill Tornados",
+    "teamID": 12,
+    "image": "tutshill-tornados.png",
+    "skill": 0
+  }
 ]

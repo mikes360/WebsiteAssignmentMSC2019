@@ -1,0 +1,291 @@
+/* For Mobile */
+* {
+  box-sizing: border-box;
+}
+
+.h1 {
+  margin: 50px auto;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  min-width: 320px;
+  max-width: 720px;
+}
+
+.error {
+  color: red;
+}
+
+.flash-img {
+  width: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Guess snitch */
+.snitch {
+  align-content: center;
+  margin: 25px auto;
+  width: 30%;
+}
+
+.snitch-title p {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+  color: black;
+}
+
+.snitch-text p {
+  margin: 0 auto;
+  flex-direction: row;
+  font-weight: 600;
+  color: black;
+}
+
+.snitch input {
+  display: block;
+  width: 5em;
+  height: 2em;
+  padding: 0 0.25em;
+  border: 0.0625em solid rgb(224, 224, 224);
+  margin: 0 auto;
+  border-radius: 0.25em;
+  color: rgb(64, 64, 64);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.snitch-logo {
+  display: block;
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+  margin: 0 auto;
+  float: center;
+}
+
+/* Matches formatting */
+.matches-black-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 900px;
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+  margin-top: 20%;
+}
+
+.matches-table-rows {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  margin-top: -900px;
+  z-index: inherit;
+}
+
+.matches-match {
+  display: flex;
+  margin-bottom: 8px;
+  z-index: 2000;
+}
+
+/*Includes logo and team name  */
+.matches-team {
+  margin: auto;
+  width: 25%;
+}
+
+.matches-logo {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.matches-team-name {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  margin-top: 20%;
+  font-size: 70%;
+  color: white;
+  font-weight: 400;
+}
+
+/* Just the "v" sign */
+.matches-versus {
+  width: 10%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 90px;
+  font-size: 14px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  font-weight: 600;
+  color: white;
+}
+
+/* Entire spin box container, containing input box, up arrow & down arrow */
+.spinBox {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0.5;
+  border-radius: 0.25em;
+  box-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  margin: auto;
+}
+
+/* Below CSS effectively "hides" the ugly, non-formatable, generic spin buttons that automatically
+  appear when you create the input="number" function in html */
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield; /*need this bc Firefox won't behave otherwise*/
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* The box where the score predictions go */
+.spinBox input[type="number"] {
+  display: block;
+  width: 3em;
+  padding: 0 0.25em;
+  border: 0.0625em solid rgb(224, 224, 224);
+  border-radius: 0.25em;
+  color: rgb(64, 64, 64);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* Keep this .spinbox button formatting: */
+.spinBox button {
+  /* outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative; */
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+}
+.spinBox button.up {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin: 10px 10px 10px 15px;
+  vertical-align: middle;
+  background-color: transparent;
+  outline: none;
+}
+.spinBox button.down {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin: 10px 10px 10px 15px;
+  vertical-align: middle;
+  background-color: transparent;
+  outline: none;
+}
+/* For Desktop */
+@media only screen and (min-width: 720px) {
+  .container {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .matches-black-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+  }
+
+  .matches-table-rows {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: inherit;
+    margin-top: -250px;
+  }
+
+  .matches-match {
+    display: flex;
+    width: 50%;
+    padding: 25px;
+    margin: auto;
+    margin-top: -25px;
+    z-index: 2000;
+  }
+
+  .matches-team-name {
+    font-size: 100%;
+  }
+
+  .flash-img {
+    width: 30px;
+  }
+
+  .snitch-logo {
+    width: 40%;
+  }
+
+  .matches-logo {
+    display: block;
+    margin: auto;
+    max-width: 60%;
+    max-height: 60%;
+    /* width: 100%; */
+    object-fit: contain;
+  }
+  .guess-snitch-team {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spinBox {
+    position: relative;
+    display: inline-block;
+    border-radius: 0.25em;
+    box-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    margin: auto;
+  }
+
+  .versus {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
