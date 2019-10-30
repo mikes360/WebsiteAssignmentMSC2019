@@ -1,0 +1,20 @@
+<%- include('head'); %>
+<body>
+    <h1>Predictions</h1>
+  <ul>
+        <% gameData.predictions.forEach((predictions) => { %>
+            <li><%= predictions %> </li>
+            <% }) %>
+  </ul>
+  <h2> Results </h2>
+      <ul>
+          <% gameData.results.forEach((results) => { %>
+        <li><%= results %> </li>
+        <% }) %>
+      </ul>
+  <h3> Scores </h3>
+        <ul>
+            <% gameData.scores.forEach((scores) => { %>
+          <li><%= scores %> </li>
+          <% }) %>
+        </ul>

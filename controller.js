@@ -185,6 +185,14 @@ function findTeam(teams, id) {
 	}
 }
 
+async function getResults(app){
+	return app
+	.set(DB_ALIAS)
+	.collection("users")
+	.find({})
+	.toArray();
+  }
+
 module.exports = {
 	GAME_COLLECTION: GAME_COLLECTION,
 	USERS_COLLECTION: USERS_COLLECTION,
@@ -196,6 +204,7 @@ module.exports = {
 	addUser,
 	getTeams,
 	getGame,
+	getResults,
 	addUserPredictions,
 	updateUser,
 	initialiseCollection,

@@ -137,6 +137,48 @@ module.exports = app => {
     let game = await controller.getGame(app);
     return res.json(game);
   });
+   //FOR THE RESULTS PAGE
+  // router.get("/results", async (req, res) => {
+  //   if (authenticate.isAuthenticated(req)) {
+  //     let hoyeah = await controller.getResults(app);
+  //     return res.render("results", {
+  //       loggedIn: true,
+  //       title: "Results",
+  //       hoyeah: hoyeah
+  //     });
+  //   } else {
+  //     res.redirect("/login");
+  //   }
+  // });
+
+  router.get("/results", async (req, res) => {
+    let username = "janedoe356"//authenticate.getUsername(req)
+    if( username) {
+      let user = await controller.getUser(app, username)
+      
+      // this will eventually be parsed from the user object
+      //let predictions = user.gameData[0].predictions
+      let predictions = [ [10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120] ]
+      let results = [ [10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120] ]
+      let scores = [ 20, 0, 0, 0, 30, 20 ]
+      let total = 10;
+
+      let gameData = {
+        predictions: predictions,
+        results: results,
+        scores: scores,
+        total: total
+      }
+
+      return res.render("results", {
+        gameData: gameData
+      })
+    } else {
+      res.redirect("/login");
+    }
+    //let results = await controller.getUsers(app);
+    //return res.json(results);
+  });
 
   return router;
 };
