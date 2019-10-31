@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.navbar {
+  z-index: 3000;
+}
+
 .h1 {
   margin: 50px auto;
 }
@@ -14,12 +18,16 @@ body {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  /* background-size: 100% 100%; */
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 
 .container {
   width: 100%;
+  height: 100%;
   margin: auto;
   min-width: 320px;
   max-width: 720px;
@@ -49,33 +57,34 @@ body {
 }
 
 /* Matches formatting */
-.black-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  height: 150px;
-  width: 100%;
-  background: black;
-  opacity: 0.5;
-}
-
 .table-rows {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  margin-top: -140px;
+  margin: auto;
   z-index: inherit;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  background: black;
+  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
 }
 
 .match {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 8px;
   width: 50%;
   flex: 1 1 0%;
+  z-index: 2000; */
+  display: flex;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
   z-index: 2000;
+  /* border: 2px solid white; */
 }
 
 /*Includes logo and team name  */
@@ -104,7 +113,7 @@ body {
 
 /* Just the "v" sign */
 .versus {
-  width: 20px;
+  /* width: 20px;
   -webkit-box-flex: 0;
   flex-grow: 0;
   flex-shrink: 0;
@@ -112,9 +121,14 @@ body {
   font-size: 14px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  /* margin: auto; */
+  margin: auto;
   font-weight: 600;
-  color: white;
+  color: white; */
+
+  margin: auto;
+  max-width: 40%;
+  object-fit: contain;
+  display: block;
 }
 
 .fa {
@@ -131,43 +145,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 7%;
+  z-index: 3000;
 }
 
 /* ------------------- FOR DESKTOP FORMATTING --------------------- */
 @media only screen and (min-width: 720px) {
+  body {
+    background-position: unset;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
   .container {
     max-width: 100%;
     margin: auto;
-  }
-
-  .black-container {
-    display: flex;
-    flex-wrap: wrap;
-    height: 300px;
   }
 
   .table-rows {
     display: flex;
     flex-wrap: wrap;
     z-index: inherit;
-    margin-top: -250px;
+    margin-top: -5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
   }
 
   .match {
     display: flex;
-    width: 50%;
-    padding: 25px;
+    width: 40%;
+    padding: 20px;
     margin: auto;
-    margin-top: -25px;
     z-index: 2000;
   }
 
+  .team {
+    margin: auto;
+  }
+
   .team-name {
-    font-size: 50%;
+    font-size: 80%;
   }
 
   .flash-img {
@@ -181,9 +204,7 @@ body {
   .logo {
     display: block;
     margin: auto;
-    max-width: 60%;
-    max-height: 60%;
-    /* width: 100%; */
+    width: 100%;
     object-fit: contain;
   }
   .guess-snitch-team {
@@ -200,5 +221,10 @@ body {
 
   .versus {
     margin: auto;
+
+    /* display: block; */
+    margin: auto;
+    max-width: 40%;
+    object-fit: contain;
   }
 }

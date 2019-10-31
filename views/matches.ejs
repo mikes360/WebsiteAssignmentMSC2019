@@ -4,7 +4,6 @@
   <h1><%= title %></h1>
   <div class="container">
     <form action="/api/user/predictions" method="POST">
-      <div class="matches-black-container"></div>
       <div class="matches-table-rows">
         <% meme.forEach((game) => { %> <% game.matches.forEach((match) => { %>
         <div class="matches-match">
@@ -21,9 +20,7 @@
             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down" type="button"></button>
           </div>
 
-          <div class="matches-versus">
-            V
-          </div>
+          <img class="matches-versus" src="/images/broom_versus_white.png" />
 
           <div class="spinBox">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up" type="button"></button>
@@ -69,7 +66,7 @@
       </div>
 
       <div>
-        <input type="submit" value="Submit Scores" />
+        <input type="submit" value="Submit Scores" z-index="3000" />
       </div>
     </form>
   </div>
