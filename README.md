@@ -276,6 +276,6 @@ A client side timer is used to refresh the page every 3 seconds which creates th
 
 31-Oct-2019 Gemma
 
-Matches no longer scroll over navbar or footer, minor styling details fixed, added crossed brooms png to replace plain "V" sign after feedback that it wasn't that clear
+Matches no longer scroll over navbar or footer, minor styling details fixed, added crossed brooms png to replace plain "V" sign after feedback that it wasn't that clear was the V was
 
 Replaced black transparent box with simply setting table-rows as black/transparent
