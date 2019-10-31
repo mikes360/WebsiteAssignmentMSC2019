@@ -5,19 +5,23 @@
     <div class="container">
         <h1>Register</h1>
         <form class="formfield" action="/api/user" method="POST" onsubmit="addUser()">
-            First name<br>
+            <div class="formfield-title">First name</div>
             <input type="text" name="firstname" value="<%= user.firstname %>">
             <div class="error" id="firstnameerror"><%= firstnameerror %></div>
-            <br>Last name<br>
+            <br>
+            <div class="formfield-title">Last name</div>
             <input type="text" name="lastname" value="<%= user.lastname %>">
             <div class="error"><%= lastnameerror %></div>
-            <br>Username<br>
+            <br>
+            <div class="formfield-title">Username</div>
             <input type="text" name="username" value="<%= user.username %>">
             <div class="error"><%= usernameerror %></div>
-            <br>Password<br>
+            <br>
+            <div class="formfield-title">Password</div>
             <input type="text" name="password" value="<%= user.password %>">
             <div class="error"><%= passworderror %></div>
-            <br>Email<br>
+            <br>
+            <div class="formfield-title">Email</div>
             <input type="email" name="email" value="<%= user.email %>" placeholder="example@email.com">
             <div class="error"><%= emailerror %></div>
             <br>
