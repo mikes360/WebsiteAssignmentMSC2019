@@ -279,3 +279,11 @@ A client side timer is used to refresh the page every 3 seconds which creates th
 Matches no longer scroll over navbar or footer, minor styling details fixed, added crossed brooms png to replace plain "V" sign after feedback that it wasn't that clear was the V was
 
 Replaced black transparent box with simply setting table-rows as black/transparent
+
+//---------------------------------------------------------------------------
+
+31-Oct-2019 Ben
+
+Updated the addUserPredictions functions. 
+
+NOTE: If you register a new user, make sure you log out when the server crashes. The database gets re-initiallised and will delete your user data.
