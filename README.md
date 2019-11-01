@@ -301,4 +301,10 @@ Merged Sullys changes in, Split routes page in two, one for views and one for AP
 
 Made nave bar results page link to results page.
 
+//---------------------------------------------------------------------------
+
+01-Nov-2019 Mike Knight
+
+Work on game logic, mostly done, calculates snitch team too. Just needs weighted scores doing.
+
 
