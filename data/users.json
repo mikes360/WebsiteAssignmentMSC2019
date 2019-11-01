@@ -5,20 +5,19 @@
   "username": "bob",
   "password": "bob",
   "email": "bob.knigt@bobland.com",
-  "grandTotal": 1110,
+  "grandTotal": 0,
   "games": [
   {
       "gameID": -1,
       "matchPredictions": [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
       "firstGoldenSnitchTeamPrediction": 1,
-      "firstGoldenSnitchTimePrediction": 5,
+      "firstGoldenSnitchTimePrediction": 1,
 
       "matchResults": [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
       "matchScores": [-1, -1, -1, -1, -1, -1], 
       "firstGoldenSnitchTeamResult": -1,
       "firstGoldenSnitchTimeResult": -1,
       "totalScore": 0
-
     },
     {
       "gameID": 1,

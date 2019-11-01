@@ -122,32 +122,19 @@ async function addUser(app, nu, res) {
 function prependNewGameData(user) {
 	let defaultGameData = {
 		gameID: -1,
-		matchPredictions: [
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1]
-		],
+		matchPredictions: [[-1, -1], [-1, -1], [-1, -1] ,[-1, -1], [-1, -1], [-1, -1]],
 		firstGoldenSnitchTeamPrediction: -1,
 		firstGoldenSnitchTimePrediction: -1,
 
-		matchResults: [
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1],
-			[-1, -1]
-		],
+		matchResults: [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
 		matchScores: [-1, -1, -1, -1, -1, -1],
 		firstGoldenSnitchTeamResult: -1,
 		firstGoldenSnitchTimeResult: -1,
 		totalScore: 0
 	};
 
-	user.games.push(defaultGameData);
+	user.games.splice(0, 0, defaultGameData)
+	//user.games.push(defaultGameData);
 	return user;
 }
 
@@ -183,11 +170,7 @@ async function initialiseCollection(app, name, data) {
 }
 
 async function getGame(app) {
-	let game = await app
-		.set(DB_ALIAS)
-		.collection(GAME_COLLECTION)
-		.find({})
-		.toArray();
+	let game = await app.set(DB_ALIAS).collection(GAME_COLLECTION).find({}).toArray();
 	let teams = await getTeams(app);
 
 	for (var i = 0; i < game[0].matches.length; i++) {
