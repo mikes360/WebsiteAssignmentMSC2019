@@ -1,15 +1,22 @@
 const controller = require('./controller');
 
-function startGame(app) {
+function startGame(app, secondsUntillKickOff) {
 	// this needs to be set from the database
 	// get the upcoming game and set a timer to go off when the games all start
 
 	//let game = await controller.getGame(app);
 
-	setTimeout(gameLogic, 1000 * 10, app);
+	if(secondsUntillKickOff == null){
+		secondsUntillKickOff = 10;
+		// get from game 
+	}
+
+	setTimeout(gameLogic, 1000 * secondsUntillKickOff, app);
 }
 
 async function gameLogic(app) {
+
+	console.log("gameLogic - starting")
 	// array to hold results
 	let snitchCatchTime = getRandomInt(5, 30)
 	let snitchCatchTeam = 1
@@ -28,13 +35,15 @@ async function gameLogic(app) {
 	for (var i = 0; i < users.length; i++) {
 		let user = users[i]
 
-		if (user.games[0].firstGoldenSnitchTimePrediction == snitchCatchTime) {
+		if ( user.games[0].firstGoldenSnitchTeamPrediction == snitchCatchTeam) {
 			user.games[0].totalScore += 50
 		}
-
-		if ( user.games[0].firstGoldenSnitchTeamPrediction == snitchCatchTeam) {
-			user.games[0].totalScore += 20
+		
+		if (user.games[0].firstGoldenSnitchTimePrediction == snitchCatchTime) {
+			user.games[0].totalScore += 150
 		}
+
+	
 
 		// calculate users scores
 		let userMatchScores = getMatchScores(user, matchResults)

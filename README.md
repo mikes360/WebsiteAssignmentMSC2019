@@ -287,3 +287,18 @@ Replaced black transparent box with simply setting table-rows as black/transpare
 Updated the addUserPredictions functions. 
 
 NOTE: If you register a new user, make sure you log out when the server crashes. The database gets re-initiallised and will delete your user data.
+
+//---------------------------------------------------------------------------
+
+01-Nov-2019 Sully
+
+****** Make a commane sully
+//---------------------------------------------------------------------------
+
+01-Nov-2019 Mike Knight
+
+Merged Sullys changes in, Split routes page in two, one for views and one for API. Added API to start game on the fly from browser, will be used in demo.
+
+Made nave bar results page link to results page.
+
+

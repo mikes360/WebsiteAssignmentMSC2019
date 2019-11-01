@@ -8,7 +8,8 @@ const game = require("./game");
 const liveGame = require("./liveGame")
 
 // module that handles server routing
-const routes = require('./routes');
+const routes = require('./routes/viewRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 
 // module that provides access to databse through a simple API
 const controller = require('./controller');
@@ -39,13 +40,14 @@ async function runServer(port, initDatabase){
         app.use(bodyParser.json());
         app.use(cookieParser(process.env["AUTHENTICATE_KEY"]));
         app.use("/", routes(app));
+        app.use("/api/", apiRoutes(app))
         app.use(express.static("./public"));
         
         app.listen(port);
         console.log('Express on ' + port);
         
         console.log("Setting up game module")
-        game.startGame(app)
+        //game.startGame(app, 10)
         liveGame.startGame(app)
     }
     else {

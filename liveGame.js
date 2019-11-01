@@ -3,6 +3,7 @@ let matchResults = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 
 let UPDATE_INTERVAL_SECONDS = 2
 
+
 function startGame(app) {
 	setTimeout(gameLogic, 1000 * UPDATE_INTERVAL_SECONDS, app);
 }
