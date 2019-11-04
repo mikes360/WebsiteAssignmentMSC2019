@@ -1,4 +1,4 @@
-/* For Mobile */
+/* -------------------------For Mobile (first)----------------------- */
 * {
   box-sizing: border-box;
 }
@@ -15,10 +15,12 @@
   max-width: 720px;
 }
 
+/* For error messages on register page */
 .error {
   color: red;
 }
 
+/* Bolt of lightning logo in nav bar */
 .flash-img {
   width: 25px;
   margin-top: 0;
@@ -27,36 +29,51 @@
   margin-right: auto;
 }
 
-/* Guess snitch */
+/* Guess golden snitch team/time on matches page */
 .snitch {
   align-content: center;
   margin: 25px auto;
-  width: 30%;
+  width: 100%;
   z-index: inherit;
+  background: linear-gradient(180deg, rgba(143, 137, 137, 0.7) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(143, 137, 137, 0.7) 100%);
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  margin-bottom: 10%;
 }
 
 .snitch-title p {
   margin: 0 auto;
   text-align: center;
   font-weight: 600;
-  color: black;
+  color: white;
   /* z-index: 2000; */
 }
 
-.snitch-text p {
-  margin: 0 auto;
-  flex-direction: row;
+.snitch-sentence {
+  margin-left: 7%;
+  margin-right: 5%;
+}
+
+.snitch-text {
+  display: inline-block;
   font-weight: 600;
-  color: black;
+  color: white;
+}
+
+.guess-snitch-team {
+  display: inline-flex;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .snitch input {
-  display: block;
-  width: 5em;
-  height: 2em;
+  display: inline-flex;
+  width: 4em;
+  height: 1.5em;
+  margin-left: 1%;
+  margin-right: 1%;
   padding: 0 0.25em;
   border: 0.0625em solid rgb(224, 224, 224);
-  margin: 0 auto;
   border-radius: 0.25em;
   color: rgb(64, 64, 64);
   font-family: Arial, Helvetica, sans-serif;
@@ -74,8 +91,7 @@
   float: center;
 }
 
-/* Matches formatting */
-
+/* Matches */
 .matches-table-rows {
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +111,6 @@
   z-index: 2000;
 }
 
-/*Includes logo and team name  */
 .matches-team {
   margin: auto;
   width: 25%;
@@ -119,7 +134,6 @@
   font-weight: 600;
 }
 
-/* Just the "v" sign */
 .matches-versus {
   margin: auto;
   max-width: 10%;
@@ -166,17 +180,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Keep this .spinbox button formatting: */
 .spinBox button {
-  /* outline: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: none;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
-  margin: 0;
-  position: relative; */
   outline: none;
   -webkit-appearance: none;
   background-color: transparent;
@@ -210,7 +213,22 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: transparent;
   outline: none;
 }
-/* For Desktop */
+
+/* Submit button */
+.submit-betting-scores {
+  margin-left: 30%;
+  margin-bottom: 20%;
+}
+
+.submit-betting-scores input {
+  background-color: #ffc720;
+  width: 60%;
+  height: 45px;
+}
+
+
+
+/* ---------------------------For Desktop----------------------------------- */
 @media only screen and (min-width: 720px) {
   .container {
     max-width: 100%;
@@ -237,25 +255,30 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 100%;
   }
 
+  .matches-logo {
+    display: block;
+    margin: auto;
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+  }
+
   .flash-img {
     width: 30px;
+  }
+
+  .snitch {
+    width: 90%;
   }
 
   .snitch-logo {
     width: 40%;
   }
 
-  .matches-logo {
-    display: block;
-    margin: auto;
-    max-width: 60%;
-    max-height: 60%;
-    /* width: 100%; */
-    object-fit: contain;
-  }
   .guess-snitch-team {
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-flex;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
   .spinBox {
@@ -265,5 +288,16 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
     padding: 5px;
     margin: auto;
+  }
+
+  .submit-betting-scores {
+    margin-left: 45%;
+    margin-bottom: 10%;
+  }
+
+  .submit-betting-scores input {
+    background-color: #ffc720;
+    width: 25%;
+    height: 45px;
   }
 }

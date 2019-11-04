@@ -307,4 +307,10 @@ Made nave bar results page link to results page.
 
 Work on game logic, mostly done, calculates snitch team too. Just needs weighted scores doing.
 
+//---------------------------------------------------------------------------
+
+04-Nov-2019 Gemma
+
+Changed some styling on the Golden Snitch box on the matches page and made the submit button more visible. 
+
 

@@ -1,4 +1,4 @@
-/* For Mobile */
+/* -------------------------------For Mobile----------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -12,24 +12,24 @@
 }
 
 body {
+  position: relative;
   font-family: "Open Sans", helvetica, arial, sans-serif;
   background-image: url("/images/quidditch-background3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  /* background-size: 100% 100%; */
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
+/* Welcome/register banner, only appears temporarily on main page after registering etc */
 .banner {
   position: relative;
   z-index: 1;
   margin-left: auto;
-  /* margin-right: auto; */
   margin-top: 5%;
   width: 900px;
 }
@@ -129,7 +129,10 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  margin: auto;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30%;
   z-index: inherit;
   border-top: 5px solid white;
   border-bottom: 5px solid white;
@@ -138,23 +141,15 @@ body {
 }
 
 .match {
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-bottom: 8px;
-  width: 50%;
-  flex: 1 1 0%;
-  z-index: 2000; */
   display: flex;
   margin-bottom: 8px;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
   z-index: 2000;
-  /* border: 2px solid white; */
 }
 
-/*Includes logo and team name  */
+/*Team = logo and team name  */
 .team {
   margin: auto;
   width: 25%;
@@ -178,20 +173,7 @@ body {
   font-weight: 600;
 }
 
-/* Just the "v" sign */
 .versus {
-  /* width: 20px;
-  -webkit-box-flex: 0;
-  flex-grow: 0;
-  flex-shrink: 0;
-  line-height: 90px;
-  font-size: 14px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
-  font-weight: 600;
-  color: white; */
-
   margin: auto;
   max-width: 40%;
   object-fit: contain;
@@ -214,6 +196,7 @@ body {
   justify-content: center;
   position: fixed;
   bottom: 0;
+  margin-top: auto;
   width: 100%;
   height: 7%;
   z-index: 3000;
@@ -247,6 +230,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+    margin-bottom: 30%;
   }
 
   .match {
@@ -269,19 +253,11 @@ body {
     width: 30px;
   }
 
-  .snitch-logo {
-    width: 40%;
-  }
-
   .logo {
     display: block;
     margin: auto;
     width: 100%;
     object-fit: contain;
-  }
-  .guess-snitch-team {
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .quidditch-logo-img {
@@ -292,9 +268,6 @@ body {
   }
 
   .versus {
-    margin: auto;
-
-    /* display: block; */
     margin: auto;
     max-width: 40%;
     object-fit: contain;
