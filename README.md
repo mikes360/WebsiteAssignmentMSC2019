@@ -337,3 +337,5 @@ Added get team function, example usage below:
 
     let team = await controller.getTeam(app, 1)
     let team2 = await controller.getTeam(app, parseInt('2'))
+
+Game logic changed to give points for guessing winning team or draw correctly. Scores also created using skill advantage as multiplier
