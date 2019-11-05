@@ -101,6 +101,7 @@ body {
 }
 
 .error {
+  margin-top: 0;
   color: red;
 }
 
@@ -202,9 +203,16 @@ body {
   z-index: 3000;
 }
 
-.formfield-title {
+.h2 {
   color: white;
-  font-weight: 800;
+}
+
+.text-center {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
 }
 
 /* ------------------- FOR DESKTOP FORMATTING --------------------- */
@@ -273,8 +281,11 @@ body {
     object-fit: contain;
   }
 
-  .formfield {
-    width: 20%;
-    /* background: rgba(143, 137, 137, 0.8); */
+  .text-center {
+    width: 40%;
+    background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
   }
 }

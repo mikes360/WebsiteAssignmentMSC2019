@@ -3,30 +3,33 @@
     <%- include('navbar') %>
     <h1>Register</h1>
     <div class="container">
-        <h1>Register</h1>
-        <form class="formfield" action="/api/user" method="POST" onsubmit="addUser()">
-            <div class="formfield-title">First name</div>
-            <input type="text" name="firstname" value="<%= user.firstname %>">
-            <div class="error" id="firstnameerror"><%= firstnameerror %></div>
-            <br>
-            <div class="formfield-title">Last name</div>
-            <input type="text" name="lastname" value="<%= user.lastname %>">
-            <div class="error"><%= lastnameerror %></div>
-            <br>
-            <div class="formfield-title">Username</div>
-            <input type="text" name="username" value="<%= user.username %>">
-            <div class="error"><%= usernameerror %></div>
-            <br>
-            <div class="formfield-title">Password</div>
-            <input type="text" name="password" value="<%= user.password %>">
-            <div class="error"><%= passworderror %></div>
-            <br>
-            <div class="formfield-title">Email</div>
-            <input type="email" name="email" value="<%= user.email %>" placeholder="example@email.com">
-            <div class="error"><%= emailerror %></div>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
+          <!-- Bootstrap register form -->
+      <form class="text-center border border-light p-5" action="/api/user" method="POST" onsubmit="addUser()">
+        <p class="h2 mb-4">Register</p>
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- First name -->
+                <input type="text" name="firstname" value="<%= user.firstname %>" class="form-control" placeholder="First name">
+                <div class="error" id="firstnameerror"><%= firstnameerror %></div>
+            </div>
+            <div class="col">
+                <!-- Last name -->
+                <input type="text" name="lastname" value="<%= user.lastname %>" class="form-control" placeholder="Last name">
+                <div class="error"><%= lastnameerror %></div>
+            </div>
+        </div>
+        <!-- Username  -->
+        <input type="text" name="username" value="<%= user.username %>" class="form-control mb-4" placeholder="Username">
+        <div class="error"><%= usernameerror %></div>
+        <!-- Password -->
+        <input type="password" name="password" value="<%= user.password %>" class="form-control mb-4" placeholder="Password">
+        <div class="error"><%= passworderror %></div>
+        <!-- E-mail -->
+        <input type="email" name="email" value="<%= user.email %>" class="form-control mb-4" placeholder="E-mail">
+        <div class="error"><%= emailerror %></div>
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+      </form>
     </div>
     <%- include('footer'); %>
   </body>
