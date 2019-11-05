@@ -321,7 +321,7 @@ Changed the css-styled arrows to png icons and cleaned up UI layout of the match
 
 Switched the cursor to "pointer" when hovering over arrows just to give some level of response when scaling up and down the match points.
 
-Update: used bootstrap to re-format register page
+Update: used bootstrap to re-format register page and login page
 
 //---------------------------------------------------------------------------
 
