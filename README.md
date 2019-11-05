@@ -313,4 +313,12 @@ Work on game logic, mostly done, calculates snitch team too. Just needs weighted
 
 Changed some styling on the Golden Snitch box on the matches page and made the submit button more visible. 
 
+//---------------------------------------------------------------------------
+
+05-Nov-2019 Gemma
+
+Changed the css-styled arrows to png icons and cleaned up UI layout of the matches.
+
+Switched the cursor to "pointer" when hovering over arrows just to give some level of response when scaling up and down the match points.
+
 
