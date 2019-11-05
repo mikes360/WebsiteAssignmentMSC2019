@@ -59,6 +59,14 @@ async function getTeams(app) {
 		.toArray();
 }
 
+async function getTeam(app, id) {
+	return app
+		.set(DB_ALIAS)
+		.collection(TEAM_COLLECTION)
+		.findOne({ teamID: id });
+}
+
+
 async function addUser(app, nu, res) {
 	let firstnameerror = '';
 	let lastnameerror = '';
@@ -175,6 +183,7 @@ module.exports = {
 	getUser,
 	addUser,
 	getTeams,
+	getTeam,
 	getGame,
 	updateUser,
 	initialiseCollection,

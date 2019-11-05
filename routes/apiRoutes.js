@@ -39,7 +39,7 @@ module.exports = app => {
 			let formKeys = Object.keys(formData);
 			formKeys = formKeys.filter(key => key !== FIRST_GOLDEN_SNITCH_TEAM_PREDICTION && key !== FIRST_GOLDEN_SNITCH_TIME_PREDICTION)
 
-			let userPrediction = new Array(formKeys.length / 2 - 1)
+			let userPrediction = new Array(formKeys.length / 2)
 
 			for (let i = 0; i < userPrediction.length; i++) {
 				userPrediction[i] = [

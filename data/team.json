@@ -4,14 +4,14 @@
     "teamName": "Kenmare Kestrels",
     "teamID": 1,
     "image": "kenmare-kestrels.png",
-    "skill": 0
+    "skill": 0.1
   },
   {
     "_id": "5d9c607fd865f81d8c74fbae",
     "teamName": "Caerphilly Catapults",
     "teamID": 2,
     "image": "caerphilly-catapults.png",
-    "skill": 0
+    "skill": 0.2
   },
   {
     "_id": "5d9c9299d865f81d8c74fbaf",

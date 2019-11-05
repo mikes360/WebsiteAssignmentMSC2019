@@ -327,4 +327,13 @@ Update: used bootstrap to re-format register page and login page
 
 05-Nov-2019 Mike Knight
 
-Made some refinements to user predictions so the snitch predicitons and game id is stored for the user
+Made some refinements to user predictions so the snitch predicitons and game id is stroed for the user
+
+//---------------------------------------------------------------------------
+
+05-Nov-2019 Mike Knight
+
+Added get team function, example usage below: 
+
+    let team = await controller.getTeam(app, 1)
+    let team2 = await controller.getTeam(app, parseInt('2'))

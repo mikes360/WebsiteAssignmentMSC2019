@@ -4,6 +4,10 @@ const MATCH_SCORE_POINTS = 10
 const TEAM_SCORE_POINTS = 50
 const TIME_SCORE_POINTS = 150
 
+const MIN_MATCH_SCORE = 100
+const MAX_MATCH_SCORE = 300
+const SNITCH_CATCH_POINTS = 150
+
 function startGame(app, secondsUntillKickOff) {
 	//let game = await controller.getGame(app);
 
@@ -31,12 +35,16 @@ async function gameLogic(app) {
 
 	// build some results
 	for (var i = 0; i < matchResults.length; i++) {
+
+		let team0SkillAdvantage = game[0].matches[i][0].skill
+		let team1SkillAdvantage = game[0].matches[i][1].skill
+
 		matchResults[i] = new Array(2)
-		matchResults[i][0] = createMatchScore(100, 300)
-		matchResults[i][1] = createMatchScore(100, 300)
+		matchResults[i][0] = createMatchScore(MIN_MATCH_SCORE, MAX_MATCH_SCORE, team0SkillAdvantage)
+		matchResults[i][1] = createMatchScore(MIN_MATCH_SCORE, MAX_MATCH_SCORE, team1SkillAdvantage)
 
 		let catchIndex = getRandomInt(0, 1)
-		matchResults[i][catchIndex] += 150
+		matchResults[i][catchIndex] += SNITCH_CATCH_POINTS
 		snitchTeams[i] = game[0].matches[i][catchIndex].teamID
 	}
 
@@ -95,8 +103,8 @@ function isPredictionsAvailable(user) {
 
 
 //calculates total score for a team in a match
-function createMatchScore(min, max) {
-	let score = Math.floor((Math.random() * (max - min + 1) + min) / 10) * 10;
+function createMatchScore(min, max, multiplier) {
+	let score = Math.floor(( (Math.random() + multiplier) * (max - min) + min) / 10) * 10
 	return score;
 }
 
@@ -119,13 +127,31 @@ function getMatchScores(user, results) {
 		let prediction = predictions[i];
 		let result = results[i];
 
-		if (result[0] === prediction[0]) {
+		if (result[0] == prediction[0]) {
 			matchScore += MATCH_SCORE_POINTS;
 		}
-		if (result[1] === prediction[1]) {
+		if (result[1] == prediction[1]) {
 			matchScore += MATCH_SCORE_POINTS;
 		}
-		if (result[0] === prediction[0] && result[1] === prediction[1]) {
+		if (result[0] == prediction[0] && result[1] == prediction[1]) {
+			matchScore += MATCH_SCORE_POINTS;
+		}
+
+		let resultTeam0Won = result[0] > result[1]
+		let resultTeam1Won = result[0] < result[1]
+		let resultDraw = result[0] == result[1]
+
+		let userPredictsTeam0Won = prediction[0] > prediction[1]
+		let userPredictsTeam1Won = prediction[0] < prediction[1]
+		let userPredictsDraw = prediction[0] == prediction[1]
+
+		if(resultTeam0Won && userPredictsTeam0Won) {
+			matchScore += MATCH_SCORE_POINTS;
+		}
+		else if(resultTeam1Won && userPredictsTeam1Won) {
+			matchScore += MATCH_SCORE_POINTS;
+		}
+		else if(resultDraw && userPredictsDraw) {
 			matchScore += MATCH_SCORE_POINTS;
 		}
 
