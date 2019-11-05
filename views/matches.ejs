@@ -46,27 +46,27 @@
             <p>Across all the matches, I predict that team</p>
           </div>
           <div class="guess-snitch-team">
-            <select name="guess-snitch_team">
+            <select name="firstGoldenSnitchTeamPrediction">
               <option selected value="base">Select a team</option>
               <!-- <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
               <option value="fiat">Fiat</option>
               <option value="audi">Audi</option> -->
-              <script>
-                var quidditchTeams = document.getElementById("guess-snitch-team");
+              <!--<script>
+                var quidditchTeams = document.getElementById("firstGoldenSnitchTeamPrediction");
                 for (let i = 0; i < team.length; i++) {
                   var option = document.createElement("option");
                   option.innerHTML = team[i].teamName;
                   option.value = team[i].teamID;
                   quidditchTeams.options.add(option);
                 }
-              </script>
+              </script>-->
             </select>
           </div>
           <div class="snitch-text">
             <p>will catch the first snitch in</p>
           </div>
-          <input type="text" name="snitchGuess" placeholder="0" />
+          <input type="text" name="firstGoldenSnitchTimePrediction" placeholder="0" />
           <div class="snitch-text">
             <p>minutes</p>
           </div>

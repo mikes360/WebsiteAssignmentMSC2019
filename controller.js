@@ -27,8 +27,7 @@ async function connect(app) {
 }
 
 async function getUsers(app) {
-	return app
-		.set(DB_ALIAS)
+	return app.set(DB_ALIAS)
 		.collection(USERS_COLLECTION)
 		.find({})
 		.toArray();
@@ -45,7 +44,11 @@ async function updateUser(app, user) {
 	return app
 		.set(DB_ALIAS)
 		.collection(USERS_COLLECTION)
-		.replaceOne({ username: user.username }, user);
+		.replaceOne({ username: user.username }, user, function(err, result) {
+			if (err) {
+				console.log(err);
+			}
+		});
 }
 
 async function getTeams(app) {
@@ -134,33 +137,7 @@ function prependNewGameData(user) {
 	};
 
 	user.games.splice(0, 0, defaultGameData)
-	//user.games.push(defaultGameData);
 	return user;
-}
-
-//Add user Predictions
-
-async function addUserPredictions(app, user) {
-	if (user === '') {
-		res.status(200).render('/', {
-			loggedIn: true,
-			error: 'no scores submitted'
-		});
-		return false;
-	} else {
-		const db = app.get(DB_ALIAS);
-		const collection = db.collection(USERS_COLLECTION);
-		collection.replaceOne(
-			{ username: user.username },
-			user,
-			function(err, res) {
-				if (err != null) {
-					console.log(err);
-					//res.status(200).send('<p>Fail</p>');
-				}
-			}
-		);
-	}
 }
 
 async function initialiseCollection(app, name, data) {
@@ -188,14 +165,6 @@ function findTeam(teams, id) {
 	}
 }
 
-async function getResults(app) {
-	return app
-		.set(DB_ALIAS)
-		.collection('users')
-		.find({})
-		.toArray();
-}
-
 module.exports = {
 	GAME_COLLECTION: GAME_COLLECTION,
 	USERS_COLLECTION: USERS_COLLECTION,
@@ -207,8 +176,6 @@ module.exports = {
 	addUser,
 	getTeams,
 	getGame,
-	getResults,
-	addUserPredictions,
 	updateUser,
 	initialiseCollection,
 	prependNewGameData

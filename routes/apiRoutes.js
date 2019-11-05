@@ -5,6 +5,10 @@ const controller = require('../controller');
 const authenticate = require('../authenticate');
 const gameModule = require("../game")
 
+const FIRST_GOLDEN_SNITCH_TEAM_PREDICTION = 'firstGoldenSnitchTeamPrediction'
+const FIRST_GOLDEN_SNITCH_TIME_PREDICTION = 'firstGoldenSnitchTimePrediction'
+
+
 module.exports = app => {
 	router.get('/logout', (req, res) => {
 		authenticate.logout(res);
@@ -27,16 +31,15 @@ module.exports = app => {
 	});
 
 	router.post('/user/predictions', async (req, res) => {
-		// 27-Oct-2019 - Mike Knight
-		// This is a sample bit of code for ben to demo, how to reformat
-		// the scores from the formData and store them in the database
 
 		let username = authenticate.getUsername(req);
 		if (username) {
-			let formData = req.body;
+			let formData = req.body
 
 			let formKeys = Object.keys(formData);
-			let userPrediction = new Array(formKeys.length / 2 - 1);
+			formKeys = formKeys.filter(key => key !== FIRST_GOLDEN_SNITCH_TEAM_PREDICTION && key !== FIRST_GOLDEN_SNITCH_TIME_PREDICTION)
+
+			let userPrediction = new Array(formKeys.length / 2 - 1)
 
 			for (let i = 0; i < userPrediction.length; i++) {
 				userPrediction[i] = [
@@ -45,19 +48,23 @@ module.exports = app => {
 				];
 			}
 
-			let user = await controller.getUser(app, username);
-			user.games[0].matchPredictions = userPrediction;
+			let games = await controller.getGame(app)
+			let user = await controller.getUser(app, username)
 
-			await controller.addUserPredictions(app, user);
-			res.redirect('/');
+			user.games[0].gameID = games[0].gameID
+			user.games[0].matchPredictions = userPrediction
+			user.games[0].firstGoldenSnitchTeamPrediction = formData[FIRST_GOLDEN_SNITCH_TEAM_PREDICTION]
+			user.games[0].firstGoldenSnitchTimePrediction = formData[FIRST_GOLDEN_SNITCH_TIME_PREDICTION]
+
+			await controller.updateUser(app, user)
+			res.redirect('/')
 		} else {
-			res.redirect('/');
-			console.info('Session ran out');
+			res.redirect('/')
+			console.info('Session ran out')
 		}
 	});
 
-	// THESE ROUTES ARE ONLY FOR TESTING AND NOT PART
-	// OF THE MAIN SITE
+	// THESE ROUTES ARE ONLY FOR TESTING AND NOT PART OF THE MAIN SITE
 
 	router.get('/user', async (req, res) => {
 		if (authenticate.isAuthenticated(req)) {
