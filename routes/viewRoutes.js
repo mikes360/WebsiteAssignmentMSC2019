@@ -43,26 +43,19 @@ module.exports = app => {
 
 				// get team name based on teamID from snitch team prediction
 
-				let team = await controller.getTeam(app, firstGoldenSnitchTeamPrediction);
+				let team = await controller.getTeam(app, parseInt(firstGoldenSnitchTeamPrediction));
 
-				// flatten(by merging the arrays) userPredication into a single array
-
-				let predictions = [];
-				predictions = [].concat.apply(predictions, userPredictions);
-
-				// set user prediction data
-
-				meme.userPredictions = predictions;
+				console.log(userPredictions);
+				meme.userPredictions = userPredictions;
 				meme.firstGoldenSnitchTeamPredictionID = firstGoldenSnitchTeamPrediction;
-				meme.firstGoldenSnitchTeamPredictionName = team.teamName;
 				meme.firstGoldenSnitchTimePrediction = firstGoldenSnitchTimePrediction;
+				if (team) {
+					meme.firstGoldenSnitchTeamPredictionName = team.teamName;
+				} else {
+					meme.firstGoldenSnitchTeamPredictionName = "Select a Team";
+				}
 
-				// set user random user data as a test
-
-				meme.userPredictions = [20, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-				meme.firstGoldenSnitchTeamPredictionID = "1";
-				meme.firstGoldenSnitchTeamPredictionName = "Kenmare Kestrels";
-				meme.firstGoldenSnitchTimePrediction = 30;
+				console.log(meme);
 				return res.render("matches", {
 					loggedIn: true,
 					title: "game week one",
@@ -71,7 +64,7 @@ module.exports = app => {
 			} else {
 				//set base data
 
-				meme.userPredictions = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+				meme.userPredictions = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
 				meme.firstGoldenSnitchTeamPredictionID = "base";
 				meme.firstGoldenSnitchTeamPredictionName = "Select a team";
 				meme.firstGoldenSnitchTimePrediction = 25;

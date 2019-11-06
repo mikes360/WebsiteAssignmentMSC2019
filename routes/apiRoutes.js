@@ -5,8 +5,8 @@ const controller = require("../controller");
 const authenticate = require("../authenticate");
 const gameModule = require("../game");
 
-// const FIRST_GOLDEN_SNITCH_TEAM_PREDICTION = 'firstGoldenSnitchTeamPrediction'
-// const FIRST_GOLDEN_SNITCH_TIME_PREDICTION = 'firstGoldenSnitchTimePrediction'
+const FIRST_GOLDEN_SNITCH_TEAM_PREDICTION = "firstGoldenSnitchTeamPrediction";
+const FIRST_GOLDEN_SNITCH_TIME_PREDICTION = "firstGoldenSnitchTimePrediction";
 
 module.exports = app => {
 	router.get("/logout", (req, res) => {
@@ -35,7 +35,7 @@ module.exports = app => {
 			let formData = req.body;
 
 			let formKeys = Object.keys(formData);
-			// formKeys = formKeys.filter(key => key !== FIRST_GOLDEN_SNITCH_TEAM_PREDICTION && key !== FIRST_GOLDEN_SNITCH_TIME_PREDICTION)
+			formKeys = formKeys.filter(key => key !== FIRST_GOLDEN_SNITCH_TEAM_PREDICTION && key !== FIRST_GOLDEN_SNITCH_TIME_PREDICTION);
 
 			let userPrediction = new Array(formKeys.length / 2);
 			for (let i = 0; i < userPrediction.length; i++) {
@@ -52,8 +52,6 @@ module.exports = app => {
 
 			user.games[0].firstGoldenSnitchTeamPrediction = formData.firstGoldenSnitchTeamPrediction;
 			user.games[0].firstGoldenSnitchTimePrediction = formData.firstGoldenSnitchTimePrediction;
-			// user.games[0].firstGoldenSnitchTeamPrediction = formData[FIRST_GOLDEN_SNITCH_TEAM_PREDICTION]
-			// user.games[0].firstGoldenSnitchTimePrediction = formData[FIRST_GOLDEN_SNITCH_TIME_PREDICTION]
 
 			await controller.updateUser(app, user);
 			res.redirect("/");

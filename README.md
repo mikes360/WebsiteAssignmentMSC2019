@@ -339,3 +339,19 @@ Added get team function, example usage below:
     let team2 = await controller.getTeam(app, parseInt('2'))
 
 Game logic changed to give points for guessing winning team or draw correctly. Scores also created using skill advantage as multiplier
+
+//---------------------------------------------------------------------------
+
+06-Nov-2019 Ben Berhanu
+
+Finished User Scores Predictions post.
+
+Minor Tweaks to Snitch box and added aria-labels to all input elements for accessability. Modified HTML for more semantic reading (changing some divs to main, section and articles). Added some CSS fixes for Flexbox view in Vivaldi Browser
+
+Getting of user scores is nearly done, added a condition that checks whether the teamID returns a value, if not it sets teamName to "Select a Team", this helps when users don't submit a team 
+Need help figuring out the EJS template forEach loop to display the user scores. Older method displays the first 2 scores in the array. 
+
+Exported isPredictionAvailable from game.js
+
+
+reading 
