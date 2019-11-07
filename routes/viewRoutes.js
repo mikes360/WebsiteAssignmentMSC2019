@@ -55,6 +55,12 @@ module.exports = app => {
 					meme.firstGoldenSnitchTeamPredictionName = "Select a Team";
 				}
 
+				for(var i = 0; i < meme[0].matches.length; i++) {
+					meme[0].matches[i][0].userPrediction = userPredictions[i][0];
+					meme[0].matches[i][1].userPrediction = userPredictions[i][1];
+				}
+
+
 				console.log(meme);
 				return res.render("matches", {
 					loggedIn: true,
@@ -63,6 +69,10 @@ module.exports = app => {
 				});
 			} else {
 				//set base data
+				for(var i = 0; i < meme[0].matches.length; i++) {
+					meme[0].matches[0].userPrediction = '';
+					meme[0].matches[1].userPrediction = '';
+				}
 
 				meme.userPredictions = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
 				meme.firstGoldenSnitchTeamPredictionID = "base";

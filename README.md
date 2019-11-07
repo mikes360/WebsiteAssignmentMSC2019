@@ -359,11 +359,12 @@ Need help figuring out the EJS template forEach loop to display the user scores.
 
 Exported isPredictionAvailable from game.js
 
-
-
 //---------------------------------------------------------------------------
+
 07-Nov-2019 Gemma
 
 
 Fixed the plus/minus buttons for the golden snitch predictions and other small style changes
 reading 
+
+//---------------------------------------------------------------------------
