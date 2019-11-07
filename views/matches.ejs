@@ -17,13 +17,13 @@
 					</article>
 					<div class="spinBox">
 						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up" type="button" aria-label="up"></button>
-						<input type="number" min="0" step="10" aria-label="<%= match[0].teamID %> Score Prediction" value="<%= meme.userPredictions[1] %>" name="<%= match[0].teamID %>" />
+						<input type="number" min="0" step="10" aria-label="<%= match[0].teamID %> Score Prediction" value="<%= meme.userPredictions[1] %>" readonly type="number" name="<%= match[0].teamID %>" />
 						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down" type="button" aria-label="down"></button>
 					</div>
 					<img class="matches-versus" src="/images/broom_versus_white.png" alt="Versus sign" />
 					<div class="spinBox">
 						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up" type="button" aria-label="up"></button>
-						<input type="number" min="0" step="10" aria-label="<%= match[1].teamID %> Score Prediction" value="<%=  meme.userPredictions[0] %>" name="<%=	match[1].teamID %>" />
+						<input type="number" min="0" step="10" aria-label="<%= match[1].teamID %> Score Prediction" value="<%=  meme.userPredictions[0] %>" readonly type="number" name="<%=	match[1].teamID %>" />
 						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down" type="button" aria-label="down"></button>
 					</div>
 					<article class="matches-team">
