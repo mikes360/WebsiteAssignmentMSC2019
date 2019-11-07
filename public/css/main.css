@@ -118,10 +118,17 @@ body {
 }
 
 .quidditch-logo-img {
+<<<<<<< HEAD
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
+=======
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+>>>>>>> master
 }
 
 /* Matches formatting */
@@ -152,8 +159,13 @@ body {
 
 /*Team = logo and team name  */
 .team {
+<<<<<<< HEAD
 	margin: auto;
 	width: 25%;
+=======
+  margin: auto;
+  width: 30%;
+>>>>>>> master
 }
 
 .logo {
@@ -215,8 +227,13 @@ body {
 	margin-top: 5%;
 }
 
+.not-a-member p {
+  color: white;
+}
+
 /* ------------------- FOR DESKTOP FORMATTING --------------------- */
 @media only screen and (min-width: 720px) {
+<<<<<<< HEAD
 	body {
 		background-position: unset;
 		width: 100vw;
@@ -288,4 +305,77 @@ body {
 		margin-right: auto;
 		margin-top: 2%;
 	}
+=======
+  body {
+    background-position: unset;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .table-rows {
+    display: flex;
+    flex-wrap: wrap;
+    z-index: inherit;
+    margin-top: -5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    margin-bottom: 30%;
+  }
+
+  .match {
+    display: flex;
+    width: 40%;
+    padding: 10px;
+    margin: auto;
+    z-index: 2000;
+  }
+
+  .team {
+    margin: auto;
+  }
+
+  .team-name {
+    font-size: 15px;
+  }
+
+  .flash-img {
+    width: 30px;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .quidditch-logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
+
+  .versus {
+    margin: auto;
+    max-width: 40%;
+    object-fit: contain;
+  }
+
+  .text-center {
+    width: 40%;
+    background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+  }
+>>>>>>> master
 }
