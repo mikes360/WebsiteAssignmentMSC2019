@@ -16,7 +16,7 @@
 
           <div class="spinBox">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up" type="button"></button>
-            <input type="number" min="0" step="10" value="0" name=<%= match[0].teamID %> />
+            <input readonly type="number" min="0" step="10" value="0" name=<%= match[0].teamID %> />
             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down" type="button"></button>
           </div>
 
@@ -24,7 +24,7 @@
 
           <div class="spinBox">
             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="up" type="button"></button>
-            <input type="number" min="0" step="10" value="0" name=<%= match[1].teamID %> />
+            <input readonly type="number" min="0" step="10" value="0" name=<%= match[1].teamID %> />
             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="down" type="button"></button>
           </div>
 
@@ -43,34 +43,28 @@
         <img src="../images/SNITCH.png" alt="" class="snitch-logo" />
         <div class="snitch-sentence">
           <div class="snitch-text">
-            <p>Across all the matches, I predict that team</p>
+            <p>Across all current matches, I predict that team</p>
           </div>
           <div class="guess-snitch-team">
             <select name="firstGoldenSnitchTeamPrediction">
               <option selected value="base">Select a team</option>
-              <!-- <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="fiat">Fiat</option>
-              <option value="audi">Audi</option> -->
-              <!--<script>
-                var quidditchTeams = document.getElementById("firstGoldenSnitchTeamPrediction");
-                for (let i = 0; i < team.length; i++) {
-                  var option = document.createElement("option");
-                  option.innerHTML = team[i].teamName;
-                  option.value = team[i].teamID;
-                  quidditchTeams.options.add(option);
-                }
-              </script>-->
+              <% meme.forEach((game) => { %> <% game.matches.forEach((match) => { %>
+                <option value="<%= match[0].teamName %>"><%= match[0].teamName %></option>
+                <option value="<%= match[1].teamName %>"><%= match[1].teamName %></option>
+              <% }) %> <% }) %>
             </select>
           </div>
           <div class="snitch-text">
             <p>will catch the first snitch in</p>
           </div>
-          <input type="text" name="firstGoldenSnitchTimePrediction" placeholder="0" />
-          <div class="snitch-text">
-            <p>minutes</p>
+          <div class="snitch-time">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="snitch-up" type="button"></button>
+            <input id="snitch-spinBox" name="firstGoldenSnitchTimePrediction" readonly type="number" min="1" step="1" value="1" name="snitchGuess" />
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="snitch-down" type="button"></button>
           </div>
-
+          <div class="snitch-text">
+            <p>minute(s)</p>
+          </div>
         </div>
       </div>
 

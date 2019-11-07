@@ -121,7 +121,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 90%;
 }
 
 /* Matches formatting */
@@ -153,7 +153,7 @@ body {
 /*Team = logo and team name  */
 .team {
   margin: auto;
-  width: 25%;
+  width: 30%;
 }
 
 .logo {
@@ -215,6 +215,10 @@ body {
   margin-top: 5%;
 }
 
+.not-a-member p {
+  color: white;
+}
+
 /* ------------------- FOR DESKTOP FORMATTING --------------------- */
 @media only screen and (min-width: 720px) {
   body {
@@ -244,7 +248,7 @@ body {
   .match {
     display: flex;
     width: 40%;
-    padding: 20px;
+    padding: 10px;
     margin: auto;
     z-index: 2000;
   }
@@ -254,7 +258,7 @@ body {
   }
 
   .team-name {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .flash-img {

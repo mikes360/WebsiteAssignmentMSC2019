@@ -345,3 +345,9 @@ Game logic changed to give points for guessing winning team or draw correctly. S
 06-Nov-2019 Mike Knight
 
 Fixed bug in nav bar where login, register and logout was not showing when collapsed on mobile.
+
+//---------------------------------------------------------------------------
+
+07-Nov-2019 Gemma
+
+Fixed the plus/minus buttons for the golden snitch predictions and other small style changes
