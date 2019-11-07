@@ -342,6 +342,12 @@ Game logic changed to give points for guessing winning team or draw correctly. S
 
 //---------------------------------------------------------------------------
 
+06-Nov-2019 Mike Knight
+
+Fixed bug in nav bar where login, register and logout was not showing when collapsed on mobile.
+
+//---------------------------------------------------------------------------
+
 06-Nov-2019 Ben Berhanu
 
 Finished User Scores Predictions post.
