@@ -1,384 +1,391 @@
 /* -------------------------For Mobile (first)----------------------- */
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .body {
-  height: fit-content;
+	height: fit-content;
 }
 
 .h1 {
-  margin: 50px auto;
+	margin: 50px auto;
+}
+
+header {
+	width: 100%;
+	text-align: center;
+	margin-top: 15vh;
 }
 
 .container {
-  width: 100%;
-  height: fit-content;
-  margin: auto;
-  min-width: 320px;
+	width: 100%;
+	height: fit-content;
+	margin: auto;
+	min-width: 320px;
 }
 
 /* For error messages on register page */
 .error {
-  color: red;
+	color: red;
 }
 
 /* Bolt of lightning logo in nav bar */
 .flash-img {
-  width: 25px;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: auto;
+	width: 25px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: auto;
 }
 
 /* Guess golden snitch team/time on matches page */
 .snitch {
-  padding: 1%;
-  align-content: center;
-  margin: 25px auto;
-  width: 100%;
-  z-index: inherit;
-  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
-  margin-bottom: 10%;
+	padding: 1%;
+	align-content: center;
+	margin: 25px auto;
+	width: 100%;
+	z-index: inherit;
+	background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	margin-bottom: 10%;
 }
 
 .snitch-title p {
-  margin: 0 auto;
-  text-align: center;
-  font-weight: 600;
-  color: white;
-  /* z-index: 2000; */
+	margin: 0 auto;
+	text-align: center;
+	font-weight: 600;
+	color: white;
+	/* z-index: 2000; */
 }
 
 .snitch-sentence {
-  margin-left: 5%;
-  margin-right: 5%;
-  text-align: center;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
 }
 
 .snitch-time {
-  margin-left: 20%;
-  margin-right: 20%;
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 .snitch-text {
-  display: inline-block;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-  margin-left: 5%;
-  margin-right: 5%;
+	display: inline-block;
+	font-weight: 600;
+	color: white;
+	text-align: center;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .snitch-text p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .guess-snitch-team {
-  display: inline-flex;
-  margin-left: 1%;
-  /* margin-left: 15%; */
-  margin-right: 1%;
+	display: inline-flex;
+	margin-left: 1%;
+	/* margin-left: 15%; */
+	margin-right: 1%;
 }
 
 .snitch input {
-  display: inline-flex;
-  width: 4em;
-  height: 1.5em;
-  margin: auto;
-  padding: 0 0.25em;
-  border: 0.0625em solid rgb(224, 224, 224);
-  border-radius: 0.25em;
-  color: rgb(64, 64, 64);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  text-align: center;
-  z-index: 5000;
+	display: inline-flex;
+	width: 4em;
+	height: 1.5em;
+	margin: auto;
+	padding: 0 0.25em;
+	border: 0.0625em solid rgb(224, 224, 224);
+	border-radius: 0.25em;
+	color: rgb(64, 64, 64);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	text-align: center;
+	z-index: 5000;
 }
 
 .snitch-spinBox {
-  display: inline-block;
+	display: inline-block;
 }
 
 .snitch-up {
-  outline: none;
-  border: none;
-  display: inline-block;
-  background: url("../images/plus-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 25px;
-  height: 40px;
-  padding: 17px;
+	outline: none;
+	border: none;
+	display: inline-block;
+	background: url("../images/plus-icon.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 25px;
+	height: 40px;
+	padding: 17px;
 }
 
 .snitch-down {
-  outline: none;
-  border: none;
-  display: inline-block;
-  background: url("../images/minus-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 25px;
-  height: 40px;
-  padding: 17px;
+	outline: none;
+	border: none;
+	display: inline-block;
+	background: url("../images/minus-icon.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 25px;
+	height: 40px;
+	padding: 17px;
 }
 
 .snitch-logo {
-  display: block;
-  max-width: 50px;
-  max-height: 50px;
-  object-fit: contain;
-  margin: 0 auto;
-  float: center;
+	display: block;
+	max-width: 50px;
+	max-height: 50px;
+	object-fit: contain;
+	margin: 0 auto;
+	float: center;
 }
 
 /* Matches */
 .matches-table-rows {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  margin: auto;
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
-  background: black;
-  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
-  margin-top: 20%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 100%;
+	margin: auto;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	background: black;
+	background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+	margin-top: 20%;
 }
 
 .matches-match {
-  display: flex;
-  margin-bottom: 8px;
-  z-index: 2000;
-  max-height: 35vw;
+	display: flex;
+	margin-bottom: 8px;
+	z-index: 2000;
+	max-height: 35vw;
 }
 
 .matches-team {
-  /* 
+	/* 
 	width: 25%; */
-  margin: auto;
-  width: 30%;
+	margin: auto;
+	width: 30%;
 }
 
 .matches-logo {
-  display: block;
-  margin: auto;
-  max-width: 80%;
-  max-height: 100%;
-  object-fit: contain;
+	display: block;
+	margin: auto;
+	max-width: 80%;
+	max-height: 100%;
+	object-fit: contain;
 }
 
 .matches-team-name {
-  /* 
+	/* 
 	margin-top: 20%;
 	 */
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
-  margin-top: 10%;
-  font-size: 70%;
-  color: white;
-  font-weight: 600;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	margin-top: 10%;
+	font-size: 70%;
+	color: white;
+	font-weight: 600;
 }
 
 .matches-versus {
-  margin: auto;
-  max-width: 10%;
-  object-fit: contain;
-  display: block;
+	margin: auto;
+	max-width: 10%;
+	object-fit: contain;
+	display: block;
 }
 
 /* Entire match spin box container, containing input box, up arrow & down arrow */
 .spinBox {
-  position: relative;
-  display: inline-block;
-  flex-shrink: 0.5;
-  padding: 5px;
-  margin: auto;
+	position: relative;
+	display: inline-block;
+	flex-shrink: 0.5;
+	padding: 5px;
+	margin: auto;
 }
 
 /* Below CSS effectively "hides" the ugly, non-formatable, generic spin buttons that automatically
   appear when you create the input="number" function in html */
 input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield; /*need this bc Firefox won't behave otherwise*/
-  appearance: textfield;
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield; /*need this bc Firefox won't behave otherwise*/
+	appearance: textfield;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
 /* The box where the score predictions go */
 .spinBox input[type="number"] {
-  display: block;
-  width: 3em;
-  padding: 0 0.25em;
-  border: 0.0625em solid rgb(224, 224, 224);
-  border-radius: 0.25em;
-  color: rgb(64, 64, 64);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  text-align: center;
+	display: block;
+	width: 3em;
+	padding: 0 0.25em;
+	border: 0.0625em solid rgb(224, 224, 224);
+	border-radius: 0.25em;
+	color: rgb(64, 64, 64);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	text-align: center;
 }
 
 /* Keep this .spinbox button formatting: */
 .spinBox button {
-  outline: none;
-  border: none;
-  vertical-align: middle;
-  -webkit-appearance: none;
-  background-color: transparent;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 1rem;
-  position: relative;
-  cursor: pointer;
+	outline: none;
+	border: none;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	background-color: transparent;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 1rem;
+	position: relative;
+	cursor: pointer;
 }
 .spinBox button.up {
-  display: inline-block;
-  background: url("../images/arrow-up.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 35px;
-  height: 40px;
-  margin-left: 5px;
+	display: inline-block;
+	background: url("../images/arrow-up.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 35px;
+	height: 40px;
+	margin-left: 5px;
 }
 
 .spinBox button.down {
-  display: inline-block;
-  background: url("../images/arrow-down.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 35px;
-  height: 40px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 20%;
+	display: inline-block;
+	background: url("../images/arrow-down.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 35px;
+	height: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 20%;
 }
 
 /* Submit button */
 .submit-betting-scores {
-  margin: auto;
-  width: 100%;
-  text-align: center;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20vh;
 }
 
 .submit-betting-scores input {
-  background-color: #17a2b8;
-  color: white;
-  width: 60%;
-  height: 45px;
+	background-color: #17a2b8;
+	color: white;
+	width: 60%;
+	height: 45px;
 }
 
 /* ---------------------------For Desktop----------------------------------- */
 @media only screen and (min-width: 720px) {
-  .container {
-    max-width: 100%;
-    margin: auto;
-  }
+	.container {
+		max-width: 100%;
+		margin: auto;
+	}
 
-  .matches-table-rows {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    width: 90%;
-  }
+	.matches-table-rows {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		width: 90%;
+	}
 
-  .matches-match {
-    display: flex;
-    width: 50%;
-    padding: 25px;
-    margin: auto;
-    margin-top: -15px;
-    z-index: 2000;
-    max-height: 19vw !important;
-  }
+	.matches-match {
+		display: flex;
+		width: 50%;
+		padding: 25px;
+		margin: auto;
+		margin-top: -15px;
+		z-index: 2000;
+		max-height: 19vw !important;
+	}
 
-  .matches-team-name {
-    font-size: 100%;
-  }
+	.matches-team-name {
+		font-size: 100%;
+	}
 
-  .matches-logo {
-    display: block;
-    margin: auto;
-    max-width: 60%;
-    max-height: 60%;
-    object-fit: contain;
-  }
+	.matches-logo {
+		display: block;
+		margin: auto;
+		max-width: 60%;
+		max-height: 60%;
+		object-fit: contain;
+	}
 
-  .flash-img {
-    width: 30px;
-  }
+	.flash-img {
+		width: 30px;
+	}
 
-  .snitch {
-    width: 90%;
-    margin-bottom: 2%;
-  }
+	.snitch {
+		width: 90%;
+		margin-bottom: 2%;
+	}
 
-  .snitch-logo {
-    width: 40%;
-  }
+	.snitch-logo {
+		width: 40%;
+	}
 
-  .snitch input {
-    display: inline-flex;
-    width: 4em;
-    height: 1.5em;
-    padding: 0 0.25em;
-    border: 0.0625em solid rgb(224, 224, 224);
-    border-radius: 0.25em;
-    color: rgb(64, 64, 64);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-    text-align: center;
-    z-index: 5000;
-  }
+	.snitch input {
+		display: inline-flex;
+		width: 4em;
+		height: 1.5em;
+		padding: 0 0.25em;
+		border: 0.0625em solid rgb(224, 224, 224);
+		border-radius: 0.25em;
+		color: rgb(64, 64, 64);
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1em;
+		text-align: center;
+		z-index: 5000;
+	}
 
-  .guess-snitch-team {
-    display: inline-flex;
-    margin-left: 1%;
-    margin-right: 1%;
-  }
+	.guess-snitch-team {
+		display: inline-flex;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
 
-  .snitch-text {
-    display: inline-block;
-    font-weight: 600;
-    color: white;
-    margin-left: 1%;
-    margin-right: 1%;
-  }
+	.snitch-text {
+		display: inline-block;
+		font-weight: 600;
+		color: white;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
 
-  .snitch-time {
-    width: 150px;
-    margin-right: 0;
-    display: inline-block;
-  }
+	.snitch-time {
+		width: 150px;
+		margin-right: 0;
+		display: inline-block;
+	}
 
-  .spinBox {
-    position: relative;
-    display: inline-block;
-    border-radius: 0.25em;
-    padding: 5px;
-    margin: auto;
-  }
+	.spinBox {
+		position: relative;
+		display: inline-block;
+		border-radius: 0.25em;
+		padding: 5px;
+		margin: auto;
+	}
 
-  .submit-betting-scores {
-    margin-bottom: 10%;
-    width: 100%;
-    text-align: center;
-  }
+	.submit-betting-scores {
+		margin-bottom: 10%;
+		width: 100%;
+		text-align: center;
+	}
 
-  .submit-betting-scores input {
-    background-color: #17a2b8;
-    color: white;
-    width: 25%;
-    height: 45px;
-  }
+	.submit-betting-scores input {
+		background-color: #17a2b8;
+		color: white;
+		width: 25%;
+		height: 45px;
+	}
 }
