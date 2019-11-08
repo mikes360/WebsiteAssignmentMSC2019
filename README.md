@@ -369,6 +369,12 @@ reading
 
 //---------------------------------------------------------------------------
 
-07-Nov-2019 
+07-Nov-2019 Mike Knight
 
 Added support for rendering the users score predictions into the matches pages.
+
+//---------------------------------------------------------------------------
+
+08-Nov-2019 Mike Knight
+
+Fixed bug with predicting first team to catch the snitch.
