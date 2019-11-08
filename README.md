@@ -378,3 +378,9 @@ Added support for rendering the users score predictions into the matches pages.
 08-Nov-2019 Mike Knight
 
 Fixed bug with predicting first team to catch the snitch.
+
+//---------------------------------------------------------------------------
+
+08-Nov-2019 Ben Berhanu
+
+Minor CSS tweaks for matchs, changes each of the EJS pages and made sure they are more accessable (lowest score is 97) and made tiny semantic changes
