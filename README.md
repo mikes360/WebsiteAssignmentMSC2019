@@ -292,7 +292,8 @@ NOTE: If you register a new user, make sure you log out when the server crashes.
 
 01-Nov-2019 Sully
 
-****** Make a commane sully
+A results page has been created and dummy data from the routes page has been displayed on the page. Will need to now manipulate the correct data from the database and display it on the results page. The results page needs styling.
+
 //---------------------------------------------------------------------------
 
 01-Nov-2019 Mike Knight
@@ -350,6 +351,8 @@ Fixed bug in nav bar where login, register and logout was not showing when colla
 
 08-Nov-2019
 
-Sully needs to add a comment on what was done on the results page.
+Results page has the right data displaying for the scores, results, and predictions being shown. A for-loop was made in order to loop through the appropiate data in the database. Along with adding an array in the database for the user scores. The result page has been styled with the appropiate theme all that needs to be done is the styling which I will get on to in due course.
+
+A leaderboard page has been created, it needs styling and appropiate data needs to be displayed. That is my next task after styling and rendering the results page correctly.
 
 //---------------------------------------------------------------------------
