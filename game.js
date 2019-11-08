@@ -46,7 +46,7 @@ async function gameLogic(app) {
 		snitchTeams[i] = game[0].matches[i][catchIndex].teamID;
 	}
 
-	snitchCatchTeam = snitchTeams[getRandomInt(0, game[0].matches.length)];
+	snitchCatchTeam = snitchTeams[getRandomInt(0, snitchTeams.length)];
 
 	console.log("***** Game Complete ****");
 	console.log("* Match results " + matchResults);
