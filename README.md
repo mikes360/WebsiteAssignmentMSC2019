@@ -349,7 +349,7 @@ Fixed bug in nav bar where login, register and logout was not showing when colla
 
 //---------------------------------------------------------------------------
 
-08-Nov-2019
+08-Nov-2019 Sully Ahmed
 
 Results page has the right data displaying for the scores, results, and predictions being shown. A for-loop was made in order to loop through the appropiate data in the database. Along with adding an array in the database for the user scores. The result page has been styled with the appropiate theme all that needs to be done is the styling which I will get on to in due course.
 
