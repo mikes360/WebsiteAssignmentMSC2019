@@ -130,25 +130,35 @@ module.exports = app => {
 		});
 	});
 
-	router.get("/results", async (req, res) => {
-		let username = authenticate.getUsername(req);
+	router.get('/results', async (req, res) => {
+		let username = authenticate.getUsername(req)
 		if (username) {
 			let user = await controller.getUser(app, username);
+			let game = await controller.getGame(app);
+			
+			let bob = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamPrediction))
+			game[1].firstGoldenSnitchTeamPrediction = bob.teamName;
 
-			// this will eventually be parsed from the user object
-			// let predictions = user.gameData.predictions
-			// let scores = [20, 0, 0, 0, 30, 20];
-			// let total = 10;s
+			let bob2 = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamResult))
+			game[1].firstGoldenSnitchTeamResult = bob2.teamName;
 
-			let gameData = {
-				predictions: user.games[1].matchPredictions,
-				results: user.games[1].matchResults,
-				scores: user.games[1].matchScores,
-				total: user.games[1].totalScore
-			};
+			game[1].totalScore = user.games[1].totalScore
+						
 
-			return res.render("results", {
-				gameData: gameData
+			for (var i = 0; i < game[1].matches.length; i++) {
+			game[1].matches[i][0].result = user.games[1].matchResults[i][0];
+			game[1].matches[i][0].prediction = user.games[1].matchPredictions[i][0];
+
+			game[1].matches[i][1].result = user.games[1].matchResults[i][1];
+			game[1].matches[i][1].prediction = user.games[1].matchPredictions[i][1];
+
+			game[1].matches[i].splice(0, 0, { score: user.games[1].matchScores[i] });
+			
+			//let firstGoldenSnitchTimePrediction = user.games[0].firstGoldenSnitchTimePrediction;
+		}
+			return res.render('results', {
+				loggedIn: true,
+				meme: game[1]
 			});
 		} else {
 			res.redirect("/login");

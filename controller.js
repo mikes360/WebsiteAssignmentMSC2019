@@ -162,6 +162,11 @@ async function getGame(app) {
 		game[0].matches[i][0] = findTeam(teams, game[0].matches[i][0]);
 		game[0].matches[i][1] = findTeam(teams, game[0].matches[i][1]);
 	}
+	
+	for (var i = 0; i < game[1].matches.length; i++) {
+		game[1].matches[i][0] = findTeam(teams, game[1].matches[i][0]);
+		game[1].matches[i][1] = findTeam(teams, game[1].matches[i][1]);
+	}
 	return game;
 }
 

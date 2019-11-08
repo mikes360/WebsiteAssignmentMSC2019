@@ -348,39 +348,8 @@ Fixed bug in nav bar where login, register and logout was not showing when colla
 
 //---------------------------------------------------------------------------
 
-06-Nov-2019 Ben Berhanu
+08-Nov-2019
 
-Finished User Scores Predictions post.
-
-Minor Tweaks to Snitch box and added aria-labels to all input elements for accessability. Modified HTML for more semantic reading (changing some divs to main, section and articles). Added some CSS fixes for Flexbox view in Vivaldi Browser
-
-Getting of user scores is nearly done, added a condition that checks whether the teamID returns a value, if not it sets teamName to "Select a Team", this helps when users don't submit a team 
-Need help figuring out the EJS template forEach loop to display the user scores. Older method displays the first 2 scores in the array. 
-
-Exported isPredictionAvailable from game.js
+Sully needs to add a comment on what was done on the results page.
 
 //---------------------------------------------------------------------------
-
-07-Nov-2019 Gemma
-
-
-Fixed the plus/minus buttons for the golden snitch predictions and other small style changes
-reading 
-
-//---------------------------------------------------------------------------
-
-07-Nov-2019 Mike Knight
-
-Added support for rendering the users score predictions into the matches pages.
-
-//---------------------------------------------------------------------------
-
-08-Nov-2019 Mike Knight
-
-Fixed bug with predicting first team to catch the snitch.
-
-//---------------------------------------------------------------------------
-
-08-Nov-2019 Ben Berhanu
-
-Minor CSS tweaks for matchs, changes each of the EJS pages and made sure they are more accessable (lowest score is 97) and made tiny semantic changes
