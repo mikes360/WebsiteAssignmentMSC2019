@@ -395,3 +395,10 @@ Results page has the right data displaying for the scores, results, and predicti
 A leaderboard page has been created, it needs styling and appropiate data needs to be displayed. That is my next task after styling and rendering the results page correctly.
 
 //---------------------------------------------------------------------------
+
+08-Nov-2019 Mike Knight
+
+Tweaks to rendering of match views, only pass in a single game now instead of the array as it was rendering all the matches from all games.
+
+More work on the live game module. Created a mechanism to control the simulation duration and extracted the code that calculates scores into a new gameUtils module. The code for calculating scores can now be used by both modules and the live module can use it to calculate the current user scores from the live data.
+

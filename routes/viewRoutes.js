@@ -15,7 +15,7 @@ module.exports = app => {
 
 		return res.render("main", {
 			loggedIn: authenticate.isAuthenticated(req),
-			meme: meme
+			meme: meme[0]
 		});
 	});
 
@@ -46,13 +46,13 @@ module.exports = app => {
 				let team = await controller.getTeam(app, parseInt(firstGoldenSnitchTeamPrediction));
 
 				console.log(userPredictions);
-				meme.userPredictions = userPredictions;
-				meme.firstGoldenSnitchTeamPredictionID = firstGoldenSnitchTeamPrediction;
-				meme.firstGoldenSnitchTimePrediction = firstGoldenSnitchTimePrediction;
+				meme[0].userPredictions = userPredictions;
+				meme[0].firstGoldenSnitchTeamPredictionID = firstGoldenSnitchTeamPrediction;
+				meme[0].firstGoldenSnitchTimePrediction = firstGoldenSnitchTimePrediction;
 				if (team) {
-					meme.firstGoldenSnitchTeamPredictionName = team.teamName;
+					meme[0].firstGoldenSnitchTeamPredictionName = team.teamName;
 				} else {
-					meme.firstGoldenSnitchTeamPredictionName = "Select a Team";
+					meme[0].firstGoldenSnitchTeamPredictionName = "Select a Team";
 				}
 
 				for(var i = 0; i < meme[0].matches.length; i++) {
@@ -65,7 +65,7 @@ module.exports = app => {
 				return res.render("matches", {
 					loggedIn: true,
 					title: "game week one",
-					meme: meme
+					meme: meme[0]
 				});
 			} else {
 				//set base data
@@ -74,15 +74,15 @@ module.exports = app => {
 					meme[0].matches[1].userPrediction = '';
 				}
 
-				meme.userPredictions = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
-				meme.firstGoldenSnitchTeamPredictionID = "base";
-				meme.firstGoldenSnitchTeamPredictionName = "Select a team";
-				meme.firstGoldenSnitchTimePrediction = 25;
+				meme[0].userPredictions = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+				meme[0].firstGoldenSnitchTeamPredictionID = "base";
+				meme[0].firstGoldenSnitchTeamPredictionName = "Select a team";
+				meme[0].firstGoldenSnitchTimePrediction = 25;
 				console.log(meme);
 				return res.render("matches", {
 					loggedIn: true,
 					title: "game week one",
-					meme: meme
+					meme: meme[0]
 				});
 			}
 		} else {

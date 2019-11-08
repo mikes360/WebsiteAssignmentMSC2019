@@ -1,8 +1,5 @@
 const controller = require("./controller");
-
-const MATCH_SCORE_POINTS = 10;
-const TEAM_SCORE_POINTS = 50;
-const TIME_SCORE_POINTS = 150;
+const gameUtils = require("./gameUtils");
 
 const MIN_MATCH_SCORE = 100;
 const MAX_MATCH_SCORE = 300;
@@ -59,27 +56,8 @@ async function gameLogic(app) {
 	for (var i = 0; i < users.length; i++) {
 		let user = users[i];
 
-		if (isPredictionsAvailable(user)) {
-			// calculate users scores for each match prediction and add to total
-			let userMatchScores = getMatchScores(user, matchResults);
+		user.games[0] = gameUtils.getCurrentUserScores(user.games[0], matchResults, snitchCatchTeam, snitchCatchTime)
 
-			for (var x = 0; x < userMatchScores.length; x++) {
-				user.games[0].totalScore += userMatchScores[x];
-			}
-
-			// if the team prediction is correct add more points to total
-			if (user.games[0].firstGoldenSnitchTeamPrediction == snitchCatchTeam) {
-				user.games[0].totalScore += TEAM_SCORE_POINTS;
-			}
-
-			// if the time prediction is correct add more points to total
-			if (user.games[0].firstGoldenSnitchTimePrediction == snitchCatchTime) {
-				user.games[0].totalScore += TIME_SCORE_POINTS;
-			}
-
-			// save the scores in the user json
-			user.games[0].matchScores = userMatchScores;
-		}
 		user.grandTotal += user.games[0].totalScore;
 		user.games[0].matchResults = matchResults;
 		user.games[0].firstGoldenSnitchTeamResult = snitchCatchTeam;
@@ -107,48 +85,6 @@ function createMatchScore(min, max, multiplier) {
 function getRandomInt(min, max) {
 	let result = Math.round(Math.random() * (max - min) + min);
 	return result;
-}
-
-function getMatchScores(user, results) {
-	let predictions = user.games[0].matchPredictions;
-
-	// loop round the results and calculate score for each match based on a point system
-	let userScores = [0, 0, 0, 0, 0, 0];
-
-	for (var i = 0; i < predictions.length; i++) {
-		let matchScore = 0;
-		let prediction = predictions[i];
-		let result = results[i];
-
-		if (result[0] == prediction[0]) {
-			matchScore += MATCH_SCORE_POINTS;
-		}
-		if (result[1] == prediction[1]) {
-			matchScore += MATCH_SCORE_POINTS;
-		}
-		if (result[0] == prediction[0] && result[1] == prediction[1]) {
-			matchScore += MATCH_SCORE_POINTS;
-		}
-
-		let resultTeam0Won = result[0] > result[1];
-		let resultTeam1Won = result[0] < result[1];
-		let resultDraw = result[0] == result[1];
-
-		let userPredictsTeam0Won = prediction[0] > prediction[1];
-		let userPredictsTeam1Won = prediction[0] < prediction[1];
-		let userPredictsDraw = prediction[0] == prediction[1];
-
-		if (resultTeam0Won && userPredictsTeam0Won) {
-			matchScore += MATCH_SCORE_POINTS;
-		} else if (resultTeam1Won && userPredictsTeam1Won) {
-			matchScore += MATCH_SCORE_POINTS;
-		} else if (resultDraw && userPredictsDraw) {
-			matchScore += MATCH_SCORE_POINTS;
-		}
-
-		userScores[i] = matchScore;
-	}
-	return userScores;
 }
 
 module.exports = { startGame, gameLogic, isPredictionsAvailable };
