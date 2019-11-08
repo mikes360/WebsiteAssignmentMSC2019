@@ -54,10 +54,10 @@
 						<p>will catch the first snitch in</p>
 					</span>
 					<div class="snitch-spinBox">
-					<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="snitch-down" type="button"></button>
-					<input type="number" name="firstGoldenSnitchTimePrediction"	readonly type="number" min="25" step="1" value="<%= meme.firstGoldenSnitchTimePrediction %>" aria-label="Snitch Time"
-						name="snitchGuess"/>
-					<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="snitch-up" type="button"></button>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="snitch-down" type="button" aria-label="Down"></button>
+						<input type="number" name="firstGoldenSnitchTimePrediction" readonly type="number" min="25" step="1" value="<%= meme.firstGoldenSnitchTimePrediction %>" aria-label="Snitch Time"
+							name="snitchGuess"/>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="snitch-up" type="button" aria-label="Up"></button>
 					</div>
 					<span class="snitch-text">
 						<p>minutes</p>

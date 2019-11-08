@@ -1,295 +1,307 @@
 /* -------------------------------For Mobile----------------------------- */
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .navbar {
-  z-index: 3000;
+	z-index: 3000;
 }
 
 .h1 {
-  margin: 50px auto;
+	margin: 50px auto;
 }
 
 body {
-  position: relative;
-  font-family: "Open Sans", helvetica, arial, sans-serif;
-  background-image: url("/images/quidditch-background3.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+	position: relative;
+	font-family: "Open Sans", helvetica, arial, sans-serif;
+	background-image: url("/images/quidditch-background3.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	width: 100vw;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 
 /* Welcome/register banner, only appears temporarily on main page after registering etc */
 .banner {
-  position: relative;
-  z-index: 1;
-  margin-left: auto;
-  margin-top: 5%;
-  width: 900px;
+	position: relative;
+	z-index: 1;
+	margin-left: auto;
+	margin-top: 5%;
+	width: 900px;
 }
 
 .banner .line {
-  margin: 0 0 10px;
-  width: 80%;
-  height: 78px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  font-size: 2em;
-  line-height: 78px;
-  transform: skew(0, 0deg);
+	margin: 0 0 10px;
+	width: 80%;
+	height: 78px;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+	text-align: center;
+	font-size: 2em;
+	line-height: 78px;
+	transform: skew(0, 0deg);
 }
 
 .banner .line:after,
 .banner .line:first-child:before {
-  position: absolute;
-  top: 44px;
-  left: 0;
-  z-index: -1;
-  display: block;
-  width: 330px;
-  height: 78px;
-  border-radius: 4px;
-  background: rgba(180, 180, 180, 0.8);
-  content: "";
-  transform: skew(0, 15deg);
+	position: absolute;
+	top: 44px;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 330px;
+	height: 78px;
+	border-radius: 4px;
+	background: rgba(180, 180, 180, 0.8);
+	content: "";
+	transform: skew(0, 15deg);
 }
 
 .banner .line:first-child:before {
-  top: -10px;
-  right: 0;
-  left: auto;
+	top: -10px;
+	right: 0;
+	left: auto;
 }
 
 .banner .line:first-child:before,
 .banner .line:last-child:after {
-  width: 0;
-  height: 0;
-  border-width: 38px;
-  border-style: solid;
-  border-color: rgba(180, 180, 180, 0.8) rgba(180, 180, 180, 0.8) transparent transparent;
-  background: transparent;
+	width: 0;
+	height: 0;
+	border-width: 38px;
+	border-style: solid;
+	border-color: rgba(180, 180, 180, 0.8) rgba(180, 180, 180, 0.8) transparent transparent;
+	background: transparent;
 }
 
 .banner .line:last-child:after {
-  top: 12px;
-  border-color: transparent transparent rgba(180, 180, 180, 0.8) rgba(180, 180, 180, 0.8);
+	top: 12px;
+	border-color: transparent transparent rgba(180, 180, 180, 0.8) rgba(180, 180, 180, 0.8);
 }
 
 .banner span {
-  font-size: 1em;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #666;
-  text-shadow: 1px 1px 0 #444;
+	font-size: 1em;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.9);
+	color: #666;
+	text-shadow: 1px 1px 0 #444;
 }
 
 .container {
-  width: 100%;
-  height: auto;
-  margin: auto;
-  min-width: 320px;
-  max-width: 720px;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	min-width: 320px;
+	max-width: 720px;
 }
 
 .error {
-  margin-top: 0;
-  color: red;
+	margin-top: 0;
+	color: red;
 }
 
 .flash-img {
-  width: 25px;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: auto;
+	width: 25px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: auto;
 }
 
 .quidditch-logo {
-  margin: auto;
+	margin: auto;
 }
 
 .quidditch-logo-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
 }
 
 /* Matches formatting */
 .table-rows {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 100%;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30%;
-  z-index: inherit;
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
-  background: black;
-  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 100%;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30%;
+	z-index: inherit;
+	border-top: 5px solid white;
+	border-bottom: 5px solid white;
+	background: black;
+	background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
 }
 
 .match {
-  display: flex;
-  margin-bottom: 8px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  z-index: 2000;
+	display: flex;
+	margin-bottom: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	z-index: 2000;
 }
 
 /*Team = logo and team name  */
 .team {
-  margin: auto;
-  width: 30%;
+	margin: auto;
+	width: 30%;
 }
 
 .logo {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+	display: block;
+	margin: auto;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
 }
 
 .team-name {
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
-  margin-top: 20%;
-  font-size: 12px;
-  color: white;
-  font-weight: 600;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	margin-top: 20%;
+	font-size: 12px;
+	color: white;
+	font-weight: 600;
 }
 
 .versus {
-  margin: auto;
-  max-width: 40%;
-  object-fit: contain;
-  display: block;
+	margin: auto;
+	max-width: 40%;
+	object-fit: contain;
+	display: block;
 }
 
 .fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
+	padding: 20px;
+	font-size: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
 }
 
 .footer {
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  margin-top: auto;
-  width: 100%;
-  height: 7%;
-  z-index: 3000;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	margin-top: auto;
+	width: 100%;
+	height: 7%;
+	z-index: 3000;
 }
 
 .h2 {
-  color: white;
+	color: white;
 }
 
 .text-center {
-  width: 100%;
-  background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
+	width: 100%;
+	background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
 }
 
 .not-a-member p {
-  color: white;
+	color: white;
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+	visibility: hidden;
 }
 
 /* ------------------- FOR DESKTOP FORMATTING --------------------- */
 @media only screen and (min-width: 720px) {
-  body {
-    background-position: unset;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
+	body {
+		background-position: unset;
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+	}
 
-  .container {
-    max-width: 100%;
-    margin: auto;
-  }
+	.container {
+		max-width: 100%;
+		margin: auto;
+	}
 
-  .table-rows {
-    display: flex;
-    flex-wrap: wrap;
-    z-index: inherit;
-    margin-top: -5%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    margin-bottom: 30%;
-  }
+	.table-rows {
+		display: flex;
+		flex-wrap: wrap;
+		z-index: inherit;
+		margin-top: -5%;
+		margin-left: auto;
+		margin-right: auto;
+		width: 75%;
+		margin-bottom: 30%;
+	}
 
-  .match {
-    display: flex;
-    width: 40%;
-    padding: 10px;
-    margin: auto;
-    z-index: 2000;
-  }
+	.match {
+		display: flex;
+		width: 40%;
+		padding: 10px;
+		margin: auto;
+		z-index: 2000;
+	}
 
-  .team {
-    margin: auto;
-  }
+	.team {
+		margin: auto;
+	}
 
-  .team-name {
-    font-size: 15px;
-  }
+	.team-name {
+		font-size: 15px;
+	}
 
-  .flash-img {
-    width: 30px;
-  }
+	.flash-img {
+		width: 30px;
+	}
 
-  .logo {
-    display: block;
-    margin: auto;
-    width: 100%;
-    object-fit: contain;
-  }
+	.logo {
+		display: block;
+		margin: auto;
+		width: 100%;
+		object-fit: contain;
+	}
 
-  .quidditch-logo-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-  }
+	.quidditch-logo-img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 40%;
+	}
 
-  .versus {
-    margin: auto;
-    max-width: 40%;
-    object-fit: contain;
-  }
+	.versus {
+		margin: auto;
+		max-width: 40%;
+		object-fit: contain;
+	}
 
-  .text-center {
-    width: 40%;
-    background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-  }
+	.text-center {
+		width: 40%;
+		background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2%;
+	}
 }

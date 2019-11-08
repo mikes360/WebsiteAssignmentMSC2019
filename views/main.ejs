@@ -1,34 +1,32 @@
 <%- include('head'); %>
 <body>
-  <%- include('navbar') %>
-  <h1>Matches</h1>
-  <div class="container">
-    <%- include('banner') %>
-    <div class="quidditch-logo"><img class="quidditch-logo-img" src="../images/quidditch-logo2.png" alt="Quidditch Logo"></div>
-    <div class="table-rows">
-      <% meme.forEach((game) => { %> <% game.matches.forEach((match) => { %>
-        <div class="match">
+	<%- include('navbar') %>
+	<h1>Matches</h1>
+	<div class="container">
+		<%- include('banner') %>
+		<div class="quidditch-logo"><img class="quidditch-logo-img" src="../images/quidditch-logo2.png" alt="Quidditch Logo" /></div>
+		<main class="table-rows">
+			<% meme.forEach((game) => { %> <% game.matches.forEach((match) => { %>
+			<div class="match">
+				<div class="team">
+					<img src="../images/<%= match[0].image %>" alt="<% match[0].teamName %>" class="logo" />
+					<div class="team-name"><%= match[0].teamName %></div>
+				</div>
 
-          <div class="team">
-            <img src="../images/<%= match[0].image %>" alt="<% match[0].teamName %>" class="logo" />
-            <div class="team-name"><%= match[0].teamName %></div>
-          </div>
+				<div class="versus">
+					<img class="versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+				</div>
 
-          <div class="versus">
-            <img class="versus" src="/images/broom_versus_white.png" alt="Versus sign">
-          </div>
+				<div class="team">
+					<img src="../images/<%= match[1].image %>" alt="<% match[1].teamName %>" class="logo" />
+					<div class="team-name"><%= match[1].teamName %></div>
+				</div>
+			</div>
 
-          <div class="team">
-            <img src="../images/<%= match[1].image %>" alt="<% match[1].teamName %>" class="logo" />
-            <div class="team-name"><%= match[1].teamName %></div>
-          </div>
-        </div>
-        
-      <% }) %> <% }) %>
-    </div>
-  </div>
-  <div>
-  <%- include('footer'); %>
+			<% }) %> <% }) %>
+		</main>
+	</div>
+	<%- include('footer'); %>
 </body>
 
 <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/catalin-fertu" title="Catalin Fertu">Catalin Fertu</a> and <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
