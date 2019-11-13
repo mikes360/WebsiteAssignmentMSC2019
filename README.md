@@ -402,3 +402,8 @@ Tweaks to rendering of match views, only pass in a single game now instead of th
 
 More work on the live game module. Created a mechanism to control the simulation duration and extracted the code that calculates scores into a new gameUtils module. The code for calculating scores can now be used by both modules and the live module can use it to calculate the current user scores from the live data.
 
+//---------------------------------------------------------------------------
+
+13-Nov-2019 Sully Ahmed
+
+Results page is almost complete, first golden snitch time prediction and result has been rendered into the page. Results banner for the user to see appropiate data has been added to the top of the results page and has been styled. Most of the styling is complete with a few styling issues that need resolving. Once they have been fixed then need to make sure it is fit for mobile view, which will then signify the completion of the results page.

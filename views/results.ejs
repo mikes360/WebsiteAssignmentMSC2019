@@ -3,36 +3,64 @@
   <%- include('navbar', { loggedIn: loggedIn }) %>
   <h1> Results</h1>
   <div class="container">
-      <div>Total score <%= meme.totalScore %></div>
-      <div> You guessed team <%= meme.firstGoldenSnitchTeamPrediction %> was going to catch the golden snitch... Team <%= meme.firstGoldenSnitchTeamResult %> actually got it</div>
-      <div class="matches-black-container"></div>
-      <div class="matches-table-rows">
-        <% meme.matches.forEach((match) => { %>
-        <div class="matches-match">
+    <section class="snitch">
+      <article class="snitch-sentence">
+        <span class="snitch-title">
+          <p>Results</p>
+        </span>
+        <span class="snitch-text">
+          <p>Team to Catch Golden Snitch First Prediction: <%= meme.firstGoldenSnitchTeamPrediction %> </p>
+          <p>The First Golden Snitch Was Caught by: <%= meme.firstGoldenSnitchTeamResult %> </p>
+          <p>The Time Predicted For The First Golden Snitch Was: <%= meme.firstGoldenSnitchTimePrediction %> Minutes</p>
+          <p>The Time For The First Golden Snitch To Be Caught Was: <%= meme.firstGoldenSnitchTimeResult %> Minutes</p>
+          <p>Your Total Score: <%= meme.totalScore %></p>
+        </span>
+    </section>
+    </article>
+    <div class="matches-table-rows">
+      <% meme.matches.forEach((match) => { %>
+      <section class="matches-match">
 
-          <div class="matches-team">
-            <img src="../images/<%= match[1].image %>" alt="" class="matches-logo" />
-            <div class="matches-team-name"><%= match[1].teamName %></div>
-            <div>Result <%= match[1].result %> </div>
-            <div>Prediction <%= match[1].prediction %> </div>
-          </div>
-
-          <div class="spinBox">
-            <div>Your Score <%= match[0].score %> </div>
-          </div>
-
-          <div class="matches-versus">V</div>
-
-          <div class="spinBox">
-              <div><%= match[0].result %></div>
-          </div>
-
-          <div class="matches-team">
-            <img src="../images/<%= match[2].image %>" alt="" class="matches-logo" />
-            <div class="matches-team-name"><%= match[2].teamName %></div>
+        <div class="matches-team">
+          <img src="../images/<%= match[1].image %>" alt="" class="matches-logo" />
+          <div class="matches-team-name"><%= match[1].teamName %></div>
+          <div class="snitch-text">
+            <div>Score: <%= match[0].score %> </div>
           </div>
         </div>
-        <% }) %>
-      </div> 
+
+        <div class="snitch-text">
+          <div class="spinBox">
+            <div>Prediction <%= match[1].prediction %> </div>
+          </div>
+        </div>
+        <img class="matches-versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+        <div class="snitch-text">
+          <div class="spinBox">
+            <div><%= match[2].prediction %> </div>
+          </div>
+        </div>
+
+        <div class="snitch-text">
+          <div class="spinBox">
+            <div>Result <%= match[1].result %></div>
+          </div>
+        </div>
+
+        <img class="matches-versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+        <div class="snitch-text">
+          <div class="spinBox">
+            <div><%= match[2].result %></div>
+          </div>
+        </div>
+
+        <div class="matches-team">
+          <img src="../images/<%= match[2].image %>" alt="" class="matches-logo" />
+          <div class="matches-team-name"><%= match[2].teamName %></div>
+        </div>
+      </section>
+      <% }) %>
+    </div>
   </div>
   <%- include('footer'); %>
+</body>

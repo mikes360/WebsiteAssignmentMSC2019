@@ -142,9 +142,12 @@ module.exports = app => {
 			let bob2 = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamResult))
 			game[1].firstGoldenSnitchTeamResult = bob2.teamName;
 
-			game[1].totalScore = user.games[1].totalScore
-						
+			game[1].firstGoldenSnitchTimePrediction = user.games[1].firstGoldenSnitchTimePrediction;
+			
+			game[1].firstGoldenSnitchTimeResult = user.games[1].firstGoldenSnitchTimeResult;
 
+			game[1].totalScore = user.games[1].totalScore
+				
 			for (var i = 0; i < game[1].matches.length; i++) {
 			game[1].matches[i][0].result = user.games[1].matchResults[i][0];
 			game[1].matches[i][0].prediction = user.games[1].matchPredictions[i][0];
@@ -153,8 +156,7 @@ module.exports = app => {
 			game[1].matches[i][1].prediction = user.games[1].matchPredictions[i][1];
 
 			game[1].matches[i].splice(0, 0, { score: user.games[1].matchScores[i] });
-			
-			//let firstGoldenSnitchTimePrediction = user.games[0].firstGoldenSnitchTimePrediction;
+
 		}
 			return res.render('results', {
 				loggedIn: true,
