@@ -4,7 +4,8 @@ const router = express.Router();
 const controller = require("../controller");
 const authenticate = require("../authenticate");
 const liveGame = require("../liveGame");
-const game = require("../game");
+const gameUtils = require("../gameUtils");
+//const game = require("../game");
 
 module.exports = app => {
 	//Access main ejs page when clicking on Super6 button
@@ -34,7 +35,7 @@ module.exports = app => {
 
 			// condition to check whether predictions have been set
 
-			if (game.isPredictionsAvailable(user)) {
+			if (gameUtils.isPredictionsAvailable(user)) {
 				// get user predictions for team scores, snitch time and snitch team
 
 				let userPredictions = user.games[0].matchPredictions;
@@ -91,22 +92,29 @@ module.exports = app => {
 	});
 
 	router.get("/live", async (req, res) => {
-		let results = liveGame.getResults();
-		let game = await controller.getGame(app);
+		//let results = liveGame.getResults();
+		if(authenticate.isAuthenticated(req)) {
 
-		for (var i = 0; i < game[0].matches.length; i++) {
-			game[0].matches[i][0].score = results[i][0];
-			game[0].matches[i][1].score = results[i][1];
+			let game = await controller.getGame(app);
+
+			return res.render("live", {
+				loggedIn: authenticate.isAuthenticated(req),
+				title: "live view",
+				meme: game[0],
+			});
+		}
+		else {
+			res.redirect("/login");
 		}
 
-		console.log("results " + results);
+		
 
-		return res.render("live", {
-			loggedIn: authenticate.isAuthenticated(req),
-			title: "live view",
-			meme: game,
-			results: results
-		});
+		/*for (var i = 0; i < game[0].matches.length; i++) {
+			game[0].matches[i][0].score = results[i][0];
+			game[0].matches[i][1].score = results[i][1];
+		}*/
+
+	
 		//return res.json(results);
 	});
 

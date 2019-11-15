@@ -71,11 +71,6 @@ async function gameLogic(app) {
 	}
 }
 
-function isPredictionsAvailable(user) {
-	// if the first match of the game has a value greater than -1 they have submitted some predictions.
-	return user.games[0].matchPredictions[0][0] > -1;
-}
-
 //calculates total score for a team in a match
 function createMatchScore(min, max, multiplier) {
 	let score = Math.floor(((Math.random() + multiplier) * (max - min) + min) / 10) * 10;
@@ -87,4 +82,4 @@ function getRandomInt(min, max) {
 	return result;
 }
 
-module.exports = { startGame, gameLogic, isPredictionsAvailable };
+module.exports = { startGame, gameLogic };

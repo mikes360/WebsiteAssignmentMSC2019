@@ -48,7 +48,7 @@ async function runServer(port, initDatabase){
         
         console.log("Setting up game module")
         //game.startGame(app, 10)
-        liveGame.startGame(app)
+        //liveGame.startGame(app)
     }
     else {
         console.log("Unable to connect to database, server will not start.")

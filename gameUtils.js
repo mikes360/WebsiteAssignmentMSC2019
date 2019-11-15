@@ -30,6 +30,11 @@ function getCurrentUserScores(game, currentMatchResults, snitchCatchTeam, snitch
 	return game;
 }
 
+function isPredictionsAvailable(user) {
+	// if the first match of the game has a value greater than -1 they have submitted some predictions.
+	return user.games[0].matchPredictions[0][0] > -1;
+}
+
 function getMatchScores(predictions, results) {
 
 	// loop round the results and calculate score for each match based on a point system
@@ -71,4 +76,4 @@ function getMatchScores(predictions, results) {
 	return userScores;
 }
 
-module.exports = { getCurrentUserScores };
+module.exports = { getCurrentUserScores, isPredictionsAvailable };

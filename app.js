@@ -1,3 +1,3 @@
 const server = require("./server")
 
-server.runServer(3000, true)
+server.runServer(30000, true)

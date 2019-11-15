@@ -4,6 +4,7 @@ const router = express.Router();
 const controller = require("../controller");
 const authenticate = require("../authenticate");
 const gameModule = require("../game");
+const liveGame = require("../liveGame");
 
 const FIRST_GOLDEN_SNITCH_TEAM_PREDICTION = "firstGoldenSnitchTeamPrediction";
 const FIRST_GOLDEN_SNITCH_TIME_PREDICTION = "firstGoldenSnitchTimePrediction";
@@ -84,8 +85,33 @@ module.exports = app => {
 
 	router.get("/game/start", async (req, res) => {
 		console.info("Starting game");
-		gameModule.startGame(app, 1);
+		liveGame.startGame(app);
+		//gameModule.startGame(app, 1);
 		return res.status(200).json("Game Started");
+	});
+
+
+	router.get("/game/live", async (req, res) => {
+
+		let username = authenticate.getUsername(req);
+		if(username) {
+			if(liveGame.isRunning()) {
+				let results = await liveGame.getResults(app, username)
+				return res.json(results);
+			}
+			else {
+				res.json("Game Not Started");
+			}			
+		}
+		else {
+			res.status(404).json("Unauthorized");
+		}
+	});
+
+	router.get("/game/live/lockscore", async (req, res) => {
+		//let game = await controller.getGame(app);
+		console.info("Score locked in");
+		return res.status(200).json("Score locked in");		
 	});
 
 	return router;
