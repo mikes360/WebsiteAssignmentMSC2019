@@ -1,0 +1,13 @@
+<%- include('head'); %>
+<body onload="loadLeaderboard()">
+	<%- include('navbar') %>
+	<h1>Leaderboard</h1>
+	<div id="app" class="container">
+        <ul>
+            <li v-for="user in users">
+            {{ user.username }} - {{ user.grandTotal }}
+            </li>
+        </ul>
+    </div>
+	<%- include('footer'); %>
+</body>

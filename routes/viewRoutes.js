@@ -106,16 +106,6 @@ module.exports = app => {
 		else {
 			res.redirect("/login");
 		}
-
-		
-
-		/*for (var i = 0; i < game[0].matches.length; i++) {
-			game[0].matches[i][0].score = results[i][0];
-			game[0].matches[i][1].score = results[i][1];
-		}*/
-
-	
-		//return res.json(results);
 	});
 
 	//Access register (ejs) page from home page
@@ -173,6 +163,12 @@ module.exports = app => {
 		} else {
 			res.redirect("/login");
 		}
+	});
+
+	router.get("/leaderboard", async (req, res) => {
+		return res.render("leaderboard", {
+			loggedIn: authenticate.isAuthenticated(req),
+		});	
 	});
 
 	return router;

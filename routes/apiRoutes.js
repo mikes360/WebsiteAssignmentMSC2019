@@ -114,5 +114,21 @@ module.exports = app => {
 		return res.status(200).json("Score locked in");		
 	});
 
+	router.get("/leaderboard", async (req, res) => {
+		let users = await controller.getUsers(app);
+		
+		let usersFiltered = new Array();
+		(users).forEach(element => {
+			let user = new Object();
+			user.username = element.username;
+			user.grandTotal = element.grandTotal;
+			usersFiltered.push(user);
+		});
+
+		usersFiltered.sort((a,b) => (a.grandTotal > b.grandTotal) ? -1 : ((b.grandTotal > a.grandTotal) ? 1 : 0));
+
+		return res.status(200).json(usersFiltered);		
+	});
+
 	return router;
 };

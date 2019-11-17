@@ -5,7 +5,7 @@
   "username": "bob",
   "password": "bob",
   "email": "bob.knigt@bobland.com",
-  "grandTotal": 0,
+  "grandTotal": 110,
   "games": [
   {
       "gameID": -1,
@@ -33,5 +33,78 @@
       "totalScore": 110
     }
   ]
-} 
+},
+
+{
+  "firstname": "Gemma",
+  "lastname": "",
+  "username": "gemma",
+  "password": "gemma",
+  "email": "gemma@bobland.com",
+  "grandTotal": 120,
+  "games": [
+  {
+      "gameID": -1,
+      "lockedIn": false,
+      "matchPredictions": [[10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120]],
+      "firstGoldenSnitchTeamPrediction": 1,
+      "firstGoldenSnitchTimePrediction": 1,
+
+      "matchResults": [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
+      "matchScores": [-1, -1, -1, -1, -1, -1], 
+      "firstGoldenSnitchTeamResult": -1,
+      "firstGoldenSnitchTimeResult": -1,
+      "totalScore": 0
+    },
+    {
+      "gameID": 1,
+      "matchPredictions": [[100, 30], [60, 40], [65, 223], [121, 123], [134, 453], [36, 219]],
+      "firstGoldenSnitchTimePrediction": 5,
+      "firstGoldenSnitchTeamPrediction": 1,
+
+      "matchResults": [[100, 30], [60, 40], [65, 223], [121, 123], [134, 453], [36, 219]],
+      "matchScores": [30, 10, 10, 0, 0, 10], 
+      "firstGoldenSnitchTeamResult": 2,
+      "firstGoldenSnitchTimeResult": 60,
+      "totalScore": 110
+    }
+  ]
+},
+
+{
+  "firstname": "Sully",
+  "lastname": "",
+  "username": "sully",
+  "password": "sully",
+  "email": "sully@bobland.com",
+  "grandTotal": 100,
+  "games": [
+  {
+      "gameID": -1,
+      "lockedIn": false,
+      "matchPredictions": [[10, 20], [30, 40], [50, 60], [70, 80], [90, 100], [110, 120]],
+      "firstGoldenSnitchTeamPrediction": 1,
+      "firstGoldenSnitchTimePrediction": 1,
+
+      "matchResults": [[-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]],
+      "matchScores": [-1, -1, -1, -1, -1, -1], 
+      "firstGoldenSnitchTeamResult": -1,
+      "firstGoldenSnitchTimeResult": -1,
+      "totalScore": 0
+    },
+    {
+      "gameID": 1,
+      "matchPredictions": [[100, 30], [60, 40], [65, 223], [121, 123], [134, 453], [36, 219]],
+      "firstGoldenSnitchTimePrediction": 5,
+      "firstGoldenSnitchTeamPrediction": 1,
+
+      "matchResults": [[100, 30], [60, 40], [65, 223], [121, 123], [134, 453], [36, 219]],
+      "matchScores": [30, 10, 10, 0, 0, 10], 
+      "firstGoldenSnitchTeamResult": 2,
+      "firstGoldenSnitchTimeResult": 60,
+      "totalScore": 110
+    }
+  ]
+}
+
 ]
