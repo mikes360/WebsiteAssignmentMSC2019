@@ -284,7 +284,7 @@ Replaced black transparent box with simply setting table-rows as black/transpare
 
 31-Oct-2019 Ben
 
-Updated the addUserPredictions functions. 
+Updated the addUserPredictions functions.
 
 NOTE: If you register a new user, make sure you log out when the server crashes. The database gets re-initiallised and will delete your user data.
 
@@ -312,7 +312,7 @@ Work on game logic, mostly done, calculates snitch team too. Just needs weighted
 
 04-Nov-2019 Gemma
 
-Changed some styling on the Golden Snitch box on the matches page and made the submit button more visible. 
+Changed some styling on the Golden Snitch box on the matches page and made the submit button more visible.
 
 //---------------------------------------------------------------------------
 
@@ -334,7 +334,7 @@ Made some refinements to user predictions so the snitch predicitons and game id 
 
 05-Nov-2019 Mike Knight
 
-Added get team function, example usage below: 
+Added get team function, example usage below:
 
     let team = await controller.getTeam(app, 1)
     let team2 = await controller.getTeam(app, parseInt('2'))
@@ -355,8 +355,8 @@ Finished User Scores Predictions post.
 
 Minor Tweaks to Snitch box and added aria-labels to all input elements for accessability. Modified HTML for more semantic reading (changing some divs to main, section and articles). Added some CSS fixes for Flexbox view in Vivaldi Browser
 
-Getting of user scores is nearly done, added a condition that checks whether the teamID returns a value, if not it sets teamName to "Select a Team", this helps when users don't submit a team 
-Need help figuring out the EJS template forEach loop to display the user scores. Older method displays the first 2 scores in the array. 
+Getting of user scores is nearly done, added a condition that checks whether the teamID returns a value, if not it sets teamName to "Select a Team", this helps when users don't submit a team
+Need help figuring out the EJS template forEach loop to display the user scores. Older method displays the first 2 scores in the array.
 
 Exported isPredictionAvailable from game.js
 
@@ -364,9 +364,8 @@ Exported isPredictionAvailable from game.js
 
 07-Nov-2019 Gemma
 
-
 Fixed the plus/minus buttons for the golden snitch predictions and other small style changes
-reading 
+reading
 
 //---------------------------------------------------------------------------
 
@@ -414,3 +413,8 @@ Results page is almost complete, first golden snitch time prediction and result 
 
 Work on REST api's to support building a live results page using client side js instead of rendering the results using ejs on the server.
 
+//---------------------------------------------------------------------------
+
+18-Nov-2019 Gemma
+
+Working on the lock-in scores on live results page, and some reformatting on the results page

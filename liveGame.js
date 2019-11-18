@@ -51,6 +51,9 @@ function gameLogic(app) {
       setTimeout(gameLogic, 1000 * UPDATE_INTERVAL_SECONDS, app);
     }
     else {
+      // store final results for every user
+
+      // if user has not locked scores in calcualte results and save
       console.log("Simulation ended")
     }
 
