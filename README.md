@@ -407,3 +407,10 @@ More work on the live game module. Created a mechanism to control the simulation
 13-Nov-2019 Sully Ahmed
 
 Results page is almost complete, first golden snitch time prediction and result has been rendered into the page. Results banner for the user to see appropiate data has been added to the top of the results page and has been styled. Most of the styling is complete with a few styling issues that need resolving. Once they have been fixed then need to make sure it is fit for mobile view, which will then signify the completion of the results page.
+
+//---------------------------------------------------------------------------
+
+18-Nov-2019 Mike Knight
+
+Work on REST api's to support building a live results page using client side js instead of rendering the results using ejs on the server.
+
