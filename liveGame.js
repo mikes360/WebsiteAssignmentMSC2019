@@ -5,7 +5,7 @@ const controller = require("./controller");
 let matchResults = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 let running = false;
 
-let SIMULATION_TIME = 600
+let SIMULATION_TIME = 120
 let UPDATE_INTERVAL_SECONDS = 2
 
 
@@ -45,7 +45,7 @@ function gameLogic(app) {
     }
     
     currentSimulationCount++;
-   // console.log("Simulation count " + currentSimulationCount)
+    console.log("Simulation count " + currentSimulationCount)
 
     if(currentSimulationCount < SIMULATION_EXECUTION_COUNT) {
       setTimeout(gameLogic, 1000 * UPDATE_INTERVAL_SECONDS, app);
