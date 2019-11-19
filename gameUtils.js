@@ -2,30 +2,28 @@ const MATCH_SCORE_POINTS = 10;
 const TEAM_SCORE_POINTS = 50;
 const TIME_SCORE_POINTS = 150;
 
-function getCurrentUserScores(game, currentMatchResults, snitchCatchTeam, snitchCatchTime) {
+function appendCurrentUserScores(game) {
+
 	if (game.matchPredictions[0][0] > -1) {
 
-		let userMatchScores = getMatchScores(game.matchPredictions, currentMatchResults); 
+		let userMatchScores = getMatchScores(game.matchPredictions, game.matchResults); 
 
 		for (var x = 0; x < userMatchScores.length; x++) {
 			game.totalScore += userMatchScores[x];
 		}
 
 		// if the team prediction is correct add more points to total
-		if (snitchCatchTeam != null && game.firstGoldenSnitchTeamPrediction == snitchCatchTeam) {
+		if (game.firstGoldenSnitchTeamResult != -1 && game.firstGoldenSnitchTeamPrediction == game.firstGoldenSnitchTeamResult ) {
 			game.totalScore += TEAM_SCORE_POINTS;
 		}
 
 		// if the time prediction is correct add more points to total
-		if (snitchCatchTime != null && game.firstGoldenSnitchTimePrediction == snitchCatchTime) {
+		if (game.firstGoldenSnitchTimeResult != -1 && game.firstGoldenSnitchTimePrediction == game.firstGoldenSnitchTimeResult) {
 			game.totalScore += TIME_SCORE_POINTS;
 		}
 
 		// save the scores in the user json
 		game.matchScores = userMatchScores;
-		game.matchResults = currentMatchResults;
-		game.firstGoldenSnitchTeamResult = snitchCatchTeam;
-		game.firstGoldenSnitchTimeResult = snitchCatchTime;
 	}
 	return game;
 }
@@ -76,4 +74,4 @@ function getMatchScores(predictions, results) {
 	return userScores;
 }
 
-module.exports = { getCurrentUserScores, isPredictionsAvailable };
+module.exports = { appendCurrentUserScores, isPredictionsAvailable };

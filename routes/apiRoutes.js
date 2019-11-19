@@ -3,7 +3,6 @@ const router = express.Router();
 
 const controller = require("../controller");
 const authenticate = require("../authenticate");
-const gameModule = require("../game");
 const liveGame = require("../liveGame");
 
 const FIRST_GOLDEN_SNITCH_TEAM_PREDICTION = "firstGoldenSnitchTeamPrediction";
@@ -94,7 +93,7 @@ module.exports = app => {
     let username = authenticate.getUsername(req);
     if (username) {
       if (liveGame.isRunning()) {
-        let results = await liveGame.getResults(app, username);
+        let results = await liveGame.getResultsByUsername(app, username);
         return res.json(results);
       } else {
         res.json("Game Not Started");
@@ -110,7 +109,7 @@ module.exports = app => {
       let user = await controller.getUser(app, username);
       let game = user.games[0];
       if (!game.lockedIn) {
-        let results = await liveGame.getResults(app, username);
+        let results = await liveGame.getResultsByUsername(app, username);
 
         game.matchScores = results.matchScores;
         game.totalScore = results.totalScore;

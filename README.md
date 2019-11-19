@@ -426,3 +426,20 @@ Working on the lock-in scores on live results page, and some reformatting on the
 Results page now styled more clearly
 
 Locked in button now changes to "Locked" when clicked
+
+//---------------------------------------------------------------------------
+
+19-Nov-2019 Mike Knight
+
+Work on live game simulation. We now calculate the 6 teams to catch the winning snitch and the times they catch them.
+
+We the first snitch is caught the data is available live and the users score reflects if they got this prediciton live.
+
+NOTE - ** The live total will include those scores but the web page does not display the information **
+
+Once the live simulation is complete the users scores are saved along with the results to the database.
+
+If a user locks in the scores the live game does not modify their scores in real time but does include the latest results.
+
+NOTE - Work still needs to be done to not increment the live scores if the snitch is caught for that match. Also the snitch points 
+are not appended to the score either.

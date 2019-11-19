@@ -3,10 +3,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-// module containing main game logic
-const game = require("./game");
-const liveGame = require("./liveGame")
-
 // module that handles server routing
 const routes = require('./routes/viewRoutes');
 const apiRoutes = require('./routes/apiRoutes');

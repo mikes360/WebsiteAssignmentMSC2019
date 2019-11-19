@@ -3,9 +3,7 @@ const router = express.Router();
 
 const controller = require("../controller");
 const authenticate = require("../authenticate");
-const liveGame = require("../liveGame");
 const gameUtils = require("../gameUtils");
-//const game = require("../game");
 
 module.exports = app => {
 	//Access main ejs page when clicking on Super6 button

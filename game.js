@@ -56,12 +56,13 @@ async function gameLogic(app) {
 	for (var i = 0; i < users.length; i++) {
 		let user = users[i];
 
-		user.games[0] = gameUtils.getCurrentUserScores(user.games[0], matchResults, snitchCatchTeam, snitchCatchTime)
-
-		user.grandTotal += user.games[0].totalScore;
 		user.games[0].matchResults = matchResults;
 		user.games[0].firstGoldenSnitchTeamResult = snitchCatchTeam;
 		user.games[0].firstGoldenSnitchTimeResult = snitchCatchTime;
+		user.games[0] = gameUtils.appendCurrentUserScores(user.games[0])
+
+		user.grandTotal += user.games[0].totalScore;
+
 
 		console.log("User " + user.username + " total score " + user.games[0].totalScore);
 
