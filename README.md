@@ -424,3 +424,5 @@ Working on the lock-in scores on live results page, and some reformatting on the
 19-Nov-2019 Gemma
 
 Results page now styled more clearly
+
+Locked in button now changes to "Locked" when clicked
