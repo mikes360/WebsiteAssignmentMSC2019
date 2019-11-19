@@ -22,28 +22,30 @@
       <section class="matches-match">
 
         <article class="matches-team">
-          <img src="../images/<%= match[1].image %>" alt="" class="matches-logo" />
-          <h2 class="matches-team-name"><%= match[1].teamName %></h2>
-          <div class="score-text">
-            <div>Score: <%= match[0].score %> </div>
-          </div>
+          <img src="../images/<%= match[1].image %>" alt="" class="results-logo" />
+          <h2 class="results-team-name"><%= match[1].teamName %></h2>
+
         </article>
         
         <div class="prediction-and-result">
           <div class="result-text">
-            <div>Prediction: <%= match[1].prediction %> </div> <!--was in class spinBox-->
+            <div>Prediction: <%= match[1].prediction %> </div>
           </div>
           <div class="result-text">
-            <div>Result: <%= match[1].result %></div> <!--was in class spinBox-->
+            <div>Result: <%= match[1].result %></div> 
           </div>
         </div>
         
-
-        <img class="matches-versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+        <div class="versus-flexbox">
+          <img class="results-versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+          <div class="score-text">
+            <div>Score: <%= match[0].score %> </div>
+          </div>
+        </div>
         
         <div class="prediction-and-result">
           <div class="result-text">
-              <div>Prediction: <%= match[2].prediction %> </div> <!--was in class spinBox-->
+              <div>Prediction: <%= match[2].prediction %> </div> 
           </div>
   
           <div class="result-text">
@@ -52,9 +54,10 @@
         </div>
 
         <article class="matches-team">
-          <img src="../images/<%= match[2].image %>" alt="" class="matches-logo" />
-          <h2 class="matches-team-name"><%= match[2].teamName %></h2>
+          <img src="../images/<%= match[2].image %>" alt="" class="results-logo" />
+          <h2 class="results-team-name"><%= match[2].teamName %></h2>
         </article>
+
       </section>
       <% }) %>
     </div>

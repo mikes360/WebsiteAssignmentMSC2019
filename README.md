@@ -418,3 +418,9 @@ Work on REST api's to support building a live results page using client side js 
 18-Nov-2019 Gemma
 
 Working on the lock-in scores on live results page, and some reformatting on the results page
+
+//---------------------------------------------------------------------------
+
+19-Nov-2019 Gemma
+
+Results page now styled more clearly

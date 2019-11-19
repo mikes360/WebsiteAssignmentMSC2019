@@ -149,13 +149,14 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  margin: auto;
+  margin-top: 0;
+  margin-bottom: 10%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 2vw;
   border-top: 5px solid white;
   border-bottom: 5px solid white;
-  background: black;
   background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
-  margin-top: 20%;
 }
 
 .matches-match {
@@ -166,8 +167,6 @@ header {
 }
 
 .matches-team {
-  /* 
-	width: 25%; */
   margin: auto;
   width: 30%;
 }
@@ -175,15 +174,12 @@ header {
 .matches-logo {
   display: block;
   margin: auto;
-  max-width: 80%;
+  max-width: 70%;
   max-height: 100%;
   object-fit: contain;
 }
 
 .matches-team-name {
-  /* 
-	margin-top: 20%;
-	 */
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   margin: auto;
@@ -296,14 +292,46 @@ input[type="number"]::-webkit-outer-spin-button {
   color: white;
   font-weight: 500;
   text-align: center;
-  font-size: 90%;
+  font-size: 70%;
 }
 
 .score-text {
   margin: auto;
   text-align: center;
   color: white;
-  font-weight: 500;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 75%;
+}
+
+.versus-flexbox {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.results-versus {
+  margin: auto;
+  max-width: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+.results-logo {
+  display: block;
+  margin: auto;
+  max-width: 70%;
+  object-fit: contain;
+}
+
+.results-team-name {
+  font-size: 70%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  margin-top: 10%;
+  color: white;
+  font-weight: 600;
 }
 
 /* ---------------------------For Desktop----------------------------------- */
@@ -316,7 +344,6 @@ input[type="number"]::-webkit-outer-spin-button {
   .matches-table-rows {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
     width: 90%;
   }
 
@@ -408,5 +435,25 @@ input[type="number"]::-webkit-outer-spin-button {
     color: white;
     width: 25%;
     height: 45px;
+  }
+
+  .results-logo {
+    max-width: 80%;
+  }
+
+  .results-versus {
+    max-width: 60%;
+  }
+
+  .results-team-name {
+    font-size: 90%;
+  }
+
+  .result-text {
+    font-size: 90%;
+  }
+
+  .score-text {
+    font-size: 100%;
   }
 }
