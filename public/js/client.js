@@ -38,9 +38,11 @@ async function getLeaderboardData() {
 
 function updateDomWithVanillaJS(json) {
   if ("Game Not Started" != json) {
+
     document.getElementById("lockedInButton").hidden = false;
+    
     if (json.firstGoldenSnitchTimeResult == -1) {
-      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: N/A." + " You predicted: " + json.firstGoldenSnitchTeamPrediction;
+      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: N/A." + " You predicted: " + json.firstGoldenSnitchTeamPrediction.teamName;
       document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: N/A." + " You predicted: " + json.firstGoldenSnitchTimePrediction;
     } else {
       document.getElementById("snitch-team").innerHTML =

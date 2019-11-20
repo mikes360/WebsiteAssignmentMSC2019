@@ -39,7 +39,7 @@ module.exports = app => {
 
       let userPrediction = new Array(formKeys.length / 2);
       for (let i = 0; i < userPrediction.length; i++) {
-        userPrediction[i] = [formData[formKeys[i * 2]], formData[formKeys[i * 2 + 1]]];
+        userPrediction[i] = [Number(formData[formKeys[i * 2]]), Number(formData[formKeys[i * 2 + 1]])];
       }
 
       let games = await controller.getGame(app);
@@ -49,10 +49,9 @@ module.exports = app => {
       user.games[0].matchPredictions = userPrediction;
 
       // set snitch form data
-
-      // change this from string to number
-      user.games[0].firstGoldenSnitchTeamPrediction = formData.firstGoldenSnitchTeamPrediction;
-      user.games[0].firstGoldenSnitchTimePrediction = formData.firstGoldenSnitchTimePrediction;
+      
+      user.games[0].firstGoldenSnitchTeamPrediction = Number(formData.firstGoldenSnitchTeamPrediction);
+      user.games[0].firstGoldenSnitchTimePrediction = Number(formData.firstGoldenSnitchTimePrediction);
 
       await controller.updateUser(app, user);
       res.redirect("/");

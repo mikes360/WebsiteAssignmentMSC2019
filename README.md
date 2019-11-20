@@ -461,3 +461,12 @@ Fixed bug where new game would appear at the end of live game instead of just di
 To do: in apiRoutes, team prediction needs to display name rather than ID number
 
 //---------------------------------------------------------------------------
+
+20-Nov-2019 Mike Knight
+
+Fixed issue where setting predictions was causing values to be storred as strings instead of numbers.
+
+This was resolved by converting all data types to numbers, below is an example
+
+    user.games[0].firstGoldenSnitchTeamPrediction = Number(formData.firstGoldenSnitchTeamPrediction);
+    user.games[0].firstGoldenSnitchTimePrediction = Number(formData.firstGoldenSnitchTimePrediction);
