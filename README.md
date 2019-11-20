@@ -443,3 +443,14 @@ If a user locks in the scores the live game does not modify their scores in real
 
 NOTE - Work still needs to be done to not increment the live scores if the snitch is caught for that match. Also the snitch points 
 are not appended to the score either.
+
+//---------------------------------------------------------------------------
+
+20-Nov-2019 Sully Ahmed
+
+Leaderboard page is now made, that sorts the table out by highest to lowest score. whether it is live or not the leaderboard can be viewed. Instead of bullet pointed list of the leaderboard, change needs to be made so it is a numbered pointed list.
+
+vue file added for vue functionality that is associated with the leaderboard page.
+
+//---------------------------------------------------------------------------
+

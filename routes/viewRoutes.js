@@ -172,6 +172,11 @@ module.exports = app => {
 			res.redirect("/login");
 		}
 	});
+	router.get("/leaderboard", async (req, res) => {
+		return res.render("leaderboard", {
+		  loggedIn: authenticate.isAuthenticated(req)
+		});
+	  });
 
 	return router;
 };
