@@ -50,6 +50,7 @@ module.exports = app => {
 
       // set snitch form data
 
+      // change this from string to number
       user.games[0].firstGoldenSnitchTeamPrediction = formData.firstGoldenSnitchTeamPrediction;
       user.games[0].firstGoldenSnitchTimePrediction = formData.firstGoldenSnitchTimePrediction;
 
@@ -96,6 +97,10 @@ module.exports = app => {
         let results = await liveGame.getResultsByUsername(app, username);
         if (results.firstGoldenSnitchTeamResult != -1) {
           results.firstGoldenSnitchTeamResult = await controller.getTeam(app, results.firstGoldenSnitchTeamResult);
+        }
+
+        if (results.firstGoldenSnitchTeamPrediction != -1) {
+          results.firstGoldenSnitchTeamPrediction = await controller.getTeam(app, results.firstGoldenSnitchTeamPrediction);
         }
 
         // let Prediction = await liveGame.getResultsByUsername(app, username);
