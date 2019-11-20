@@ -38,6 +38,13 @@ async function getLeaderboardData() {
 
 function updateDomWithVanillaJS(json) {
   if ("Game Not Started" != json) {
+    if (json.firstGoldenSnitchTeamResult == -1) {
+      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: N/A." + " You predicted: " + json.firstGoldenSnitchTeamPrediction;
+      document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: N/A." + " You predicted: " + json.firstGoldenSnitchTimePrediction;
+    } else {
+      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: " + json.firstGoldenSnitchTeamResult + " You predicted: " + json.firstGoldenSnitchTeamPrediction;
+      document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: " + json.firstGoldenSnitchTimeResult + " You predicted: " + json.firstGoldenSnitchTimePrediction;
+    }
     document.getElementById("totalScore").innerHTML = "Your Current Total Score Is: " + json.totalScore;
 
     for (var i = 0; i < json.matchResults.length; i++) {
@@ -49,17 +56,17 @@ function updateDomWithVanillaJS(json) {
     setTimeout(reload, 2000);
   }
 }
-function updateDomWithVue(json) { 
-  if("Game Not Started" != json) { 
-  } 
-} 
+function updateDomWithVue(json) {
+  if ("Game Not Started" != json) {
+  }
+}
 
-async function loadLeaderboard() { 
-  let users = await getLeaderboardData(); 
-  var vm = new Vue({ 
-      el: '#app', 
-      data: { users: users } 
-  }) 
+async function loadLeaderboard() {
+  let users = await getLeaderboardData();
+  var vm = new Vue({
+    el: "#app",
+    data: { users: users }
+  });
 }
 
 async function reload() {

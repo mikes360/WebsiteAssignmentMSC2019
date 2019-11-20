@@ -9,7 +9,10 @@
 					</span>
 					<span class="snitch-text">
 						<p id="totalScore"></p>
+						<p id="snitch-team"></p>
+						<p id="snitch-time"></p>
 						<p>You can choose to lock in your current scores and the points you have right now will be added to your grand total.</p>
+						<p>Please note: You can only lock in your scores once.</p>
 						<div>
 							<button id="lockedInButton" class="btn btn-info" onclick="lockInScores()">Lock In Scores</button>
 						</div>
@@ -26,11 +29,13 @@
 				<div class="matches-team">
 					<img src="../images/<%= match[0].image %>" alt="" class="matches-logo" />
 					<div class="matches-team-name"><%= match[0].teamName %><span id="score<%= id++%>"></span></div>
-					<div class="matches-team-name"><span id="userScore<%= id%>"> hi</span></div>
 				</div>
-
-				<div class="versus">
+				
+				<div class="versus-flexbox">
+					<div class="versus">
 						<img class="versus" src="/images/broom_versus_white.png" alt="Versus sign" />
+					</div>
+					<div class="matches-team-name"><span id="userScore<%= id%>">Score</span></div>
 				</div>
 
 				<div class="matches-team">

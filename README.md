@@ -441,7 +441,7 @@ Once the live simulation is complete the users scores are saved along with the r
 
 If a user locks in the scores the live game does not modify their scores in real time but does include the latest results.
 
-NOTE - Work still needs to be done to not increment the live scores if the snitch is caught for that match. Also the snitch points 
+NOTE - Work still needs to be done to not increment the live scores if the snitch is caught for that match. Also the snitch points
 are not appended to the score either.
 
 //---------------------------------------------------------------------------
@@ -452,5 +452,6 @@ Leaderboard page is now made, that sorts the table out by highest to lowest scor
 
 vue file added for vue functionality that is associated with the leaderboard page.
 
-//---------------------------------------------------------------------------
+DOM manipulation on live-beta page to display snitch team/time results and prediction
 
+//---------------------------------------------------------------------------
