@@ -446,12 +446,18 @@ are not appended to the score either.
 
 //---------------------------------------------------------------------------
 
-20-Nov-2019 Sully Ahmed
+20-Nov-2019 Sully Ahmed and Gemma;
 
 Leaderboard page is now made, that sorts the table out by highest to lowest score. whether it is live or not the leaderboard can be viewed. Instead of bullet pointed list of the leaderboard, change needs to be made so it is a numbered pointed list.
 
 vue file added for vue functionality that is associated with the leaderboard page.
 
 DOM manipulation on live-beta page to display snitch team/time results and prediction
+
+Snitch results now display on live page
+
+Fixed bug where new game would appear at the end of live game instead of just displaying end results of current game.hoyeaah :P
+
+To do: in apiRoutes, team prediction needs to display name rather than ID number
 
 //---------------------------------------------------------------------------

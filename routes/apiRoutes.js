@@ -94,6 +94,15 @@ module.exports = app => {
     if (username) {
       if (liveGame.isRunning()) {
         let results = await liveGame.getResultsByUsername(app, username);
+        if (results.firstGoldenSnitchTeamResult != -1) {
+          results.firstGoldenSnitchTeamResult = await controller.getTeam(app, results.firstGoldenSnitchTeamResult);
+        }
+
+        // let Prediction = await liveGame.getResultsByUsername(app, username);
+        // if (Prediction.firstGoldenSnitchTeamPrediction != -1) {
+        //   Prediction.firstGoldenSnitchTeamPrediction = await controller.getTeam(app, Prediction.firstGoldenSnitchTeamPrediction);
+        // }
+
         return res.json(results);
       } else {
         res.json("Game Not Started");
@@ -125,20 +134,20 @@ module.exports = app => {
     }
     console.info("Score locked in");
   });
-  router.get("/leaderboard", async (req, res) => { 
-		let users = await controller.getUsers(app); 
-		 
-		let usersFiltered = new Array(); 
-		(users).forEach(element => { 
-			let user = new Object(); 
-			user.username = element.username; 
-			user.grandTotal = element.grandTotal; 
-			usersFiltered.push(user); 
-		}); 
- 
-		usersFiltered.sort((a,b) => (a.grandTotal > b.grandTotal) ? -1 : ((b.grandTotal > a.grandTotal) ? 1 : 0)); 
- 
-		return res.status(200).json(usersFiltered);		 
-	});
+  router.get("/leaderboard", async (req, res) => {
+    let users = await controller.getUsers(app);
+
+    let usersFiltered = new Array();
+    users.forEach(element => {
+      let user = new Object();
+      user.username = element.username;
+      user.grandTotal = element.grandTotal;
+      usersFiltered.push(user);
+    });
+
+    usersFiltered.sort((a, b) => (a.grandTotal > b.grandTotal ? -1 : b.grandTotal > a.grandTotal ? 1 : 0));
+
+    return res.status(200).json(usersFiltered);
+  });
   return router;
 };
