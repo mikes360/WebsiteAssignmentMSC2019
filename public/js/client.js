@@ -38,16 +38,16 @@ async function getLeaderboardData() {
 
 function updateDomWithVanillaJS(json) {
   if ("Game Not Started" != json) {
-
     document.getElementById("lockedInButton").hidden = false;
-    
+
     if (json.firstGoldenSnitchTimeResult == -1) {
-      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: N/A." + " You predicted: " + json.firstGoldenSnitchTeamPrediction.teamName;
-      document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: N/A." + " You predicted: " + json.firstGoldenSnitchTimePrediction;
+      document.getElementById("snitch-team").innerHTML = "The first team to catch a snitch is: N/A. " + " (You predicted: " + json.firstGoldenSnitchTeamPrediction.teamName + ")";
+      document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: N/A. " + " (You predicted: " + json.firstGoldenSnitchTimePrediction + " minutes)";
     } else {
       document.getElementById("snitch-team").innerHTML =
-        "The first team to catch a snitch is: " + json.firstGoldenSnitchTeamResult.teamName + " You predicted: " + json.firstGoldenSnitchTeamPrediction.teamName;
-      document.getElementById("snitch-time").innerHTML = "Time taken to catch the first snitch: " + json.firstGoldenSnitchTimeResult + " You predicted: " + json.firstGoldenSnitchTimePrediction;
+        "The first team to catch a snitch is: " + json.firstGoldenSnitchTeamResult.teamName + " (You predicted: " + json.firstGoldenSnitchTeamPrediction.teamName + ")";
+      document.getElementById("snitch-time").innerHTML =
+        "Time taken to catch the first snitch: " + json.firstGoldenSnitchTimeResult + " minutes" + " (You predicted: " + json.firstGoldenSnitchTimePrediction + " minutes)";
     }
     document.getElementById("totalScore").innerHTML = "Your Current Total Score Is: " + json.totalScore;
 
