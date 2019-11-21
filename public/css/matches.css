@@ -24,20 +24,6 @@ header {
   min-width: 320px;
 }
 
-/* For error messages on register page */
-.error {
-  color: red;
-}
-
-/* Bolt of lightning logo in nav bar */
-.flash-img {
-  width: 25px;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: auto;
-}
-
 /* Guess golden snitch team/time on matches page */
 .snitch {
   padding: 1%;
@@ -56,7 +42,6 @@ header {
   text-align: center;
   font-weight: 600;
   color: white;
-  /* z-index: 2000; */
 }
 
 .snitch-sentence {
@@ -87,7 +72,6 @@ header {
 .guess-snitch-team {
   display: inline-flex;
   margin-left: 1%;
-  /* margin-left: 15%; */
   margin-right: 1%;
 }
 
@@ -282,6 +266,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 45px;
 }
 
+/* Results page formatting */
 .prediction-and-result {
   width: 40%;
   margin-top: auto;
@@ -342,18 +327,14 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .matches-table-rows {
-    display: flex;
-    flex-wrap: wrap;
     width: 90%;
   }
 
   .matches-match {
-    display: flex;
     width: 50%;
     padding: 25px;
     margin: auto;
     margin-top: -15px;
-    z-index: 2000;
     max-height: 19vw !important;
   }
 
@@ -362,11 +343,8 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .matches-logo {
-    display: block;
-    margin: auto;
     max-width: 60%;
     max-height: 60%;
-    object-fit: contain;
   }
 
   .flash-img {
@@ -439,10 +417,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .results-logo {
     max-width: 80%;
-  }
-
-  .results-versus {
-    max-width: 60%;
   }
 
   .results-team-name {
