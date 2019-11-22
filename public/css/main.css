@@ -33,13 +33,13 @@ body {
 .banner {
   position: relative;
   z-index: 1;
-  margin-left: auto;
+  margin:auto;
   margin-top: 5%;
   width: 900px;
 }
 
 .banner .line {
-  margin: 0 0 10px;
+  margin: auto;
   width: 80%;
   height: 78px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
