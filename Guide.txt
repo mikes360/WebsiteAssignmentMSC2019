@@ -1,0 +1,44 @@
+Useful URl'S
+//---------------------------------------------------------------------------
+
+View the current game JSON: http://localhost:30000/api/game
+
+View the teams in the system: http://localhost:30000/api/team
+
+View list of users (authenticated so login first): http://localhost:30000/api/user
+    NOTE - In a production env this would not be made aviailable as it contains sensitive data, it was only used for developemnt 
+
+Start the current game simulation: http://localhost:30000/api/game/start
+
+Get the live simulatuion data and users scores: http://localhost:30000/api/game/live
+
+Lock in current users scors (only works once): http://localhost:30000/api/game/live/lockscore
+
+
+Module summary:
+//---------------------------------------------------------------------------
+
+app.js - entry point for application
+
+server.js - sets up express and all required modules
+
+authenticate,js - module responsible for authentication of requests
+
+controller.js - module responsible for access and storage of persistent data. 
+This module provides access to the collections of MongoDB via a set of simple set of API's and abstracts away the database implementation from the rest of the codebase.
+
+databaseInitialiser.js - sets up database with default data from data directory. 
+    NOTE - This can be turned off by passing false into the runServer method in app.js
+
+viewRoutes.js - routing module responsible for handling routes that result in website pages
+
+apiRoutes.js - routing module responsible for handling routes for API calls (REST endpoint)
+
+gameUtils.js - responsible for calculating the users scores based on a provided set of results
+
+game.js - Depricated and replaced with liveGame.js
+
+liveGame.js - A simulation of a set of matches that can be run over a configurable period of time. 
+
+
+
