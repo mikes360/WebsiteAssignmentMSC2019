@@ -101,7 +101,7 @@ async function addUser(app, nu, res) {
 		passworderror === '' &&
 		emailerror === ''
 	) {
-		nu.grandTotal = 1110;
+		nu.grandTotal = 0;
 		nu.games = new Array(0);
 		nu = prependNewGameData(nu);
 
