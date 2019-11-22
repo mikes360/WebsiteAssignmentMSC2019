@@ -14,6 +14,9 @@ module.exports = app => {
 
 		return res.render("main", {
 			loggedIn: authenticate.isAuthenticated(req),
+			flashRegister: 0,
+			flashScores: 0,
+			flashResults: 0,
 			meme: meme[0]
 		});
 	});
@@ -141,33 +144,47 @@ module.exports = app => {
 		if (username) {
 			let user = await controller.getUser(app, username);
 			let game = await controller.getGame(app);
+			if (gameUtils.arePredictionsAvailable(user)) {
+							
+				let bob = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamPrediction))
+				if (bob) {
+					game[1].firstGoldenSnitchTeamPredictionName = bob.teamName;
+				} else {
+					game[1].firstGoldenSnitchTeamPredictionName = "Select a Team";
+				}
+
+				let bob2 = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamResult))
+				game[1].firstGoldenSnitchTeamResult = bob2.teamName;
+
+				game[1].firstGoldenSnitchTimePrediction = user.games[1].firstGoldenSnitchTimePrediction;
 			
-			let bob = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamPrediction))
-			game[1].firstGoldenSnitchTeamPrediction = bob.teamName;
+				game[1].firstGoldenSnitchTimeResult = user.games[1].firstGoldenSnitchTimeResult;
 
-			let bob2 = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamResult))
-			game[1].firstGoldenSnitchTeamResult = bob2.teamName;
-
-			game[1].firstGoldenSnitchTimePrediction = user.games[1].firstGoldenSnitchTimePrediction;
-			
-			game[1].firstGoldenSnitchTimeResult = user.games[1].firstGoldenSnitchTimeResult;
-
-			game[1].totalScore = user.games[1].totalScore
+				game[1].totalScore = user.games[1].totalScore
 				
-			for (var i = 0; i < game[1].matches.length; i++) {
-			game[1].matches[i][0].result = user.games[1].matchResults[i][0];
-			game[1].matches[i][0].prediction = user.games[1].matchPredictions[i][0];
+				for (var i = 0; i < game[1].matches.length; i++) {
+					game[1].matches[i][0].result = user.games[1].matchResults[i][0];
+					game[1].matches[i][0].prediction = user.games[1].matchPredictions[i][0];
 
-			game[1].matches[i][1].result = user.games[1].matchResults[i][1];
-			game[1].matches[i][1].prediction = user.games[1].matchPredictions[i][1];
+					game[1].matches[i][1].result = user.games[1].matchResults[i][1];
+					game[1].matches[i][1].prediction = user.games[1].matchPredictions[i][1];
 
-			game[1].matches[i].splice(0, 0, { score: user.games[1].matchScores[i] });
-
-		}
-			return res.render('results', {
-				loggedIn: true,
-				meme: game[1]
-			});
+					game[1].matches[i].splice(0, 0, { score: user.games[1].matchScores[i] });
+			
+				}
+				return res.render('results', {
+					loggedIn: true,
+					meme: game[1]
+				});
+			} else {
+				return res.render('main', {
+					loggedIn: true,
+					meme: game[0],
+					flashResults: 1,
+					flashRegister: 0,
+					flashScores:0
+				});
+			}
 		} else {
 			res.redirect("/login");
 		}
@@ -176,7 +193,7 @@ module.exports = app => {
 		return res.render("leaderboard", {
 		  loggedIn: authenticate.isAuthenticated(req)
 		});
-	  });
+	});
 
 	return router;
 };

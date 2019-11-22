@@ -68,6 +68,7 @@ async function getTeam(app, id) {
 
 
 async function addUser(app, nu, res) {
+	let meme = await getGame(app);
 	let firstnameerror = '';
 	let lastnameerror = '';
 	let usernameerror = '';
@@ -113,7 +114,13 @@ async function addUser(app, nu, res) {
 				console.log(err);
 				res.status(200).send('<p>Fail</p>');
 			} else {
-				res.redirect('/');
+				res.render('main', {
+					loggedIn: false,
+					meme: meme[0],
+					flashRegister: 1,
+					flashScores: 0,
+					flashResults: 0,
+				});
 			}
 		});
 	} else {

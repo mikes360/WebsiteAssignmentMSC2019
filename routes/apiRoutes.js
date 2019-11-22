@@ -31,6 +31,7 @@ module.exports = app => {
 
   router.post("/user/predictions", async (req, res) => {
     let username = authenticate.getUsername(req);
+    let meme = await controller.getGame(app);
     if (username) {
       let formData = req.body;
 
@@ -54,7 +55,13 @@ module.exports = app => {
       user.games[0].firstGoldenSnitchTimePrediction = Number(formData.firstGoldenSnitchTimePrediction);
 
       await controller.updateUser(app, user);
-      res.redirect("/");
+      res.render('main', {
+        loggedIn: true,
+        meme: meme[0],
+        flashRegister: 0,
+        flashScores: 1,
+        flashResults: 0,
+      });
     } else {
       res.redirect("/");
       console.info("Session ran out");

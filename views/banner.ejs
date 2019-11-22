@@ -1,7 +1,19 @@
-<!-- <body>
+
   <div class="banner">
+    <%if (flashResults > 0 ) { %>
     <div class="line">
-      <span>Thank you for registering! You can now login</span>
+      <span>No predictions have been placed</span>
     </div>
+    <% } %>
+    <%if (flashRegister > 0 ) { %>
+    <div class="line">
+      <span>Thank you for registering, please Login</span>
+    </div>
+    <% } %>
+    <%if (flashScores > 0 ) { %>
+    <div class="line">
+      <span>Your match predictions have been submitted</span>
+    </div>
+    <% } %>
   </div>
-</body> -->
+

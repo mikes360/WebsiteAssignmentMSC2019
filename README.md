@@ -476,3 +476,13 @@ This was resolved by converting all data types to numbers, below is an example
 22-Nov-2019 Mike Knight
 
 Initial Guide.txt added, passport dependencies removed from package.json
+
+//---------------------------------------------------------------------------
+
+22-Nov-2019 Ben Berhanu
+
+Fixed an issue with the results page where the page will not load for new users without previous predictions. A condition to check if userPredictions are avaialable. If users havent submitted any predictions, the page will render the main page with a message letting them know predictions have not been submitted. 
+
+Added "redirect" messages for the banners and used EJS conditional formatting to load messages when rendering the page. At the moment I have a message for score submission, registration and alerting users no scores have been submitted when visiting he results page.
+
+NOTE: When redering the main page, you must include flashResults, flashScores and flashRegister with a value of 0 to hide the elements or 1 to show them
