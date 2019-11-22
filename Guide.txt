@@ -1,3 +1,9 @@
+Login for site 
+    Username: bob
+    Password: bob
+
+You can see other users on data/users.js - these get added to the DB automatically by databaseInitialiser.js
+
 Useful URl'S
 //---------------------------------------------------------------------------
 
