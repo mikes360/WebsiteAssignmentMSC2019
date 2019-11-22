@@ -60,6 +60,7 @@ module.exports = app => {
         meme: meme[0],
         flashRegister: 0,
         flashScores: 1,
+        flashLogged: 0,
         flashResults: 0,
       });
     } else {

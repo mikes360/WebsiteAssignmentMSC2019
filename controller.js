@@ -119,6 +119,7 @@ async function addUser(app, nu, res) {
 					meme: meme[0],
 					flashRegister: 1,
 					flashScores: 0,
+					flashLogged: 0,
 					flashResults: 0,
 				});
 			}

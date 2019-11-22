@@ -9,7 +9,7 @@ function login() {
     })
     .then(json => {
       if (json.success) {
-        window.location.href = "/";
+        window.location.href = "/logged-in";
       } else {
         if (json.usernameError) {
           document.getElementById("usernameError").innerHTML = json.usernameError;

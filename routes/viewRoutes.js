@@ -11,12 +11,29 @@ module.exports = app => {
 		let meme = await controller.getGame(app);
 
 		console.log("Username  " + authenticate.getUsername(req));
+		console.log(meme)
 
 		return res.render("main", {
 			loggedIn: authenticate.isAuthenticated(req),
 			flashRegister: 0,
 			flashScores: 0,
 			flashResults: 0,
+			flashLogged: 0,
+			meme: meme[0]
+		});
+	});
+
+	router.get("/logged-in", async (req, res) => {
+		let meme = await controller.getGame(app);
+		let username = authenticate.getUsername(req);
+		console.log(meme)
+		return res.render("main", {
+			loggedIn: authenticate.isAuthenticated(req),
+			flashRegister: 0,
+			flashScores: 0,
+			flashResults: 0,
+			flashLogged: 1,
+			username: username,
 			meme: meme[0]
 		});
 	});
@@ -182,6 +199,7 @@ module.exports = app => {
 					meme: game[0],
 					flashResults: 1,
 					flashRegister: 0,
+					flashLogged: 0,
 					flashScores:0
 				});
 			}
@@ -189,6 +207,7 @@ module.exports = app => {
 			res.redirect("/login");
 		}
 	});
+
 	router.get("/leaderboard", async (req, res) => {
 		return res.render("leaderboard", {
 		  loggedIn: authenticate.isAuthenticated(req)

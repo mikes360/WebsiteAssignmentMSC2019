@@ -486,3 +486,9 @@ Fixed an issue with the results page where the page will not load for new users 
 Added "redirect" messages for the banners and used EJS conditional formatting to load messages when rendering the page. At the moment I have a message for score submission, registration and alerting users no scores have been submitted when visiting he results page.
 
 NOTE: When redering the main page, you must include flashResults, flashScores and flashRegister with a value of 0 to hide the elements or 1 to show them
+
+//---------------------------------------------------------------------------
+
+22-Nov-2019 Ben Berhanu
+
+Added a new viewRoute called "/logged-in". The login page used to redirect back to the index page using java script. The route renders the main ejs template with the added "flashLogged = 1" to show the welcome message. Not a great solution but the user will know they have been logged in. 
