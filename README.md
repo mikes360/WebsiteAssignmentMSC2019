@@ -470,3 +470,9 @@ This was resolved by converting all data types to numbers, below is an example
 
     user.games[0].firstGoldenSnitchTeamPrediction = Number(formData.firstGoldenSnitchTeamPrediction);
     user.games[0].firstGoldenSnitchTimePrediction = Number(formData.firstGoldenSnitchTimePrediction);
+
+//---------------------------------------------------------------------------
+
+22-Nov-2019 Mike Knight
+
+Initial Guide.txt added, passport dependencies removed from package.json
