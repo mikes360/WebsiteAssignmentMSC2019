@@ -15,10 +15,7 @@ module.exports = app => {
 
 		return res.render("main", {
 			loggedIn: authenticate.isAuthenticated(req),
-			flashRegister: 0,
-			flashScores: 0,
-			flashResults: 0,
-			flashLogged: 0,
+			bannerText: null,
 			meme: meme[0]
 		});
 	});
@@ -29,11 +26,7 @@ module.exports = app => {
 		console.log(meme)
 		return res.render("main", {
 			loggedIn: authenticate.isAuthenticated(req),
-			flashRegister: 0,
-			flashScores: 0,
-			flashResults: 0,
-			flashLogged: 1,
-			username: username,
+			bannerText: "Welcome " + username,
 			meme: meme[0]
 		});
 	});
@@ -83,7 +76,7 @@ module.exports = app => {
 				console.log(meme);
 				return res.render("matches", {
 					loggedIn: true,
-					title: "game week one",
+					title: "",
 					meme: meme[0]
 				});
 			} else {
@@ -100,7 +93,7 @@ module.exports = app => {
 				console.log(meme);
 				return res.render("matches", {
 					loggedIn: true,
-					title: "game week one",
+					title: "",
 					meme: meme[0]
 				});
 			}
@@ -117,23 +110,13 @@ module.exports = app => {
 
 			return res.render("live", {
 				loggedIn: authenticate.isAuthenticated(req),
-				title: "live view",
+				title: "",
 				meme: game[0],
 			});
 		}
 		else {
 			res.redirect("/login");
 		}
-
-		
-
-		/*for (var i = 0; i < game[0].matches.length; i++) {
-			game[0].matches[i][0].score = results[i][0];
-			game[0].matches[i][1].score = results[i][1];
-		}*/
-
-	
-		//return res.json(results);
 	});
 
 	//Access register (ejs) page from home page
@@ -161,7 +144,7 @@ module.exports = app => {
 		if (username) {
 			let user = await controller.getUser(app, username);
 			let game = await controller.getGame(app);
-			if (gameUtils.arePredictionsAvailable(user)) {
+			if (gameUtils.isResultsAvailable(user)) {
 							
 				let bob = await controller.getTeam(app, parseInt(user.games[1].firstGoldenSnitchTeamPrediction))
 				if (bob) {
@@ -197,10 +180,7 @@ module.exports = app => {
 				return res.render('main', {
 					loggedIn: true,
 					meme: game[0],
-					flashResults: 1,
-					flashRegister: 0,
-					flashLogged: 0,
-					flashScores:0
+					bannerText: "No predictions have been placed"
 				});
 			}
 		} else {

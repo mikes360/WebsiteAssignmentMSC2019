@@ -498,3 +498,10 @@ Added a new viewRoute called "/logged-in". The login page used to redirect back 
 22-Nov-2019 Ben Berhanu
 
 Tiny css fixes to recentre banner
+
+//---------------------------------------------------------------------------
+
+24-Nov-2019 Mike Knight
+
+Last tweaks and bug fixes
+

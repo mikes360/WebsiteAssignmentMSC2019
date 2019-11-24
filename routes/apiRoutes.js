@@ -58,10 +58,7 @@ module.exports = app => {
       res.render('main', {
         loggedIn: true,
         meme: meme[0],
-        flashRegister: 0,
-        flashScores: 1,
-        flashLogged: 0,
-        flashResults: 0,
+        bannerText: "Your match predictions have been submitted"
       });
     } else {
       res.redirect("/");
@@ -146,6 +143,8 @@ module.exports = app => {
     }
     console.info("Score locked in");
   });
+
+
   router.get("/leaderboard", async (req, res) => {
     let users = await controller.getUsers(app);
 

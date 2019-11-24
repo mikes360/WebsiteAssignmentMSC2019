@@ -33,12 +33,8 @@ function isPredictionsAvailable(user) {
 	return user.games[0].matchPredictions[0][0] > -1;
 }
 
-function arePredictionsAvailable(user) {
-	// Check if the user has submitted any scores previously
-	for (let g = 0; g < user.games.length; g++) {
-		return user.games[g].matchPredictions[0][0] > -1;
-	}
-	return user;
+function isResultsAvailable(user) {
+	return user.games.length > 0 && user.games[1].matchPredictions[0][0] > -1;
 }
 
 function getMatchScores(predictions, results) {
@@ -82,4 +78,4 @@ function getMatchScores(predictions, results) {
 	return userScores;
 }
 
-module.exports = { appendCurrentUserScores, isPredictionsAvailable, arePredictionsAvailable };
+module.exports = { appendCurrentUserScores, isPredictionsAvailable, isResultsAvailable };
