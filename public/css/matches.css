@@ -28,7 +28,7 @@ header {
 .snitch {
   padding: 1%;
   align-content: center;
-  margin: 25px auto;
+  margin: 65px auto;
   width: 100%;
   z-index: inherit;
   background: linear-gradient(180deg, rgba(143, 137, 137, 0.8) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(143, 137, 137, 0.8) 100%);
